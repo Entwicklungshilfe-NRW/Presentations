@@ -4,10 +4,10 @@
     <head>
         <meta charset="utf-8">
 
-        <title>reveal.js - The HTML Presentation Framework</title>
+        <title>Clean Code Präsentation von Php-Schulung Entwicklungshilfe</title>
 
-        <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-        <meta name="author" content="Hakim El Hattab">
+        <meta name="description" content="Codestandard, Codeconventionen, Clean Code und Refactoring">
+        <meta name="author" content="Entwicklungshilfe NRW">
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -44,7 +44,8 @@
                     <h1>Clean Code</h1>
                     <h3>Entwicklungshilfe</h3>
                     <p>
-                        <small>Web <a href="http://entwicklungshilfe.nrw">entwicklungshilfe.nrw</a> / <a href="http://twitter.com/help_for_devs">@help_for_devs</a></small>
+                        <small>Web <a href="http://entwicklungshilfe.nrw" target="_blank">entwicklungshilfe.nrw</a> / <a href="http://twitter.com/help_for_devs" target="_blank">@help_for_devs</a> /
+                        <a href="https://www.facebook.com/entwicklungshilfe.nrw" target="_blank">FB/entwicklungshilfe.nrw</a></small>
                     </p>
                 </section>
 
@@ -56,49 +57,99 @@
                         <li>Reviews</li>
                     </ul>
                 </section>
+                <section id="fragments">
+                    <h2>Installation Codesniffer</h2>
+                    <p>brew install php-code-sniffer</p>
+                    <p class="fragment">phpcs -i</p>
+                    <p class="fragment">The installed coding standards are MySource, PEAR, PHPCS, PSR1, PSR2, Squiz and Zend</p>
+                </section>
                 <section>
-                    <section>
-                        <h2>Codestandard</h2>
-                        <ul>
-                            <li>brew install php-code-sniffer</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h2>Codestandard</h2>
-                        <ul>
-                            <li>MySource</li>
-                            <li>PEAR</li>
-                            <li>PHPCS</li>
-                            <li>PSR1, PSR2</li>
-                            <li>Squiz</li>
-                            <li>Zend</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h2>Codestandard</h2>
-                        <p>ruleset.xml</p>
+                    <h2>Codestandard</h2>
+                    <p>ruleset.xml PSR2</p>
                     <pre><code data-trim contenteditable>
-                        <rule ref="PSR1">
-                            <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
-                        </rule>
-                        <rule ref="Generic.Files.LineLength">
-                            <properties>
-                                <property name="lineLimit" value="120"/>
-                                <property name="absoluteLineLimit" value="120"/>
-                            </properties>
-                        </rule>
-                        <rule ref="Generic.Files.LineLength.MaxExceeded">
-                            <type>warning</type>
-                        </rule>
+<ruleset name="PSR2">
+    <description>The PSR-2 coding standard.</description>
+
+    <arg name="tab-width" value="4"/>
+
+    <rule ref="PSR1"/>
+
+    <rule ref="Generic.Files.LineEndings">
+        <properties>
+            <property name="eolChar" value="\n"/>
+        </properties>
+    </rule>
+
+    ...
+
+</ruleset>
                     </code></pre>
-                        <p>https://github.com/Entwicklungshilfe-NRW/Codestandard</p>
-                    </section>
-                    <section>
-                        <h2>Codestandard</h2>
-                        <ul>
-                            <li>run commands nachpflegen</li>
-                        </ul>
-                    </section>
+                </section>
+                <section>
+                    <h2>Codestandard</h2>
+                    <p>ruleset.xml Entwicklungshilfe</p>
+                <pre><code data-trim contenteditable>
+<rule ref="PSR1">
+    <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"></exclude>
+</rule>
+<rule ref="Generic.Files.LineLength">
+    <properties>
+        <property name="lineLimit" value="120"/>
+        <property name="absoluteLineLimit" value="120"/>
+    </properties>
+</rule>
+<rule ref="Generic.Files.LineLength.MaxExceeded">
+    <type>warning</type>
+</rule>
+                </code></pre>
+                    <p><a href="https://github.com/Entwicklungshilfe-NRW/Codestandard" target="_blank">https://github.com/Entwicklungshilfe-NRW/Codestandard</a></p>
+                </section>
+                <section>
+                    <h2>Codestandard</h2>
+                    <p>Sniffs</p>
+                    <pre><code data-trim contenteditable>
+/**
+* Class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff.
+*
+* This will find debug vars in php code.
+*/
+class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff implements PHP_CodeSniffer_Sniff
+{
+    public $error = TRUE;
+    protected $patternMatch = TRUE;
+    protected $forbiddenFunctions = array(
+        '^var_dump$' => NULL,
+        '^die$' => NULL,
+        '^exit$' => NULL,
+    );
+    ...
+}
+
+                    </code></pre>
+                    <p><a href="https://github.com/Entwicklungshilfe-NRW/Codestandard/blob/master/standards/ENTWICKLUNGSHILFE/Sniffs/Debug/NoDebugVarsSniff.php">https://github.com/Entwicklungshilfe-NRW/Codestandard/blob/master/standards/ENTWICKLUNGSHILFE/Sniffs/Debug/NoDebugVarsSniff.php</a></p>
+                </section>
+                <section id="fragments-2">
+                    <h2>Codestandard</h2>
+                    <p>Integration Codestandard</p>
+                    <img src="img/cleancode/integration-codestandard.png" alt="Integration Codestandard">
+                    <p class="fragment">phpcs -i</p>
+                    <p class="fragment">The installed coding standards are ENTWICKLUNGSHILFE, MySource, PEAR, PHPCS, PSR1, PSR2, Squiz and Zend</p>
+                </section>
+                <section id="fragments-3">
+                    <h2>Codestandard</h2>
+                    <p>Run Codestandard</p>
+                    phpcs --standard=ENTWICKLUNGSHILFE DefaultController.php -s
+                    <p class="fragment">
+                        <img src="img/cleancode/cli-run-sniffer.png" alt="CLI rum codesniffer">
+                    </p>
+                </section>
+                <section>
+                    <h2>Codestandard</h2>
+                    <img src="img/cleancode/pstorm-sniff-settings.png" alt="PhpStorm Codesniffer">
+                </section>
+                <section>
+                    <h2>Codestandard</h2>
+                    <img src="img/cleancode/pstorm-sniff.png" alt="PhpStorm Codesniffer output">
                 </section>
                 <section>
                     <section>
