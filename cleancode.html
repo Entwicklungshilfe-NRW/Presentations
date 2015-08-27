@@ -57,106 +57,112 @@
                         <li>Reviews</li>
                     </ul>
                 </section>
-                <section id="fragments">
-                    <h2>Installation Codesniffer</h2>
-                    <p>brew install php-code-sniffer</p>
-                    <p class="fragment">phpcs -i</p>
-                    <p class="fragment">The installed coding standards are MySource, PEAR, PHPCS, PSR1, PSR2, Squiz and Zend</p>
-                </section>
                 <section>
-                    <h2>Codestandard</h2>
-                    <p>ruleset.xml PSR2</p>
+                    <section>
+                        <h2>Codestandard Codesniffer</h2>
+                        <p><img src="img/cleancode/codesniffer-dog.jpg"></p>
+                    </section>
+                    <section id="fragments">
+                        <h2>Installation Codesniffer</h2>
+                        <p>brew install php-code-sniffer</p>
+                        <p class="fragment">phpcs -i</p>
+                        <p class="fragment">The installed coding standards are MySource, PEAR, PHPCS, PSR1, PSR2, Squiz and Zend</p>
+                    </section>
+                    <section>
+                        <h2>Codestandard</h2>
+                        <p>ruleset.xml PSR2</p>
+                        <pre><code data-trim contenteditable>
+    <ruleset name="PSR2">
+        <description>The PSR-2 coding standard.</description>
+
+        <arg name="tab-width" value="4"/>
+
+        <rule ref="PSR1"/>
+
+        <rule ref="Generic.Files.LineEndings">
+            <properties>
+                <property name="eolChar" value="\n"/>
+            </properties>
+        </rule>
+
+        ...
+
+    </ruleset>
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Codestandard</h2>
+                        <p>ruleset.xml Entwicklungshilfe</p>
                     <pre><code data-trim contenteditable>
-<ruleset name="PSR2">
-    <description>The PSR-2 coding standard.</description>
-
-    <arg name="tab-width" value="4"/>
-
-    <rule ref="PSR1"/>
-
-    <rule ref="Generic.Files.LineEndings">
+    <rule ref="PSR1">
+        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"></exclude>
+    </rule>
+    <rule ref="Generic.Files.LineLength">
         <properties>
-            <property name="eolChar" value="\n"/>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="120"/>
         </properties>
     </rule>
-
-    ...
-
-</ruleset>
+    <rule ref="Generic.Files.LineLength.MaxExceeded">
+        <type>warning</type>
+    </rule>
                     </code></pre>
-                </section>
-                <section>
-                    <h2>Codestandard</h2>
-                    <p>ruleset.xml Entwicklungshilfe</p>
-                <pre><code data-trim contenteditable>
-<rule ref="PSR1">
-    <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"></exclude>
-</rule>
-<rule ref="Generic.Files.LineLength">
-    <properties>
-        <property name="lineLimit" value="120"/>
-        <property name="absoluteLineLimit" value="120"/>
-    </properties>
-</rule>
-<rule ref="Generic.Files.LineLength.MaxExceeded">
-    <type>warning</type>
-</rule>
-                </code></pre>
-                    <p><a href="https://github.com/Entwicklungshilfe-NRW/Codestandard" target="_blank">https://github.com/Entwicklungshilfe-NRW/Codestandard</a></p>
-                </section>
-                <section>
-                    <h2>Codestandard</h2>
-                    <p>Sniffs</p>
-                    <pre><code data-trim contenteditable>
-/**
-* Class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff.
-*
-* This will find debug vars in php code.
-*/
-class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff implements PHP_CodeSniffer_Sniff
-{
-    public $error = TRUE;
-    protected $patternMatch = TRUE;
-    protected $forbiddenFunctions = array(
-        '^var_dump$' => NULL,
-        '^die$' => NULL,
-        '^exit$' => NULL,
-    );
-    ...
-}
+                        <p><a href="https://github.com/Entwicklungshilfe-NRW/Codestandard" target="_blank">https://github.com/Entwicklungshilfe-NRW/Codestandard</a></p>
+                    </section>
+                    <section>
+                        <h2>Codestandard</h2>
+                        <p>Sniffs</p>
+                        <pre><code data-trim contenteditable>
+    /**
+    * Class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff.
+    *
+    * This will find debug vars in php code.
+    */
+    class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff implements PHP_CodeSniffer_Sniff
+    {
+        public $error = TRUE;
+        protected $patternMatch = TRUE;
+        protected $forbiddenFunctions = array(
+            '^var_dump$' => NULL,
+            '^die$' => NULL,
+            '^exit$' => NULL,
+        );
+        ...
+    }
 
-                    </code></pre>
-                    <p><a href="https://github.com/Entwicklungshilfe-NRW/Codestandard/blob/master/standards/ENTWICKLUNGSHILFE/Sniffs/Debug/NoDebugVarsSniff.php">https://github.com/Entwicklungshilfe-NRW/Codestandard/blob/master/standards/ENTWICKLUNGSHILFE/Sniffs/Debug/NoDebugVarsSniff.php</a></p>
-                </section>
-                <section id="fragments-2">
-                    <h2>Codestandard</h2>
-                    <p>Integration Codestandard</p>
-                    <img src="img/cleancode/integration-codestandard.png" alt="Integration Codestandard">
-                    <p class="fragment">phpcs -i</p>
-                    <p class="fragment">The installed coding standards are ENTWICKLUNGSHILFE, MySource, PEAR, PHPCS, PSR1, PSR2, Squiz and Zend</p>
-                </section>
-                <section id="fragments-3">
-                    <h2>Codestandard</h2>
-                    <p>Run Codestandard</p>
-                    phpcs --standard=ENTWICKLUNGSHILFE DefaultController.php -s
-                    <p class="fragment">
-                        <img src="img/cleancode/cli-run-sniffer.png" alt="CLI rum codesniffer">
-                    </p>
-                </section>
-                <section>
-                    <h2>Codestandard</h2>
-                    <img src="img/cleancode/pstorm-sniff-settings.png" alt="PhpStorm Codesniffer">
-                </section>
-                <section>
-                    <h2>Codestandard</h2>
-                    <img src="img/cleancode/pstorm-sniff.png" alt="PhpStorm Codesniffer output">
+                        </code></pre>
+                        <p><a href="https://github.com/Entwicklungshilfe-NRW/Codestandard/blob/master/standards/ENTWICKLUNGSHILFE/Sniffs/Debug/NoDebugVarsSniff.php">https://github.com/Entwicklungshilfe-NRW/Codestandard/blob/master/standards/ENTWICKLUNGSHILFE/Sniffs/Debug/NoDebugVarsSniff.php</a></p>
+                    </section>
+                    <section id="fragments-2">
+                        <h2>Codestandard</h2>
+                        <p>Integration Codestandard</p>
+                        <img src="img/cleancode/integration-codestandard.png" alt="Integration Codestandard">
+                        <p class="fragment">phpcs -i</p>
+                        <p class="fragment">The installed coding standards are ENTWICKLUNGSHILFE, MySource, PEAR, PHPCS, PSR1, PSR2, Squiz and Zend</p>
+                    </section>
+                    <section id="fragments-3">
+                        <h2>Codestandard</h2>
+                        <p>Run Codestandard</p>
+                        phpcs --standard=ENTWICKLUNGSHILFE DefaultController.php -s
+                        <p class="fragment">
+                            <img src="img/cleancode/cli-run-sniffer.png" alt="CLI rum codesniffer">
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Codestandard</h2>
+                        <img src="img/cleancode/pstorm-sniff-settings.png" alt="PhpStorm Codesniffer">
+                    </section>
+                    <section>
+                        <h2>Codestandard</h2>
+                        <img src="img/cleancode/pstorm-sniff.png" alt="PhpStorm Codesniffer output">
+                    </section>
                 </section>
                 <section>
                     <section>
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
-                                <img src="img/cleancode/ahh_1.png" />
+                                <img src="img/cleancode/ahh_1.png" style="max-height: 400px"/>
                             </div>
                             <div class="col-2">
                                 <p>OHH</p>
@@ -168,19 +174,19 @@ class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff implements PHP_CodeSniffer
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
-                                <ul>
-                                    <li>$seiten</li>
-                                    <li>$summe</li>
-                                    <li>$mwst</li>
-                                </ul>
+                                <pre><code data-trim contenteditable>
+$seiten
+$summe
+$mwst
+                                </code></pre>
                             </div>
                             <div class="col-2">
                                 <p>OHH</p>
-                                <ul>
-                                    <li>$pages</li>
-                                    <li>$total</li>
-                                    <li>$vat</li>
-                                </ul>
+                                <pre><code data-trim contenteditable>
+$pages
+$total
+$vat
+                                </code></pre>
                             </div>
                         </div>
                     </section>
@@ -188,19 +194,19 @@ class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff implements PHP_CodeSniffer
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
-                                <ul>
-                                    <li>TRUE</li>
-                                    <li>FALSE</li>
-                                    <li>NULL</li>
-                                </ul>
+                                <pre><code data-trim contenteditable>
+TRUE
+FALSE
+NULL
+                                </code></pre>
                             </div>
                             <div class="col-2">
                                 <p>OHH</p>
-                                <ul>
-                                    <li>true</li>
-                                    <li>false</li>
-                                    <li>null</li>
-                                </ul>
+                                <pre><code data-trim contenteditable>
+true
+false
+null
+                                </code></pre>
                             </div>
                         </div>
                     </section>
@@ -216,65 +222,52 @@ class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff implements PHP_CodeSniffer
                             </div>
                         </div>
                     </section>
-                    <section id="fragments">
+                    <section>
+                        <p>
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
-                                <ul>
-                                    <li>$params</li>
-                                    <li>$temp</li>
-                                    <li>$templateFile</li>
-                                    <li>$retVal</li>
-                                </ul>
+                                <pre><code data-trim contenteditable>
+$params
+$temp
+$templateFile
+$retVal
+                                </code></pre>
                             </div>
                             <div class="col-2">
                                 <p>OHH</p>
-                                <ul>
-                                    <li>$parameters</li>
-                                    <li>$total</li>
-                                    <li>$vat</li>
-                                    <li>$return</li>
-                                </ul>
+                                <pre><code data-trim contenteditable>
+$parameters
+$total
+$vat
+$return
+                                </code></pre>
                             </div>
                         </div>
-                        <p class="fragment highlight-blue">$return = true;</p>
-                        <p class="fragment highlight-blue">return $return;</p>
+                        </p>
+                        <p class="fragment">
+                            $return = true;<br>
+                            return $return;
+                        </p>
                     </section>
                     <section>
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
-                                <ul>
-                                    <li>$aConfig</li>
-                                    <li>$sTask</li>
-                                    <li>$oUser</li>
-                                </ul>
+                                <pre><code data-trim contenteditable>
+$aConfig
+$sTask
+$oUser
+                                </code></pre>
                             </div>
                             <div class="col-2">
                                 <p>OHH</p>
-                                <ul>
-                                    <li>$config</li>
-                                    <li>$task</li>
-                                    <li>$user</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-                    <section>
-                        <div class="col">
-                            <div class="col-2">
-                                <p>AHH</p>
-                                <ul>
-                                    <li>and</li>
-                                    <li>or</li>
-                                </ul>
-                            </div>
-                            <div class="col-2">
-                                <p>OHH</p>
-                                <ul>
-                                    <li>&&</li>
-                                    <li>||</li>
-                                </ul>
+                                <pre><code data-trim contenteditable>
+$config
+$task
+$user
+
+                                </code></pre>
                             </div>
                         </div>
                     </section>
@@ -282,13 +275,21 @@ class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff implements PHP_CodeSniffer
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
+                                <pre><code data-trim contenteditable>
+and
+or
+                                </code></pre>
                             </div>
                             <div class="col-2">
                                 <p>OHH</p>
+                                <pre><code data-trim contenteditable>
+&&
+||
+                                </code></pre>
                             </div>
                         </div>
-                        <p>Reuter set params Code raussuchen</p>
                     </section>
+
                     <section>
                         <div class="col">
                             <div class="col-2">
@@ -305,15 +306,19 @@ class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff implements PHP_CodeSniffer
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
-                                <ul>
-                                    <li>$a == 1</li>
-                                </ul>
+                                <pre><code data-trim contenteditable>
+if($a == 1) {
+  $this->makeEverythingOk();
+}
+                                </code></pre>
                             </div>
                             <div class="col-2">
                                 <p>OHH</p>
-                                <ul>
-                                    <li>$a === 1</li>
-                                </ul>
+                                <pre><code data-trim contenteditable>
+if($a === 1) {
+  $this->makeEverythingOk();
+}
+                                </code></pre>
                             </div>
                         </div>
                     </section>
@@ -321,54 +326,100 @@ class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff implements PHP_CodeSniffer
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
-                                <ul>
-                                    <li>$a = 0;</li>
-                                    <li>$a ?: $b[‘some’];</li>
-                                </ul>
+                                <pre><code data-trim contenteditable>
+$var = $foo ? $foo : $bar;
+                                </code></pre>
                             </div>
                             <div class="col-2">
                                 <p>OHH</p>
-                                <span>Das isset geht nicht!!!</span>
                                 <pre><code data-trim contenteditable>
-if(isset($b['some'] && !empty($b['some']))){
-    $a = $b['some'];
+if($foo != null){
+  $var = $foo;
 } else {
-    $a = 0;
+  $var = $bar;
 }
                                 </code></pre>
                             </div>
                         </div>
                     </section>
+                    <section>
+                        <div class="col">
+                            <div class="col-2">
+                                <p>AHH</p>
+                                <pre><code data-trim contenteditable>
+$var = $foo ?: $bar;
+                                </code></pre>
+                            </div>
+                            <div class="col-2">
+                                <p>OHH</p>
+                                            <pre><code data-trim contenteditable>
+$var = $bar;
+if($foo != null){
+ $var = $foo;
+}
+                                            </code></pre>
+                            </div>
+                        </div>
+                        <p class="fragment"><a href="https://en.wikipedia.org/wiki/Elvis_operator" target="_blank">https://en.wikipedia.org/wiki/Elvis_operator</a></p>
+                    </section>
                 </section>
                 <section>
+                    <section data-background="img/cleancode/pain.gif">
+                        <h2 style="color: white">Code pain</h2>
+                    </section>
+                    <section data-background="img/cleancode/cleanup.gif">
+                        <h2 style="color: white">Code cleanup</h2>
+                    </section>
                     <section>
-                        <h2>Example Reviews 1/6</h2>
+                        <h3>Example Reviews 1/6</h3>
                         <pre><code data-trim contenteditable>
-    function test( selector ) {
-        if( testCode ) {
-            testCode = testCode;
-        }
-    }
+$kategories = array(
+    'marken'	=> 'brands',
+    'bad'	=> 'bathroom',
+    'kueche'	=> 'kitchen',
+    'leuchten'	=> 'lights',
+    'wohnen'	=> 'living',
+    'heizung'	=> 'heating',
+    'garten'	=> 'garden',
+);
+
+foreach ($kategories as $kategorie => $translation) {
+    $contentVar = array();
+    @include_once('de/megamenu/'.$kategorie.'/content.php');
+    $php_content .= '		\'' . $translation . '\' => \'' . addcslashes($contentVar['megamenu'],"'\\") . '\',' . PHP_EOL;
+    echo 'include megamenu ' . $kategorie . PHP_EOL;
+}
                         </code></pre>
                     </section>
                     <section>
-                        <h2>Example Reviews 2/6</h2>
+                        <h3>Example Reviews 2/6</h3>
                         <pre><code data-trim contenteditable>
-    function test( selector ) {
-        if( testCode ) {
-            testCode = testCode;
-        }
-    }
+if($clerk == 1){
+    $btstep3data->setCustomerid(1);
+    $GLOBALS['TSFE']->fe_user->setKey('ses', 'btstep3data', serialize($btstep3data));
+    $GLOBALS['TSFE']->fe_user->storeSessionData();
+    $this->redirect('btstep4a');
+}else{
+    $btstep3data->setCustomerid(0);
+    $GLOBALS['TSFE']->fe_user->setKey('ses', 'btstep3data', serialize($btstep3data));
+    $GLOBALS['TSFE']->fe_user->storeSessionData();
+    $this->redirect('btstep4');
+}
                         </code></pre>
                     </section>
                     <section>
                         <h2>Example Reviews 3/6</h2>
                         <pre><code data-trim contenteditable>
-    function test( selector ) {
-        if( testCode ) {
-            testCode = testCode;
+protected function generateHttp($wrongUrl) {
+    $newUrl = $wrongUrl;
+    if(!empty($wrongUrl)) {
+        if(($http = mb_strpos($wrongUrl, 'http')) === 0 && ($https = mb_strpos($wrongUrl, 'https')) === false) {
+            $array = explode('http://', $wrongUrl);
+            $newUrl = $array['1'];
         }
     }
+    return $newUrl;
+}
                         </code></pre>
                     </section>
                     <section>
@@ -400,6 +451,17 @@ if(isset($b['some'] && !empty($b['some']))){
         }
     }
                         </code></pre>
+                    </section>
+                    <section>
+                        <div class="col">
+                            <div class="col-2">
+                                <p>AHH</p>
+                            </div>
+                            <div class="col-2">
+                                <p>OHH</p>
+                            </div>
+                        </div>
+                        <p>Reuter set params Code raussuchen</p>
                     </section>
                 </section>
 
