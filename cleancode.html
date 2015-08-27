@@ -410,73 +410,124 @@ if($clerk == 1){
                     <section>
                         <h2>Example Reviews 3/6</h2>
                         <pre><code data-trim contenteditable>
-protected function generateHttp($wrongUrl) {
-    $newUrl = $wrongUrl;
-    if(!empty($wrongUrl)) {
-        if(($http = mb_strpos($wrongUrl, 'http')) === 0 && ($https = mb_strpos($wrongUrl, 'https')) === false) {
-            $array = explode('http://', $wrongUrl);
-            $newUrl = $array['1'];
+public function preparePrint($id) {
+    $returnedtag = Mage::getModel('glsbox/shipment')->getCollection()->addFieldToFilter('id', $id)->getFirstItem()->getGlsMessage();
+    if($returnedtag === false || $returnedtag == "") {
+        return false;
+    } else 	{
+        $tags = $this->parseIncomingTag($returnedtag);
+        if(is_Array($tags)) {
+            $service = Mage::getModel('glsbox/shipment')->getCollection()->addFieldToFilter('id', $id)->getFirstItem()->getService();
+            if ($service == "business" || $service == "cash") {
+                $glsService = Mage::getModel('glsbox/label_gls_business');
+            }
+            elseif ($service == "express") {
+                $glsService = Mage::getModel('glsbox/label_gls_express');
+            }
+            if($glsService != null) {
+                $glsService->importValues($tags);
+                return $glsService->getData();
+            } else {
+                return false;
+            }
+        } else {
+            return false;
         }
     }
-    return $newUrl;
 }
                         </code></pre>
+                        <p class="fragment"><a href="https://github.com/Entwicklungshilfe-NRW/magentoRefactoringModule" target="_blank">https://github.com/Entwicklungshilfe-NRW/magentoRefactoringModule</a></p>
                     </section>
                     <section>
                         <h2>Example Reviews 4/6</h2>
                         <pre><code data-trim contenteditable>
-    function test( selector ) {
-        if( testCode ) {
-            testCode = testCode;
-        }
+public function preparePrint($id) {
+    if(!is_int($id)) {
+        throw new \InvalidArgumentException('no integer');
     }
+
+    /** @var Gls_Unibox_Model_Shipment $firstItem */
+    $firstItem = Mage::getModel('glsbox/shipment')->getCollection()->addFieldToFilter('id', $id)->getFirstItem();
+    $returnedTag = $firstItem->getGlsMessage();
+
+    if($returnedTag === false || $returnedTag === '') {
+        return false;
+    }
+
+    $tags = $this->parseIncomingTag($returnedTag);
+
+    if(!is_array($tags)) {
+        throw new \Exception($id . ' has no msg in gls box model.');
+    }
+
+    $service = $firstItem->getService();
+
+    if ($service == "business" || $service == "cash") {
+        $glsService = Mage::getModel('glsbox/label_gls_business');
+    }
+    elseif ($service == "express") {
+        $glsService = Mage::getModel('glsbox/label_gls_express');
+    }
+    if($glsService != null) {
+        $glsService->importValues($tags);
+        return $glsService->getData();
+    } else {
+        return false;
+    }
+}
                         </code></pre>
                     </section>
                     <section>
                         <h2>Example Reviews 5/6</h2>
                         <pre><code data-trim contenteditable>
-    function test( selector ) {
-        if( testCode ) {
-            testCode = testCode;
+protected function validateParams($params) {
+    if (is_array($params)) {
+        if (isset($params['prodlistTrackingTag'])) {
+            if (empty($params['prodlistTrackingTag'])) {
+                unset($params['prodlistTrackingTag']);
+            } else {
+                if (substr($params['prodlistTrackingTag'], -1) != '/') {
+                    $params['prodlistTrackingTag'] .= '/';
+                }
+            }
         }
+
+        if (isset($params['productIds']) && !empty($params['productIds'])) {
+            $productIds = [];
+            foreach ($params['productIds'] as $productId) {
+                if (is_int($productId)) {
+                    $productIds[] = $productId;
+                }
+            }
+            $params['productIds'] = $productIds;
+        }
+
     }
+
+    return $params;
+}
                         </code></pre>
                     </section>
                     <section>
                         <h2>Example Reviews 6/6</h2>
                         <pre><code data-trim contenteditable>
-    function test( selector ) {
-        if( testCode ) {
-            testCode = testCode;
-        }
-    }
+$this->executeFunction(
+    array(
+        "method" => "getHtmlProductsByIdsAndType",
+        "params" => array(
+            "productIds" => array(428235, 27628, 311346, 414072, 302222, 18278, 319128, 275973, 300821, 386623, 413786, 282382,),
+            "viewType" => "carousel",
+            "prodlistTrackingTag" => "produkt_carousel/startseite-karussell-topseller",
+            "dontGroup" => "0"
+        )
+    )
+)
                         </code></pre>
-                    </section>
-                    <section>
-                        <div class="col">
-                            <div class="col-2">
-                                <p>AHH</p>
-                            </div>
-                            <div class="col-2">
-                                <p>OHH</p>
-                            </div>
-                        </div>
-                        <p>Reuter set params Code raussuchen</p>
                     </section>
                 </section>
 
                 <section style="text-align: left;">
                     <h1>Fragen?</h1>
-                </section>
-
-                <section style="text-align: left;">
-                    <h1>Quellen</h1>
-                    <ul>
-                        <li>...</li>
-                        <li>...</li>
-                        <li>...</li>
-                        <li>...</li>
-                    </ul>
                 </section>
 
 				<section style="text-align: left;">
@@ -485,9 +536,9 @@ protected function generateHttp($wrongUrl) {
 
 				<section style="text-align: left;">
 					<h1>Folgen Sie uns!</h1>
-					<div class="col"><i class="follow-icon"><img src="img/github-512.png" /></i><a href="https://github.com/entwicklungshilfe-nrw">Twitter</a></div>
-					<div class="col"><i class="follow-icon"><img src="img/github-512.png" /></i><a href="https://github.com/entwicklungshilfe-nrw">Facebook</a></div>
-					<div class="col"><i class="follow-icon"><img src="img/github-512.png" /></i><a href="https://github.com/entwicklungshilfe-nrw">github</a></div>
+					<div class="col"><i class="follow-icon"><img src="img/twitter.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://twitter.com/help_for_devs</a></div>
+					<div class="col"><i class="follow-icon"><img src="img/facebook.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://www.facebook.com/entwicklungshilfe.nrw</a></div>
+					<div class="col"><i class="follow-icon"><img src="img/github.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://github.com/entwicklungshilfe-nrw</a></div>
 				</section>
             </div>
 
