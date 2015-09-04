@@ -15,7 +15,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
         <link rel="stylesheet" href="css/reveal.css">
-        <link rel="stylesheet" href="css/theme/eh.css" id="theme">
+        <link rel="stylesheet" href="css/theme/black.css" id="theme">
+        <link rel="stylesheet" href="css/theme/eh.css">
 
         <!-- Code syntax highlighting -->
         <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -44,17 +45,18 @@
                     <h1>Clean Code</h1>
                     <h3>Entwicklungshilfe</h3>
                     <p>
-                        <small>Web <a href="http://entwicklungshilfe.nrw" target="_blank">entwicklungshilfe.nrw</a> / <a href="http://twitter.com/help_for_devs" target="_blank">@help_for_devs</a> /
-                        <a href="https://www.facebook.com/entwicklungshilfe.nrw" target="_blank">FB/entwicklungshilfe.nrw</a></small>
+                        <a href="http://entwicklungshilfe.nrw" target="_blank">entwicklungshilfe.nrw</a> / <a href="http://twitter.com/help_for_devs" target="_blank">@help_for_devs</a> /
+                        <a href="https://www.facebook.com/entwicklungshilfe.nrw" target="_blank">FB/entwicklungshilfe.nrw</a><br>
                     </p>
                 </section>
 
                 <section>
                     <h2>Clean Code</h2>
                     <ul>
-                        <li>Code Standard</li>
-                        <li>Code Konventionen</li>
+                        <li>Codestandard Codesniffer</li>
+                        <li>Code conventions</li>
                         <li>Reviews</li>
+                        <li>Clean code</li>
                     </ul>
                 </section>
                 <section>
@@ -133,14 +135,14 @@
                         </code></pre>
                         <p><a href="https://github.com/Entwicklungshilfe-NRW/Codestandard/blob/master/standards/ENTWICKLUNGSHILFE/Sniffs/Debug/NoDebugVarsSniff.php">https://github.com/Entwicklungshilfe-NRW/Codestandard/blob/master/standards/ENTWICKLUNGSHILFE/Sniffs/Debug/NoDebugVarsSniff.php</a></p>
                     </section>
-                    <section id="fragments-2">
+                    <section>
                         <h2>Codestandard</h2>
                         <p>Integration Codestandard</p>
                         <img src="img/cleancode/integration-codestandard.png" alt="Integration Codestandard">
                         <p class="fragment">phpcs -i</p>
                         <p class="fragment">The installed coding standards are ENTWICKLUNGSHILFE, MySource, PEAR, PHPCS, PSR1, PSR2, Squiz and Zend</p>
                     </section>
-                    <section id="fragments-3">
+                    <section>
                         <h2>Codestandard</h2>
                         <p>Run Codestandard</p>
                         phpcs --standard=ENTWICKLUNGSHILFE DefaultController.php -s
@@ -159,6 +161,18 @@
                 </section>
                 <section>
                     <section>
+                        <h2>Code conventions</h2>
+                        <div class="col">
+                            <div class="col-2">
+                                <p>AHH</p>
+                            </div>
+                            <div class="col-2">
+                                <p>OHH</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>Code conventions</h2>
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
@@ -171,6 +185,7 @@
                         </div>
                     </section>
                     <section>
+                        <h2>Code conventions</h2>
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
@@ -191,6 +206,28 @@ $vat
                         </div>
                     </section>
                     <section>
+                        <h2>Code conventions</h2>
+                        <div class="col">
+                            <div class="col-2">
+                                <p>AHH</p>
+                                <pre><code data-trim contenteditable>
+$page_id
+$order_by
+$cat_language
+                                </code></pre>
+                            </div>
+                            <div class="col-2">
+                                <p>OHH</p>
+                                <pre><code data-trim contenteditable>
+$pageId
+$orderBy
+$catLanguage
+                                </code></pre>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>Code conventions</h2>
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
@@ -211,6 +248,7 @@ null
                         </div>
                     </section>
                     <section>
+                        <h2>Code conventions</h2>
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
@@ -223,6 +261,7 @@ null
                         </div>
                     </section>
                     <section>
+                        <h2>Code conventions</h2>
                         <p>
                         <div class="col">
                             <div class="col-2">
@@ -251,6 +290,7 @@ $return
                         </p>
                     </section>
                     <section>
+                        <h2>Code conventions</h2>
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
@@ -272,6 +312,7 @@ $user
                         </div>
                     </section>
                     <section>
+                        <h2>Code conventions</h2>
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
@@ -291,6 +332,7 @@ or
                     </section>
 
                     <section>
+                        <h2>Code conventions</h2>
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
@@ -303,6 +345,7 @@ or
                         </div>
                     </section>
                     <section>
+                        <h2>Code conventions</h2>
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
@@ -323,6 +366,7 @@ if($a === 1) {
                         </div>
                     </section>
                     <section>
+                        <h2>Code conventions</h2>
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
@@ -343,6 +387,7 @@ if($foo != null){
                         </div>
                     </section>
                     <section>
+                        <h2>Code conventions</h2>
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
@@ -352,15 +397,52 @@ $var = $foo ?: $bar;
                             </div>
                             <div class="col-2">
                                 <p>OHH</p>
-                                            <pre><code data-trim contenteditable>
+                                <pre><code data-trim contenteditable>
 $var = $bar;
 if($foo != null){
  $var = $foo;
 }
-                                            </code></pre>
+                                </code></pre>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>Code conventions</h2>
+                        <div class="col">
+                            <div class="col-2">
+                                <p>AHH</p>
+                                <pre><code data-trim contenteditable>
+$var = $foo ? $foo : $bar;
+                                </code></pre>
+                                <pre><code data-trim contenteditable>
+$var = $foo ?: $bar;
+                                </code></pre>
+                            </div>
+                            <div class="col-2">
+                                <p>OHH</p>
+                                <pre><code data-trim contenteditable>
+if($foo != null){
+ $var = $foo;
+} else {
+ $var = $bar;
+}
+                                </code></pre>
+                                <pre><code data-trim contenteditable>
+$var = $bar;
+if($foo != null){
+ $var = $foo;
+}
+                                </code></pre>
                             </div>
                         </div>
                         <p class="fragment"><a href="https://en.wikipedia.org/wiki/Elvis_operator" target="_blank">https://en.wikipedia.org/wiki/Elvis_operator</a></p>
+                    </section>
+                    <section>
+                        <h2>Code conventions</h2>
+                        <p class="fragment">Talk about simple things in your team</p>
+                        <p class="fragment">Vote for the new rules</p>
+                        <p class="fragment">Save the rules to a wiki</p>
+                        <p class="fragment">Start doing it just in time</p>
                     </section>
                 </section>
                 <section>
@@ -374,7 +456,7 @@ if($foo != null){
                         <p class="fragment">Performace goes down</p>
                         <p class="fragment">Cost explode</p>
                         <p class="fragment">Company harmony will be destroyed</p>
-                        <p class="fragment">The future with the client will be other</p>
+                        <p class="fragment">The future with the client will be different</p>
                         <p class="fragment">AND SO ON!!!</p>
 
                     </section>
@@ -528,7 +610,7 @@ protected function validateParams($params) {
 }
                         </code></pre>
                         <p class="fragment highlight-blue">
-                            It is hard to refactor a methods name or parameter.
+                            It is hard to refactor a methods name or parameters.
                         </p>
                         <p class="fragment highlight-blue">
                             Think long about nameing and speak in the team about your work.
@@ -549,6 +631,29 @@ $this->executeFunction(
     )
 )
                         </code></pre>
+                    </section>
+                    <section>
+                        <h2>Code refactoring benefits</h2>
+                        <p class="fragment">Your code quality is much better</p>
+                        <p class="fragment">All people are much more happy</p>
+                        <p class="fragment">Your developers team will be better</p>
+                        <p class="fragment">They will become more knowledge</p>
+                        <p class="fragment">They will have a better team spirit</p>
+                        <p class="fragment">They have a better motivation</p>
+                        <p class="fragment">Good way to integrate new developers</p>
+                        <p class="fragment">Lower costs more profit</p>
+                    </section>
+                    <section data-background="img/cleancode/pp2.jpg">
+                        <h2 style="color: white">Code refactoring starts</h2>
+                    </section>
+                    <section data-background="img/cleancode/pp1.jpg">
+                        <h2 style="color: white">Code refactoring starts</h2>
+                        <p class="fragment" style="color: white">Fix date in a week</p>
+                        <p class="fragment" style="color: white">Make one presenter</p>
+                        <p class="fragment" style="color: white">Start with code from other people</p>
+                        <p class="fragment" style="color: white">Save the rules you find</p>
+                        <p class="fragment" style="color: white">Refactor your own most painfull code</p>
+                        <p class="fragment" style="color: white">Be a refactor team</p>
                     </section>
                 </section>
 
@@ -598,7 +703,6 @@ $this->executeFunction(
 					<div class="col"><i class="follow-icon"><img src="img/github.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://github.com/entwicklungshilfe-nrw</a></div>
 				</section>
             </div>
-
         </div>
 
         <script src="lib/js/head.min.js"></script>
