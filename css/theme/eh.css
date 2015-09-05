@@ -94,3 +94,6 @@ body {
   line-height: 1.1;
   max-height: 500px;
 }
+.reveal .progress span {
+  background: #ea5b0c;
+}
