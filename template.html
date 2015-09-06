@@ -31,6 +31,11 @@
 	<!--[if lt IE 9]>
 	<script src="lib/js/html5shiv.js"></script>
 	<![endif]-->
+	<script type="text/javascript">
+		if(window.location.search.substring(1)){
+			document.getElementById("theme").href = "css/theme/"+window.location.search.substring(1)+".css";
+		}
+	</script>
 </head>
 <body>
 
