@@ -43,16 +43,16 @@ body {
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls div.navigate-left, .reveal .controls div.navigate-left.enabled {
-  border-right-color: #222; }
+  border-right-color: #ea5b0c; }
 
 .reveal .controls div.navigate-right, .reveal .controls div.navigate-right.enabled {
-  border-left-color: #222; }
+  border-left-color: #ea5b0c; }
 
 .reveal .controls div.navigate-up, .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #222; }
+  border-bottom-color: #ea5b0c; }
 
 .reveal .controls div.navigate-down, .reveal .controls div.navigate-down.enabled {
-  border-top-color: #222; }
+  border-top-color: #ea5b0c; }
 
 /*********************************************
  * PROGRESS BAR
