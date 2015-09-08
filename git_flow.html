@@ -138,9 +138,16 @@
 			<section>
 				<h3>Verteilt</h3>
 				<p>Bei git ist zunächst jede Code-Anpassung lokal. Erst durch einen Commit wird sie der Versionsverwaltung mitgeteilt, durch einen Push dem globalen Repository zur Verfügung gestellt</p>
+				<img src="img/git-flow/git-flow_Decentral.png" />
 			</section>
 			<section>
 				<h3>Workflow einer Datei</h3>
+				<ul>
+					<li>Neue Datei</li>
+					<li>git add</li>
+					<li>git commit</li>
+					<li>git push</li>
+				</ul>
 			</section>
 		</section>
 		<section>
@@ -164,6 +171,10 @@
 				</ul>
 			</section>
 			<section>
+				<h3>Hauptzweige (main branches)</h3>
+				<img src="img/git-flow/git-flow_Main.png">
+			</section>
+			<section>
 				<h3>Unterstützungszweige (supporting branches)</h3>
 				<ul>
 					<li>release (bug fixing, feature freeze)</li>
@@ -171,17 +182,42 @@
 					<li>hotfix</li>
 				</ul>
 			</section>
+			<section>
+				<h3>Unterstützungszweige (supporting branches)</h3>
+				<img src="img/git-flow/git-flow_Supporting.png">
+			</section>
+			<section>
+				<h3>Das --no-ff flag</h3>
+				<img src="img/git-flow/git-flow_No.png">
+			</section>
+			<section>
+				<h3>Hotfix</h3>
+				<img src="img/git-flow/git-flow_Hotfix.png">
+			</section>
 		</section>
 		<section>
 			<section>
 				<h1>Hands on</h1>
-				<p>Sample: Github</p>
+				<p>Voraussetzungen</p>
 				<ul>
 					<li>git installiert?</li>
 					<li>gitignore/gitconfig?</li>
 					<li>Internetverbindung?</li>
 					<li>Fragen?</li>
 				</ul>
+			</section>
+			<section>
+				<h1>Hands on</h1>
+				<p>git-flow</p>
+				<ul>
+					<li>git-flow installieren</li>
+
+				</ul>
+<pre>
+	wget -q – http://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh –no-check-certificate
+	sudo chmod a+x gitflow-installer.sh
+	sudo ./gitflow-installer.sh
+</pre>
 			</section>
 			<section>
 				<h1>Hands on</h1>
@@ -194,7 +230,7 @@
 				</ul>
 			</section>
 			<section>
-				<h1>Aufgaben</h1>
+				<h1>Aufgaben 1/2</h1>
 				<div class="col">
 					<div class="col-2">
 						<h4>Team 1</h4>
@@ -214,6 +250,12 @@
 					</div>
 				</div>
 			</section>
+			<section>
+				<h1>Aufgaben 2/2</h1>
+				<ul>
+					<li>HOTFIX durchführen</li>
+				</ul>
+			</section>
 		</section>
 		<section style="text-align: left;">
 			<h1>Fragen?</h1>
@@ -228,6 +270,7 @@
 						<li><a href="https://git-scm.com/">git</a></li>
 						<li><a href="https://github.com/nvie/gitflow">git-flow on github</a></li>
 						<li><a href="http://nvie.com/posts/a-successful-git-branching-model/">git-flow</a></li>
+						<li><a href="http://yakiloo.com/getting-started-git-flow/">git-flow getting started</a></li>
 						<li><a href="http://danielkummer.github.io/git-flow-cheatsheet/index.de_DE.html">git-flow Cheatsheet</a></li>
 						<li><a href="https://de.atlassian.com/git/tutorials/comparing-workflows">git Workflow Comparison</a></li>
 						<li><a href="http://de.slideshare.net/kogakure/sei-kein-bldmann-und-nimm-git-1830449">git Presäntation (Stefan Imhoff)</a></li>
