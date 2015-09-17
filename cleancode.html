@@ -201,27 +201,6 @@
                             <div class="col-2">
                                 <p>AHH</p>
                                 <pre><code data-trim contenteditable>
-$seiten
-$summe
-$mwst
-                                </code></pre>
-                            </div>
-                            <div class="col-2">
-                                <p>OHH</p>
-                                <pre><code data-trim contenteditable>
-$pages
-$total
-$vat
-                                </code></pre>
-                            </div>
-                        </div>
-                    </section>
-                    <section>
-                        <h2>Code conventions</h2>
-                        <div class="col">
-                            <div class="col-2">
-                                <p>AHH</p>
-                                <pre><code data-trim contenteditable>
 $page_id
 $order_by
 $cat_language
@@ -260,28 +239,15 @@ null
                     </section>
                     <section>
                         <h2>Code conventions</h2>
-                        <div class="col">
-                            <div class="col-2">
-                                <p>AHH</p>
-                                <img src="img/cleancode/ahh_2.png" />
-                            </div>
-                            <div class="col-2">
-                                <p>OHH</p>
-                                <img src="img/cleancode/ohh_2.png" />
-                            </div>
-                        </div>
-                    </section>
-                    <section>
-                        <h2>Code conventions</h2>
                         <p>
                         <div class="col">
                             <div class="col-2">
                                 <p>AHH</p>
                                 <pre><code data-trim contenteditable>
 $params
-$temp
-$templateFile
-$retVal
+$tot
+$tmpl
+$retval
                                 </code></pre>
                             </div>
                             <div class="col-2">
@@ -289,7 +255,7 @@ $retVal
                                 <pre><code data-trim contenteditable>
 $parameters
 $total
-$vat
+$templateFile
 $return
                                 </code></pre>
                             </div>
@@ -299,6 +265,19 @@ $return
                             $return = true;<br>
                             return $return;
                         </p>
+                    </section>
+                    <section>
+                        <h2>Code conventions</h2>
+                        <div class="col">
+                            <div class="col-2">
+                                <p>AHH</p>
+                                <img src="img/cleancode/ahh_2.png" />
+                            </div>
+                            <div class="col-2">
+                                <p>OHH</p>
+                                <img src="img/cleancode/ohh_2.jpg" />
+                            </div>
+                        </div>
                     </section>
                     <section>
                         <h2>Code conventions</h2>
@@ -342,19 +321,7 @@ or
                         </div>
                     </section>
 
-                    <section>
-                        <h2>Code conventions</h2>
-                        <div class="col">
-                            <div class="col-2">
-                                <p>AHH</p>
-                                <img src="img/cleancode/ahh_3.png" />
-                            </div>
-                            <div class="col-2">
-                                <p>OHH</p>
-                                <img src="img/cleancode/ohh_3.png" />
-                            </div>
-                        </div>
-                    </section>
+
                     <section>
                         <h2>Code conventions</h2>
                         <div class="col">
@@ -373,6 +340,19 @@ if($a === 1) {
   $this->makeEverythingOk();
 }
                                 </code></pre>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>Code conventions</h2>
+                        <div class="col">
+                            <div class="col-2">
+                                <p>AHH</p>
+                                <img src="img/cleancode/ahh_3.jpg" />
+                            </div>
+                            <div class="col-2">
+                                <p>OHH</p>
+                                <img src="img/cleancode/ohh_3.jpg" />
                             </div>
                         </div>
                     </section>
@@ -446,7 +426,7 @@ if($foo != null){
                                 </code></pre>
                             </div>
                         </div>
-                        <p class="fragment"><a href="https://en.wikipedia.org/wiki/Elvis_operator" target="_blank">https://en.wikipedia.org/wiki/Elvis_operator</a></p>
+                        <p><a href="https://en.wikipedia.org/wiki/Elvis_operator" target="_blank">https://en.wikipedia.org/wiki/Elvis_operator</a></p>
                     </section>
                     <section>
                         <h2>Code conventions</h2>
@@ -475,9 +455,9 @@ if($foo != null){
                         <h2 style="color: white">Code cleanup</h2>
                     </section>
                     <section>
-                        <h3>Example bad code 1/6</h3>
+                        <h3>Example bad code 1 / 4</h3>
                         <pre><code data-trim contenteditable>
-$kategories = array(
+$categories = array(
     'marken'	=> 'brands',
     'bad'	=> 'bathroom',
     'kueche'	=> 'kitchen',
@@ -487,9 +467,9 @@ $kategories = array(
     'garten'	=> 'garden',
 );
 
-foreach ($kategories as $kategorie => $translation) {
+foreach ($categories as $categorie => $translation) {
     $contentVar = array();
-    @include_once('de/megamenu/'.$kategorie.'/content.php');
+    @include_once('de/megamenu/'.$categorie.'/content.php');
     $php_content .= '		\'' . $translation . '\' => \'' . addcslashes($contentVar['megamenu'],"'\\") . '\',' . PHP_EOL;
     echo 'include megamenu ' . $kategorie . PHP_EOL;
 }
@@ -497,7 +477,7 @@ foreach ($kategories as $kategorie => $translation) {
                         <p class="fragment">Try 2015 code</p>
                     </section>
                     <section>
-                        <h3>Example bad code 2/6</h3>
+                        <h3>Example bad code 2 / 4</h3>
                         <pre><code data-trim contenteditable>
 if($clerk == 1){
     $btstep3data->setCustomerid(1);
@@ -515,7 +495,7 @@ if($clerk == 1){
                         <p class="fragment">Think about copy & paste and be awake in this moment</p>
                     </section>
                     <section>
-                        <h2>Example bad code 3/6</h2>
+                        <h2>Example bad code 3 / 4</h2>
                         <pre><code data-trim contenteditable>
 public function preparePrint($id) {
     $returnedtag = Mage::getModel('glsbox/shipment')->getCollection()->addFieldToFilter('id', $id)->getFirstItem()->getGlsMessage();
@@ -549,7 +529,7 @@ public function preparePrint($id) {
                         <img src="img/cleancode/wtfm.jpg">
                     </section>
                     <section>
-                        <h2>Example bad code 3b/6</h2>
+                        <h2>Example bad code 3b / 4</h2>
                         <pre><code data-trim contenteditable>
 public function preparePrint($id) {
     if(!is_int($id)) {
@@ -591,7 +571,7 @@ public function preparePrint($id) {
                         </p>
                     </section>
                     <section>
-                        <h2>Example bad code 4/6</h2>
+                        <h2>Example bad code 4 / 4</h2>
                         <pre><code data-trim contenteditable>
 protected function validateParams($params) {
     if (is_array($params)) {
@@ -628,27 +608,11 @@ protected function validateParams($params) {
                         </p>
                     </section>
                     <section>
-                        <h2>Example bad code 4b/6</h2>
-                        <pre><code data-trim contenteditable>
-$this->executeFunction(
-    array(
-        "method" => "getHtmlProductsByIdsAndType",
-        "params" => array(
-            "productIds" => array(428235, 27628, 311346, 414072, 302222, 18278, 319128, 275973, 300821, 386623, 413786, 282382,),
-            "viewType" => "carousel",
-            "prodlistTrackingTag" => "produkt_carousel/startseite-karussell-topseller",
-            "dontGroup" => "0"
-        )
-    )
-)
-                        </code></pre>
-                    </section>
-                    <section>
                         <h2>Code refactoring benefits</h2>
                         <p class="fragment">Your code quality is much better</p>
                         <p class="fragment">All people are much more happy</p>
                         <p class="fragment">Your developers team will be better</p>
-                        <p class="fragment">They will become more knowledge</p>
+                        <p class="fragment">They will gain knowledge</p>
                         <p class="fragment">They will have a better team spirit</p>
                         <p class="fragment">They have a better motivation</p>
                         <p class="fragment">Good way to integrate new developers</p>
@@ -670,7 +634,7 @@ $this->executeFunction(
 
                 <section>
                     <section data-background="img/cleancode/cleancode-sun.gif">
-                        <h2 style="color: white">Code Code</h2>
+                        <h2 style="color: white">Clean Code</h2>
                     </section>
 
                     <section>
@@ -688,7 +652,6 @@ $this->executeFunction(
                         <h2 style="color: white">Michael Jordan</h2>
                         <blockquote class="fragment" style="color: white">"Talent wins games.</blockquote>
                         <blockquote class="fragment" style="color: white">but teamwork and intelligence wins championships"</blockquote>
-                        <blockquote class="fragment" style="color: white">"There is no 'i' in team but there is in win."</blockquote>
                     </section>
                     <section data-background="img/cleancode/robert-c-martin.jpg">
                         <h2 style="color: white">Robert C. Martin</h2>
