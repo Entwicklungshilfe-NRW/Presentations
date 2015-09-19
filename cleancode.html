@@ -563,7 +563,7 @@ public function preparePrint($id) {
     elseif ($service == "express") {
         $glsService = Mage::getModel('glsbox/label_gls_express');
     }
-    if($glsService != null) {
+    if($glsService !== null) {
         $glsService->importValues($tags);
         return $glsService->getData();
     } else {
