@@ -475,7 +475,7 @@ $categories = array(
 foreach ($categories as $categorie => $translation) {
     $contentVar = array();
     @include_once('de/megamenu/'.$categorie.'/content.php');
-    $php_content .= '		\'' . $translation . '\' => \'' . addcslashes($contentVar['megamenu'],"'\\") . '\',' . PHP_EOL;
+    $php_content .= '\'' . $translation . '\' => \'' . addcslashes($contentVar['megamenu'],"'\\") . '\',' . PHP_EOL;
     echo 'include megamenu ' . $kategorie . PHP_EOL;
 }
                         </code></pre>
@@ -559,10 +559,10 @@ public function preparePrint($id) {
 
     if ($service == "business" || $service == "cash") {
         $glsService = Mage::getModel('glsbox/label_gls_business');
-    }
-    elseif ($service == "express") {
+    } elseif ($service == "express") {
         $glsService = Mage::getModel('glsbox/label_gls_express');
     }
+
     if($glsService !== null) {
         $glsService->importValues($tags);
         return $glsService->getData();
