@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="http://www.entwicklungshilfe.nrw/typo3conf/ext/wmdb_base_ewh/Resources/Public/img/favicon.ico" type="image/x-icon">
+    <title>Codeception Präsentation von Php-Schulung Entwicklungshilfe</title>
+
+    <meta name="description" content="Codeception Schulung für automatisiertes Frontend Testing direkt für ihr Projekt">
+    <meta name="author" content="Entwicklungshilfe NRW">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/theme/eh.css">
+    <link rel="stylesheet" href="#" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        if(window.location.search.substring(1)){
+            document.getElementById("theme").href = "css/theme/"+window.location.search.substring(1)+".css";
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section>
+            <h1>Codeception</h1>
+            <h3>Entwicklungshilfe</h3>
+            <p>
+                <a href="http://entwicklungshilfe.nrw" target="_blank">entwicklungshilfe.nrw</a> / <a href="http://twitter.com/help_for_devs" target="_blank">@help_for_devs</a> /
+                <a href="https://www.facebook.com/entwicklungshilfe.nrw" target="_blank">FB/entwicklungshilfe.nrw</a><br>
+                <small>
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black</a>
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a>
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href',''); return false;">EH</a>
+                </small>
+            </p>
+        </section>
+
+        <section>
+            <h2>Codeception</h2>
+            <ul>
+                <li>Installation</li>
+                <li>Tests</li>
+                <li>Auswertung</li>
+                <li>Extended</li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h2>Codeception Installation</h2>
+                <p><img src="img/codeception/codeception_composer.png"></p>
+            </section>
+            <section id="fragments">
+                <h2>Installation Codeception</h2>
+                <p class="fragment">brew install composer</p>
+                <p class="fragment">brew install codeception</p>
+                <p class="fragment">brew install selenium-server-standalone</p>
+                <p class="fragment">brew install chromedriver</p>
+                <p class="fragment">brew install phantomjs</p>
+            </section>
+            <section>
+                <h2>Starting from scratch</h2>
+                <p><img src="img/codeception/start.jpg"></p>
+            </section>
+            <section>
+                <h2>Starting from scratch</h2>
+                <p class="fragment">composer init</p>
+                <p class="fragment">composer require codeception/codeception</p>
+                <p class="fragment">composer install</p>
+                <p class="fragment">php ./vendor/bin/codecept bootstrap</p>
+                <p class="fragment">php ./vendor/bin/codecept generate:cept acceptance Welcome</p>
+                <p class="fragment">php ./vendor/bin/codecept g:env phantom</p>
+                <p class="fragment">php ./vendor/bin/codecept g:env firefox</p>
+                <p class="fragment">php ./vendor/bin/codecept g:env chrome</p>
+            </section>
+            <section>
+                <h2>codeception.yml root folder</h2>
+                        <pre><code data-trim contenteditable>
+                            actor: Tester
+                            paths:
+                            tests: tests
+                            log: tests/_output
+                            data: tests/_data
+                            support: tests/_support
+                            envs: tests/_envs
+                            settings:
+                            bootstrap: _bootstrap.php
+                            colors: true
+                            memory_limit: 1024M
+                            extensions:
+                            enabled:
+                            - Codeception\Extension\RunFailed
+                            modules:
+                            config:
+                            Db:
+                            dsn: ''
+                            user: ''
+                            password: ''
+                            dump: tests/_data/dump.sql
+                        </code></pre>
+            </section>
+            <section>
+                <h2>acceptance.suite.yml test folder</h2>
+                        <pre><code data-trim contenteditable>
+                            class_name: AcceptanceTester
+                            modules:
+                            enabled:
+                            - PhpBrowser
+                            - WebDriver
+                            - \Helper\Acceptance
+                            config:
+                            PhpBrowser:
+                            url: 'http://typo3.org'
+                            WebDriver:
+                            window_size: 1024x768
+                            url: 'http://typo3.org'
+                            browser: 'chrome'
+                            extensions:
+                            enabled:
+                            - Codeception\Extension\Recorder
+                            config:
+                            Codeception\Extension\Recorder:
+                            delete_successful: false
+                            env:
+                            phantom:
+                            modules:
+                            config:
+                            WebDriver:
+                            browser: 'phantomjs'
+                            chrome:
+                            modules:
+                            config:
+                            WebDriver:
+                            browser: 'chrome'
+                            firefox:
+                            # nothing changed
+                        </code></pre>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h1>Tests</h1>
+                <p>
+                    <img src="img/codeception/tests.jpg" alt="Codeception testing">
+                </p>
+            </section>
+            <section>
+                <h1>Startpage test</h1>
+                <p>
+                            <pre><code data-trim contenteditable>
+                                <?php
+$I = new AcceptanceTester($scenario);
+$I->wantTo('Test welcome page');
+                                $I->amOnPage('/');
+                                $I->see('What is TYPO3 CMS?');
+                            </code></pre>
+                </p>
+            </section>
+            <section>
+                <h1>Navigation test</h1>
+                <p>
+                            <pre><code data-trim contenteditable>
+                                <?php
+$I = new AcceptanceTester($scenario);
+$I->wantTo('Test main navigation');
+                                $I->amOnPage('/');
+                                $I->moveMouseOver('.nav > li:nth-of-type(3)');
+                                $I->wait(1);
+                                $I->see('Overview');
+                                $I->click('Overview');
+                                $I->waitForElement('h4');
+                                $I->see('The Enterprise');
+                            </code></pre>
+                </p>
+            </section>
+            <section>
+                <h2>TYPO3 login</h2>
+                        <pre><code data-trim contenteditable>
+                            $I->wantTo('check if we can login to typo3 demo backend');
+                            $I->amOnPage('/typo3');
+                            $I->see('Login');
+                            $I->wantTo('want to login');
+                            $I->fillField('username', 'admin');
+                            $I->fillField('p_field', 'password');
+                            $I->click('Login');
+                            $I->seeLink('Extension Manager');
+                        </code></pre>
+            </section>
+        </section>
+
+        <section style="text-align: left;">
+            <h1>Questions?</h1>
+        </section>
+        <section style="text-align: left;">
+            <h1>Sources</h1>
+            <p>
+            <h2>Images</h2>
+            https://styde.net/instalacion-de-codeception-con-composer-en-laravel/
+            https://pixabay.com
+            https://www.braune-digital.com/blog/schnelleinstieg-tests-mit-codeception-selenium-und-chrome/
+            <h2>Code</h2>
+            https://github.com/Entwicklungshilfe-NRW/codeception
+            </p>
+        </section>
+        <section style="text-align: left;">
+            <h1>Thanks</h1>
+        </section>
+
+        <section style="text-align: left;">
+            <h1>Follow us!</h1>
+            <div class="col"><i class="follow-icon"><img src="img/twitter.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://twitter.com/help_for_devs</a></div>
+            <div class="col"><i class="follow-icon"><img src="img/facebook.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://www.facebook.com/entwicklungshilfe.nrw</a></div>
+            <div class="col"><i class="follow-icon"><img src="img/github.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://github.com/entwicklungshilfe-nrw</a></div>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true },
+            { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
+
+</script>
+<script src="js/ga.js"></script>
+</body>
+</html>
