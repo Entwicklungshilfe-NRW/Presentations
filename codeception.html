@@ -101,71 +101,71 @@
             <section>
                 <h2>codeception.yml root folder</h2>
                         <pre><code data-trim contenteditable>
-                            actor: Tester
-                            paths:
-                            tests: tests
-                            log: tests/_output
-                            data: tests/_data
-                            support: tests/_support
-                            envs: tests/_envs
-                            settings:
-                            bootstrap: _bootstrap.php
-                            colors: true
-                            memory_limit: 1024M
-                            extensions:
-                            enabled:
-                            - Codeception\Extension\RunFailed
-                            modules:
-                            config:
-                            Db:
-                            dsn: ''
-                            user: ''
-                            password: ''
-                            dump: tests/_data/dump.sql
+actor: Tester
+paths:
+  tests: tests
+  log: tests/_output
+  data: tests/_data
+  support: tests/_support
+  envs: tests/_envs
+settings:
+  bootstrap: _bootstrap.php
+  colors: true
+  memory_limit: 1024M
+extensions:
+  enabled:
+    - Codeception\Extension\RunFailed
+modules:
+  config:
+    Db:
+      dsn: ''
+      user: ''
+      password: ''
+      dump: tests/_data/dump.sql
                         </code></pre>
             </section>
             <section>
                 <h2>acceptance.suite.yml test folder</h2>
                         <pre><code data-trim contenteditable>
-                            class_name: AcceptanceTester
-                            modules:
-                            enabled:
-                            - PhpBrowser
-                            - WebDriver
-                            - \Helper\Acceptance
-                            config:
-                            PhpBrowser:
-                            url: 'http://typo3.org'
-                            WebDriver:
-                            window_size: 1024x768
-                            url: 'http://typo3.org'
-                            browser: 'chrome'
-                            extensions:
-                            enabled:
-                            - Codeception\Extension\Recorder
-                            config:
-                            Codeception\Extension\Recorder:
-                            delete_successful: false
-                            env:
-                            phantom:
-                            modules:
-                            config:
-                            WebDriver:
-                            browser: 'phantomjs'
-                            chrome:
-                            modules:
-                            config:
-                            WebDriver:
-                            browser: 'chrome'
-                            firefox:
-                            # nothing changed
+class_name: AcceptanceTester
+  modules:
+    enabled:
+      - PhpBrowser
+      - WebDriver
+      - \Helper\Acceptance
+    config:
+      PhpBrowser:
+        url: 'http://typo3.org'
+        WebDriver:
+          window_size: 1024x768
+          url: 'http://typo3.org'
+          browser: 'chrome'
+    extensions:
+      enabled:
+        - Codeception\Extension\Recorder
+      config:
+        Codeception\Extension\Recorder:
+          delete_successful: false
+    env:
+      phantom:
+        modules:
+          config:
+            WebDriver:
+              browser: 'phantomjs'
+      chrome:
+        modules:
+          config:
+            WebDriver:
+              browser: 'chrome'
+      firefox:
+        # nothing changed
                         </code></pre>
             </section>
         </section>
 
         <section>
             <section>
-                <h1>Tests</h1>
+                <h2>Tests</h2>
                 <p>
                     <img src="img/codeception/tests.jpg" alt="Codeception testing">
                 </p>
@@ -177,8 +177,8 @@
                                 <?php
 $I = new AcceptanceTester($scenario);
 $I->wantTo('Test welcome page');
-                                $I->amOnPage('/');
-                                $I->see('What is TYPO3 CMS?');
+$I->amOnPage('/');
+$I->see('What is TYPO3 CMS?');
                             </code></pre>
                 </p>
             </section>
@@ -189,31 +189,105 @@ $I->wantTo('Test welcome page');
                                 <?php
 $I = new AcceptanceTester($scenario);
 $I->wantTo('Test main navigation');
-                                $I->amOnPage('/');
-                                $I->moveMouseOver('.nav > li:nth-of-type(3)');
-                                $I->wait(1);
-                                $I->see('Overview');
-                                $I->click('Overview');
-                                $I->waitForElement('h4');
-                                $I->see('The Enterprise');
+$I->amOnPage('/');
+$I->moveMouseOver('.nav > li:nth-of-type(3)');
+$I->wait(1);
+$I->see('Overview');
+$I->click('Overview');
+$I->waitForElement('h4');
+$I->see('The Enterprise');
                             </code></pre>
                 </p>
             </section>
             <section>
                 <h2>TYPO3 login</h2>
                         <pre><code data-trim contenteditable>
-                            $I->wantTo('check if we can login to typo3 demo backend');
-                            $I->amOnPage('/typo3');
-                            $I->see('Login');
-                            $I->wantTo('want to login');
-                            $I->fillField('username', 'admin');
-                            $I->fillField('p_field', 'password');
-                            $I->click('Login');
-                            $I->seeLink('Extension Manager');
+$I->wantTo('check if we can login to typo3 demo backend');
+$I->amOnPage('/typo3');
+$I->see('Login');
+$I->wantTo('want to login');
+$I->fillField('username', 'admin');
+$I->fillField('p_field', 'password');
+$I->click('Login');
+$I->seeLink('Extension Manager');
                         </code></pre>
             </section>
         </section>
+        <section>
+            <section>
+                <h2>Advanced testing</h2>
+                <p>
+                    <img src="img/codeception/advanced.jpg" alt="Advanced testing codeception">
+                </p>
+            </section>
+            <section>
+                <h2>CSS values and html attributes</h2>
+                <pre><code data-trim contenteditable>
+// Enter first is active
+$ah = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
+  return $webdriver->findElement(WebDriverBy::cssSelector('.accordion-region:nth-of-type(1)'))->getAttribute('aria-hidden');
+});
+$this->assertEquals('false', $ah);
 
+$bc = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
+  return $webdriver->findElement(WebDriverBy::cssSelector('.accordion-title:nth-of-type(1)'))->getCSSValue('background-color');
+});
+
+$this->assertEquals('rgba(255, 221, 0, 1)', $bc);
+                </code></pre>
+                <p>
+                    <a href="http://ir2.preview.wmdb.de/index.php?id=25" target="_blank">http://ir2.preview.wmdb.de/index.php?id=25</a>
+                </p>
+            </section>
+            <section>
+            <h2>Full interroll test</h2>
+                <pre><code data-trim contenteditable>
+<?php
+$I = new AcceptanceTester($scenario);
+$I->wantTo('Test Media Gallery');
+$I->amOnPage('/');
+$I->moveMouseOver('#nav > ol > li:nth-of-type(4) > a');
+$I->see('Media Gallery');
+$I->click('Media Gallery');
+$I->see('Interroll Logo');
+
+// Enter first is active
+$ah = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
+  return $webdriver->findElement(WebDriverBy::cssSelector('.accordion-region:nth-of-type(1)'))->getAttribute('aria-hidden');
+});
+$this->assertEquals('false', $ah);
+
+$bc = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
+  return $webdriver->findElement(WebDriverBy::cssSelector('.accordion-title:nth-of-type(1)'))->getCSSValue('background-color');
+});
+
+$this->assertEquals('rgba(255, 221, 0, 1)', $bc);
+
+$I->click('.accordion-title:nth-of-type(1)');
+$I->wait(1);
+$I->moveMouseOver('.accordion-title:nth-of-type(2)');
+
+$ah = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
+  return $webdriver->findElement(WebDriverBy::cssSelector('.accordion-region:nth-of-type(1)'))->getAttribute('aria-hidden');
+});
+$this->assertEquals('true', $ah);
+
+$bc = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
+  return $webdriver->findElement(WebDriverBy::cssSelector('.accordion-title:nth-of-type(1)'))->getCSSValue('background-color');
+});
+
+$this->assertEquals('rgba(240, 244, 245, 1)', $bc);
+
+$bc = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
+  return $webdriver->findElement(WebDriverBy::cssSelector('.accordion-title:nth-of-type(2)'))->getCSSValue('background-color');
+});
+$this->assertEquals('rgba(166, 166, 166, 1)', $bc);
+                </code></pre>
+            <p>
+                <a href="http://ir2.preview.wmdb.de/index.php?id=25" target="_blank">http://ir2.preview.wmdb.de/index.php?id=25</a>
+            </p>
+            </section>
+        </section>
         <section style="text-align: left;">
             <h1>Questions?</h1>
         </section>
@@ -221,11 +295,11 @@ $I->wantTo('Test main navigation');
             <h1>Sources</h1>
             <p>
             <h2>Images</h2>
-            https://styde.net/instalacion-de-codeception-con-composer-en-laravel/
-            https://pixabay.com
-            https://www.braune-digital.com/blog/schnelleinstieg-tests-mit-codeception-selenium-und-chrome/
+            <a href="https://styde.net/instalacion-de-codeception-con-composer-en-laravel/" target="_blank">https://styde.net/instalacion-de-codeception-con-composer-en-laravel/</a><br>
+            <a href="https://pixabay.com" target="_blank">https://pixabay.com</a><br>
+            <a href="https://www.braune-digital.com/blog/schnelleinstieg-tests-mit-codeception-selenium-und-chrome/" target="_blank">https://www.braune-digital.com/blog/schnelleinstieg-tests-mit-codeception-selenium-und-chrome/</a>
             <h2>Code</h2>
-            https://github.com/Entwicklungshilfe-NRW/codeception
+            <a href="https://github.com/Entwicklungshilfe-NRW/codeception" target="_blank">https://github.com/Entwicklungshilfe-NRW/codeception</a>
             </p>
         </section>
         <section style="text-align: left;">
