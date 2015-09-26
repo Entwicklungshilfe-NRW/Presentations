@@ -325,6 +325,8 @@ $I->seeInDatabase('pages', array('title' => 'Hobbit'));
                 <p>
                     <strong>Run selenium</strong><br>
                     selenium-server -p 4444<br>
+                    <strong>Add test</strong><br>
+                    php ./vendor/bin/codecept generate:cept acceptance Welcome<br>
                     <strong>All tests</strong><br>
                     php ./vendor/bin/codecept run acceptance --env firefox --env chrome --steps --xml --html<br>
                     <strong>Single test</strong><br>
