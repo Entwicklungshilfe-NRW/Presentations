@@ -64,11 +64,18 @@
         <section>
             <h2>Codeception</h2>
             <ul>
+                <li>Why codeception</li>
                 <li>Installation</li>
                 <li>Tests</li>
                 <li>Auswertung</li>
                 <li>Extended</li>
             </ul>
+        </section>
+        <section>
+            <h2>Why codeception</h2>
+            <p>
+                <img src="img/codeception/codeception-cost-of-bug.png" alt="Codeception cost of a bug">
+            </p>
         </section>
         <section>
             <section>
@@ -174,7 +181,6 @@ class_name: AcceptanceTester
                 <h1>Startpage test</h1>
                 <p>
                             <pre><code data-trim contenteditable>
-                                <?php
 $I = new AcceptanceTester($scenario);
 $I->wantTo('Test welcome page');
 $I->amOnPage('/');
@@ -186,7 +192,6 @@ $I->see('What is TYPO3 CMS?');
                 <h1>Navigation test</h1>
                 <p>
                             <pre><code data-trim contenteditable>
-                                <?php
 $I = new AcceptanceTester($scenario);
 $I->wantTo('Test main navigation');
 $I->amOnPage('/');
@@ -242,7 +247,6 @@ $this->assertEquals('rgba(255, 221, 0, 1)', $bc);
             <section>
             <h2>Full interroll test</h2>
                 <pre><code data-trim contenteditable>
-<?php
 $I = new AcceptanceTester($scenario);
 $I->wantTo('Test Media Gallery');
 $I->amOnPage('/');
@@ -288,8 +292,8 @@ $this->assertEquals('rgba(166, 166, 166, 1)', $bc);
                 </p>
             </section>
             <section>
+                <h2>Codeception wiki example</h2>
                 <pre><code data-trim contenteditable>
-                    <?php
 $I = new AcceptanceTester($scenario);
 $I->wantTo('create wiki page');
 $I->amOnPage('/');
@@ -303,7 +307,6 @@ $I->see('page created'); // notice generated
 $I->see('Hobbit','h1'); // head of page of is our title
 $I->seeInCurrentUrl('pages/hobbit');
 $I->seeInDatabase('pages', array('title' => 'Hobbit'));
-?>
                 </code></pre>
                 <p>
                     <a href="http://codeception.com/" target="_blank">http://codeception.com/</a>
@@ -336,6 +339,7 @@ $I->seeInDatabase('pages', array('title' => 'Hobbit'));
             <h1>Sources</h1>
             <p>
             <h2>Images</h2>
+            <a href="http://blog.pdark.de/2012/07/21/software-development-costs-bugfixing/" target="_blank">http://blog.pdark.de/2012/07/21/software-development-costs-bugfixing/</a>
             <a href="https://styde.net/instalacion-de-codeception-con-composer-en-laravel/" target="_blank">https://styde.net/instalacion-de-codeception-con-composer-en-laravel/</a><br>
             <a href="https://pixabay.com" target="_blank">https://pixabay.com</a><br>
             <a href="https://www.braune-digital.com/blog/schnelleinstieg-tests-mit-codeception-selenium-und-chrome/" target="_blank">https://www.braune-digital.com/blog/schnelleinstieg-tests-mit-codeception-selenium-und-chrome/</a>
