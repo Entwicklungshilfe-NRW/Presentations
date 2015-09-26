@@ -476,7 +476,7 @@ foreach ($categories as $categorie => $translation) {
     $contentVar = array();
     @include_once('de/megamenu/'.$categorie.'/content.php');
     $php_content .= '\'' . $translation . '\' => \'' . addcslashes($contentVar['megamenu'],"'\\") . '\',' . PHP_EOL;
-    echo 'include megamenu ' . $kategorie . PHP_EOL;
+    echo 'include megamenu ' . $categorie . PHP_EOL;
 }
                         </code></pre>
                         <p class="fragment">Try 2015 code</p>
