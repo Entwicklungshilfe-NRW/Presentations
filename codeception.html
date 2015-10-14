@@ -352,6 +352,200 @@ $I->seeInDatabase('pages', array('title' => 'Hobbit'));
                 </p>
             </section>
         </section>
+        <section>
+            <section>
+                <h2>Codeception features</h2>
+                <p>
+                    <img src="img/codeception/codeception-features.png" alt="Codeception features">
+                </p>
+            </section>
+            <section>
+                <h2>Recorder</h2>
+                <p>
+                    <img src="img/codeception/recorder.gif" alt="Codeception recorder">
+                </p>
+                <p>
+                    <a href="http://codeception1.rssing.com/chan-5825079/all_p11.html" target="_blank">http://codeception1.rssing.com/chan-5825079/all_p11.html</a>
+                </p>
+            </section>
+            <section>
+                <h2>Codeception screenshot</h2>
+                <pre><code data-trim contenteditable>
+$scenario->current('name');    // returns current test name
+$scenario->current('modules'); // returns current modules
+$scenario->current('env');     // returns environment
+
+$I->makeScreenshot($scenario->current('env').'_screenshot.png');
+
+$I->amOnPage('/user/edit');
+$I->makeScreenshot('edit_page');
+// saved to: tests/_output/debug/edit_page.png
+                </code></pre>
+            </section>
+            <section>
+                <h2>Codeception conditions</h2>
+                <pre><code data-trim contenteditable>
+if (substr(PHP_OS, 0, 3) == 'Win') {
+  $scenario->skip();
+}
+
+if ($scenario->current('env') == 'firefox') {
+  // do something for firefox only
+}
+                </code></pre>
+            </section>
+            <section>
+                <h2>Shorter syntax</h2>
+                <pre><code data-trim contenteditable>
+$I->wantTo('log in as regular user');
+$I->amOnPage('/login');
+$I->fillField('Username','davert');
+$I->fillField('Password','qwerty');
+$I->click('Login');
+$I->see('Hello, davert');
+
+$I->fillField('form#login input[name=login]','davert');
+$I->fillField('form#login input[name=password]','qwerty');
+$I->click('form#login input[type=submit]');
+
+$I->submitForm('form#login', array('login' => 'davert', 'password' => 'qwerty'));
+                </code></pre>
+                <p>
+                    <a href="http://codeception1.rssing.com/chan-5825079/all_p1.html" target="_blank">http://codeception1.rssing.com/chan-5825079/all_p1.html</a>
+                </p>
+            </section>
+            <section>
+                <h2>Codeception test files</h2>
+                <pre><code data-trim contenteditable>
+$I->attachFile('input[ * `type="file"]',`  'prices.xls');
+                </code></pre>
+                <p>
+                    <a href="http://codeception.com/docs/modules/WebDriver" target="_blank">http://codeception.com/docs/modules/WebDriver</a>
+                </p>
+            </section>
+            <section>
+                <h2>Codeception checkboxes</h2>
+                <pre><code data-trim contenteditable>
+$I->dontSeeCheckboxIsChecked('#agree');
+
+// I suppose user agreed to terms
+$I->seeCheckboxIsChecked('#agree');
+// I suppose user agreed to terms, If there is only one checkbox in form.
+$I->seeCheckboxIsChecked('#signup_form input[type=checkbox]');
+$I->seeCheckboxIsChecked('//form/input[ * `type=checkbox`  and  * `name=agree]');`
+                </code></pre>
+                <p>
+                    <a href="http://codeception.com/docs/modules/WebDriver" target="_blank">http://codeception.com/docs/modules/WebDriver</a>
+                </p>
+            </section>
+            <section>
+                <h2>Codeception drag and drop</h2>
+                <pre><code data-trim contenteditable>
+$I->dragAndDrop('#drag', '#drop');
+                </code></pre>
+                <p>
+                    <a href="http://codeception.com/docs/modules/WebDriver" target="_blank">http://codeception.com/docs/modules/WebDriver</a>
+                </p>
+            </section>
+            <section>
+                <h2>Codeception execute js</h2>
+                <pre><code data-trim contenteditable>
+                    $myVar = $I->executeJS('return $("#myField").val()');
+                </code></pre>
+                <p>
+                    <a href="http://codeception.com/docs/modules/WebDriver" target="_blank">http://codeception.com/docs/modules/WebDriver</a>
+                </p>
+            </section>
+            <section>
+                <h2>Codeception grap</h2>
+                <pre><code data-trim contenteditable>
+$I->grabAttributeFrom('#tooltip', 'title');
+$user_id = $I->grabFromCurrentUrl('~$/user/(\d+)/~');
+$uri = $I->grabFromCurrentUrl();
+
+$heading = $I->grabTextFrom('h1');
+$name = $I->grabValueFrom('Name');
+$name = $I->grabValueFrom('input[name=username]');
+
+<a href="#first">First</a>
+<a href="#second">Second</a>
+// would return ['First', 'Second']
+$aLinkText = $I->grabMultiple('a');
+// would return ['#first', '#second']
+$aLinks = $I->grabMultiple('a', 'href');
+                </code></pre>
+            </section>
+            <section>
+                <h2>Codeception resize</h2>
+                <pre><code data-trim contenteditable>
+$I->resizeWindow(800, 600);
+                </code></pre>
+            </section>
+            <section>
+                <h2>Codeception cookie</h2>
+                <pre><code data-trim contenteditable>
+$I->seeCookie('PHPSESSID');
+                </code></pre>
+            </section>
+            <section>
+                <h2>Codeception generated forms</h2>
+                <pre><code data-trim contenteditable>
+$I->seeInFormFields('.form-class', [
+  'input1' => 'value',
+  'input2' => 'other value',
+  'multiselect' => [
+    'value1',
+    'value2',
+  ],
+  'checkbox[]' => [
+    'a checked value',
+    'another checked value',
+  ],
+]);
+                </code></pre>
+            </section>
+            <section>
+                <h2>Codeception Iframes and window</h2>
+                <pre><code data-trim contenteditable>
+# switch to iframe
+$I->switchToIFrame("another_frame");
+# switch to parent page
+$I->switchToIFrame();
+
+$I->click("Open window");
+# switch to another window
+$I->switchToWindow("another_window");
+# switch to parent window
+$I->switchToWindow();
+                </code></pre>
+            </section>
+            <section>
+                <h2>Codeception wait</h2>
+                <pre><code data-trim contenteditable>
+$I->waitForElement('#agree_button', 30); // secs
+
+use \Facebook\WebDriver\WebDriverElement
+$I->waitForElementChange('#menu', function(WebDriverElement $el) {
+return $el->isDisplayed();
+}, 100);
+
+$I->waitForElementNotVisible('#agree_button', 30); // secs
+$I->waitForElementVisible('#agree_button', 30); // secs
+
+$I->waitForJS("return $.active == 0;", 60);
+
+$I->waitForText('foo', 30, '.title'); // secs .title optional
+                </code></pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Codeception reporting</h2>
+                <p>
+                    <img src="img/codeception/codeception-reporting.jpg" alt="Codeception reporting">
+                </p>
+            </section>
+        </section>
         <section style="text-align: left;">
             <h1>Questions?</h1>
         </section>
