@@ -464,19 +464,17 @@ if($foo != null){
                     </section>
                     <section>
                         <pre><code data-trim contenteditable>
-$categories = array(
-    'marken'	=> 'brands',
-    'bad'	=> 'bathroom',
-    'kueche'	=> 'kitchen',
-    'leuchten'	=> 'lights',
-);
+$COMPANY_Secure = new COMPANY_Secure;
 
-foreach ($categories as $categorie => $translation) {
-    $contentVar = array();
-    @include_once('de/megamenu/'.$categorie.'/content.php');
-    $php_content .= '\'' . $translation . '\' => \'' . addcslashes($contentVar['megamenu'],"'\\") . '\',' . PHP_EOL;
-    echo 'include megamenu ' . $categorie . PHP_EOL;
-}
+include_once 'config.inc.php';
+include_once 'functions.inc.php';
+
+$parameter = isset($_POST['parameter']) ? $_POST['parameter'] : '';
+
+$return[$_POST['function']] = $_POST['function']($parameter);
+$return = json_encode($return);
+
+echo $return;
                         </code></pre>
                         <p class="fragment">Try 2015 code</p>
                     </section>
@@ -573,39 +571,19 @@ public function preparePrint($id) {
                     </section>
                     <section>
                         <pre><code data-trim contenteditable>
-protected function validateParams($params) {
-    if (is_array($params)) {
-        if (isset($params['prodlistTrackingTag'])) {
-            if (empty($params['prodlistTrackingTag'])) {
-                unset($params['prodlistTrackingTag']);
-            } else {
-                if (substr($params['prodlistTrackingTag'], -1) != '/') {
-                    $params['prodlistTrackingTag'] .= '/';
-                }
-            }
-        }
+Comment.create(contentObj).done(function (err, item) {
+  if (err) {
+    oReturn.status = 'danger';
+    oReturn.message = 'Can not create comment';
+    console.log('CommentCreateError:', err);
+  } else {
+    oReturn.status = 'success';
+    oReturn.message = 'Comment created';
+  }
 
-        if (isset($params['productIds']) && !empty($params['productIds'])) {
-            $productIds = [];
-            foreach ($params['productIds'] as $productId) {
-                if (is_int($productId)) {
-                    $productIds[] = $productId;
-                }
-            }
-            $params['productIds'] = $productIds;
-        }
-
-    }
-
-    return $params;
-}
+  return res.json(oReturn);
+});
                         </code></pre>
-                        <p class="fragment highlight-blue">
-                            It is hard to refactor method names or parameters.
-                        </p>
-                        <p class="fragment highlight-blue">
-                            Think long about naming and talk about your work your team.
-                        </p>
                     </section>
                     <section>
                         <h2>Code refactoring benefits</h2>
