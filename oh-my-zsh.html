@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="http://www.entwicklungshilfe.nrw/typo3conf/ext/wmdb_base_ewh/Resources/Public/img/favicon.ico" type="image/x-icon">
+        <title>oh-my-zsh Präsentation von Php-Schulung Entwicklungshilfe</title>
+
+        <meta name="description" content="oh-my-zsh - Terminal effektiv mit Plugins nutzen PHP-Schulung">
+        <meta name="author" content="Entwicklungshilfe NRW">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="css/theme/eh.css">
+        <link rel="stylesheet" href="#" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <script type="text/javascript">
+            if(window.location.search.substring(1)){
+                document.getElementById("theme").href = "css/theme/"+window.location.search.substring(1)+".css";
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>oh-my-zsh</h1>
+                    <h3>Entwicklungshilfe</h3>
+                    <p>
+                        <a href="http://entwicklungshilfe.nrw" target="_blank">entwicklungshilfe.nrw</a> / <a href="http://twitter.com/help_for_devs" target="_blank">@help_for_devs</a> /
+                        <a href="https://www.facebook.com/entwicklungshilfe.nrw" target="_blank">FB/entwicklungshilfe.nrw</a><br>
+                        <small>
+                            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black</a>
+                            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a>
+                            <a href="#" onclick="document.getElementById('theme').setAttribute('href',''); return false;">EH</a>
+                        </small>
+                    </p>
+                </section>
+                <section>
+                    <section>
+                        <p>
+                            <h3>Powerline font</h3>
+                            <a href="https://github.com/powerline/fonts/blob/master/Meslo/Meslo%20LG%20L%20DZ%20Regular%20for%20Powerline.otf" target="_blank">
+                                https://github.com/powerline/fonts/blob/master/Meslo/Meslo%20LG%20L%20DZ%20Regular%20for%20Powerline.otf
+                            </a><br>
+                            press raw and install <br>
+                            <h4>ZSH installieren</h4>
+                            <a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank">https://github.com/robbyrussell/oh-my-zsh</a><br>
+                            curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh<br>
+                            or<br>
+                            wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Installation</h2>
+                        <h3>Solarized Theme</h3>
+                        <a href="http://ethanschoonover.com/solarized/files/solarized.zip" target="_blank">http://ethanschoonover.com/solarized/files/solarized.zip</a><br>
+                        unpack and in folder "iterm2-colors-solarized" the "Solrized Dark.itermcolors" double click
+
+                    </section>
+                    <section>
+                        <h2>Installation</h2>
+                        Open iTerm and pres "cmd + ," at colors "Load Presents" dropdown "Solarized dark".
+                        <p>
+                            <img src="img/oh-my-zsh/SOLARIZED-THEME.png" alt="SOLARIZED THEME iTerm">
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Installation</h2>
+                        Set the new font
+                        <p>
+                            <img src="img/oh-my-zsh/font-settings.png" alt="iTerm font setting">
+                        </p>
+                    </section>
+                    <section>
+                        <h2>Installation</h2>
+                        brew install fortune <br>
+                        brew install cowsay
+                        vim .zshrc<br>
+                        ZSH_THEME="agnoster"<br>
+                        plugins=(git jump jira osx z extract chucknorris history)<br>
+                        Iterm restart or open new tab. Enter this command<br>
+                        echo -e "\ue0a0 \ue0a1 \ue0a2 \ue0b0 \ue0b1 \ue0b2"
+                        <p>
+                            <img src="img/oh-my-zsh/test-output.png" alt="oh-my-zsh output">
+                        </p>
+
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Sources</h2>
+                        Plugin wiki<br>
+                        <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins" target="_blank">https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins</a><br>
+                        Cheatsheet<br>
+                        <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet" target="_blank">https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet</a>
+                    </section>
+                    <section>
+                        <h2>Directories</h2>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Alias</th>
+                                <th>Command</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td align="left"><em>alias</em></td>
+                                <td align="left">list all aliases</td>
+                            </tr>
+                            <tr>
+                                <td align="left">..</td>
+                                <td align="left">cd ..</td>
+                            </tr>
+                            <tr>
+                                <td align="left">...</td>
+                                <td align="left">cd ../..</td>
+                            </tr>
+                            <tr>
+                                <td align="left">....</td>
+                                <td align="left">cd ../../..</td>
+                            </tr>
+                            <tr>
+                                <td align="left">.....</td>
+                                <td align="left">cd ../../../..</td>
+                            </tr>
+                            <tr>
+                                <td align="left">/</td>
+                                <td align="left">cd /</td>
+                            </tr>
+                            <tr>
+                                <td align="left"><em>md</em></td>
+                                <td align="left">mkdir -p</td>
+                            </tr>
+                            <tr>
+                                <td align="left"><em>rd</em></td>
+                                <td align="left">rmdir</td>
+                            </tr>
+                            <tr>
+                                <td align="left"><em>d</em></td>
+                                <td align="left">dirs -v (lists last used directories)</td>
+                            </tr>
+                            <tr>
+                                <td align="left"><em>~3</em></td>
+                                <td align="left">cd to dir -v 3</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        <h2>Usefull git alias</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Alias</th>
+                                    <th>Command</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td align="left"><em>gst</em></td>
+                                    <td align="left">git status</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><em>gf</em></td>
+                                    <td align="left">git fetch</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><em>gl</em></td>
+                                    <td align="left">git pull</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><em>gp</em></td>
+                                    <td align="left">git push</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><em>gaa</em></td>
+                                    <td align="left">git add --all</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><em>gco</em></td>
+                                    <td align="left">git checkout</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><em>gcmsg</em></td>
+                                    <td align="left">git commit -m</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><em>gclean</em></td>
+                                    <td align="left">git clean -fd</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><em>gcb</em></td>
+                                    <td align="left">git checkout -b</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><em>gcm</em></td>
+                                    <td align="left">git checkout master</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        <h2>Jump plugin</h2>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Alias</th>
+                                <th>Command</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td align="left"><em>mark</em></td>
+                                    <td align="left">mark actual folder with name as mark</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><em>mark yourname</em></td>
+                                    <td align="left">mark actual folder with yourname as mark</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><em>jump yourname</em></td>
+                                    <td align="left">jump to folder yourname</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><em>unmark yourname</em></td>
+                                    <td align="left">remove</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        <h2>OSX plugin</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th align="left">Command</th>
+                                    <th align="left">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td align="left"><em>tab</em></td>
+                                    <td align="left">open the current directory in a new tab</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><em>cdf</em></td>
+                                    <td align="left">cd to the current Finder directory</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        <h2>JIRA plugin</h2>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th align="left">Command</th>
+                                <th align="left">Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td align="left"><em>jira</em></td>
+                                <td align="left">Open new issue form in browser</td>
+                            </tr>
+                            <tr>
+                                <td align="left"><em>jira ABC-123</em></td>
+                                <td align="left">Open issue in browser</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        <h2>History plugin</h2>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th align="left">Alias</th>
+                                <th align="left">Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td align="left"><em>h</em></td>
+                                    <td align="left">List your command history. Equivalent to using <code>history</code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left"><em>hsi</em></td>
+                                    <td align="left">When called without an argument you will get help on <code>grep</code> arguments</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        <h2>Extract plugin</h2>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th align="left">Alias</th>
+                                <th align="left">Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td align="left"><em>extract filename</em></td>
+                                    <td align="left">Extract any compressed file<code>history</code>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </section>
+                <section style="text-align: left;">
+                    <h1>Questions?</h1>
+                </section>
+                <section style="text-align: left;">
+                    <h1>Thanks</h1>
+                </section>
+
+                <section style="text-align: left;">
+                    <h1>Follow us!</h1>
+                    <div class="col"><i class="follow-icon"><img src="img/twitter.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://twitter.com/help_for_devs</a></div>
+                    <div class="col"><i class="follow-icon"><img src="img/facebook.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://www.facebook.com/entwicklungshilfe.nrw</a></div>
+                    <div class="col"><i class="follow-icon"><img src="img/github.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://github.com/entwicklungshilfe-nrw</a></div>
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        </script>
+        <script src="js/ga.js"></script>
+    </body>
+</html>
