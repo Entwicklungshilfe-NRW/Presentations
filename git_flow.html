@@ -208,6 +208,44 @@
 			</section>
 			<section>
 				<h1>Hands on</h1>
+				<p>gitignore</p>
+				<p>/Users/superdev/.gitignore_global oder __PROJECTROOT__/.gitignore</p>
+<pre>
+/.idea
+/app/etc/*
+!/app/etc/config.php
+/dev/tools/*
+!/dev/tools/grunt
+/dev/tools/grunt/*
+!/dev/tools/grunt/configs
+/dev/tools/grunt/configs/*
+!/dev/tools/grunt/configs/themes.js
+</pre>
+<p>Auszug .gitignore magento2 Projekt</p>
+			</section>
+			<section>
+				<h1>Hands on</h1>
+				<p>git config</p>
+				<p>/etc/gitconfig oder ~/.gitconfig</p>
+<pre>
+[user]
+        name = Super Developer
+        email = awesome@developer.dev
+[core]
+        excludesfile = /Users/superdev/.gitignore_global
+        autocrlf = input
+[difftool "sourcetree"]
+        cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+        path =
+[mergetool "sourcetree"]
+        cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+        trustExitCode = true
+
+</pre>
+<p>Beispiel Mac OS X</p>
+			</section>
+			<section>
+				<h1>Hands on</h1>
 				<p>git-flow</p>
 				<ul>
 					<li>git-flow installieren</li>
