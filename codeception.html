@@ -121,6 +121,7 @@
                 <p class="fragment">php ./vendor/bin/codecept g:env phantom</p>
                 <p class="fragment">php ./vendor/bin/codecept g:env firefox</p>
                 <p class="fragment">php ./vendor/bin/codecept g:env chrome</p>
+                <p class="fragment">php ./vendor/bin/codecept build</p>
             </section>
             <section>
                 <h2>codeception.yml root folder</h2>
@@ -232,9 +233,12 @@ $I->fillField('username', 'admin');
 $I->fillField('p_field', 'password');
 $I->click('Login');
 $I->seeLink('Extension Manager');
+   $I->seeNumberOfElements('tr', 10);
+            $I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
+
                         </code></pre>
             </section>
-        </section>
+                 </section>
         <section>
             <section>
                 <h2>Advanced testing</h2>
