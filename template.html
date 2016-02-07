@@ -14,7 +14,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/theme/eh.css" id="theme">
+	<link rel="stylesheet" href="css/theme/black.css">
+	<link rel="stylesheet" href="css/theme/eh.css">
+	<link rel="stylesheet" href="#" id="theme">
 
 	<!-- Code syntax highlighting -->
 	<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -38,17 +40,20 @@
 	</script>
 </head>
 <body>
-
 <div class="reveal">
-
 	<!-- Any section element inside of this container is displayed as a slide -->
 	<div class="slides">
 		<section>
 			<h1>Beispielthema</h1>
 			<h3>Entwicklungshilfe</h3>
 			<p>
-				<small>Web <a href="http://entwicklungshilfe.nrw" target="_blank">entwicklungshilfe.nrw</a> / <a href="http://twitter.com/help_for_devs" target="_blank">@help_for_devs</a> /
-					<a href="https://www.facebook.com/entwicklungshilfe.nrw" target="_blank">FB/entwicklungshilfe.nrw</a></small>
+				<a href="http://entwicklungshilfe.nrw" target="_blank">entwicklungshilfe.nrw</a> / <a href="http://twitter.com/help_for_devs" target="_blank">@help_for_devs</a> /
+				<a href="https://www.facebook.com/entwicklungshilfe.nrw" target="_blank">FB/entwicklungshilfe.nrw</a><br>
+				<small>
+					<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black</a>
+					<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a>
+					<a href="#" onclick="document.getElementById('theme').setAttribute('href',''); return false;">EH</a>
+				</small>
 			</p>
 			<aside class="notes">
 				Don't forget notes
