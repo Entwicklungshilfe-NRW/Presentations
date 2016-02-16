@@ -89,6 +89,7 @@
                 <p class="fragment">Improves accuracy</p>
                 <p class="fragment">Increases efficiency</p>
                 <p class="fragment">Better speed in executing tests</p>
+                <p class="fragment">Repeatable</p>
             </section>
             <section>
                 <h2>Quality / Costs automated testing</h2>
@@ -117,7 +118,7 @@
             <section>
                 <h2>Starting from scratch</h2>
                 <p class="fragment">composer init</p>
-                <p class="fragment">composer require codeception/codeception</p>
+                <p class="fragment">composer require --dev codeception/codeception</p>
                 <p class="fragment">composer install</p>
                 <p class="fragment">php ./vendor/bin/codecept bootstrap</p>
                 <p class="fragment">php ./vendor/bin/codecept generate:cept acceptance Welcome</p>
@@ -157,16 +158,13 @@ modules:
 class_name: AcceptanceTester
   modules:
     enabled:
-      - PhpBrowser
       - WebDriver
       - \Helper\Acceptance
     config:
-      PhpBrowser:
-        url: 'http://typo3.org'
         WebDriver:
           window_size: 1024x768
           url: 'http://typo3.org'
-          browser: 'chrome'
+          browser: 'phantomjs'
     extensions:
       enabled:
         - Codeception\Extension\Recorder
@@ -174,18 +172,16 @@ class_name: AcceptanceTester
         Codeception\Extension\Recorder:
           delete_successful: false
     env:
-      phantom:
-        modules:
-          config:
-            WebDriver:
-              browser: 'phantomjs'
       chrome:
         modules:
           config:
             WebDriver:
               browser: 'chrome'
       firefox:
-        # nothing changed
+        modules:
+          config:
+            WebDriver:
+              browser: 'firefox'
                         </code></pre>
             </section>
         </section>
