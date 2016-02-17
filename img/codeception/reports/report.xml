@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="acceptance (firefox)" tests="6" assertions="8" failures="1" errors="0" time="22.267167">
+    <testcase name="404" file="/Users/rolandgolla/projects/repos/eh/codeception/tests/acceptance/404Cept.php" feature="check my 404" assertions="1" time="2.620539"/>
+    <testcase name="AutoComplete" file="/Users/rolandgolla/projects/repos/eh/codeception/tests/acceptance/AutoCompleteCept.php" feature="check drupal in search" assertions="1" time="3.845729">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">check drupal in search (AutoCompleteCept)
+Failed asserting that   &lt;bold&gt;/&lt;/bold&gt;
+--&gt; &lt;info&gt; 
+TYPO3 CMS 7 LTS
+Evolution Continues
+TYPO3 Extbase Book (EN)
+Order your copy online!
+Get your certification
+certify now
+TYPO3 Association membership
+Join us now
+What is TYPO3 CMS?
+Open Source Enterprise CMS
+Scalable Web Application Framework
+Large, active global community
+User friendly with unlimit&lt;/info&gt;
+&lt;debug&gt;[Content too long to display. See complete response in '_output' directory]&lt;/debug&gt;
+--&gt; contains "drupal not working".
+
+/Users/rolandgolla/projects/repos/eh/codeception/tests/_support/_generated/AcceptanceTesterActions.php:343
+/Users/rolandgolla/projects/repos/eh/codeception/tests/acceptance/AutoCompleteCept.php:7
+</failure>
+    </testcase>
+    <testcase name="BackendLogin" file="/Users/rolandgolla/projects/repos/eh/codeception/tests/acceptance/BackendLoginCept.php" feature="login to backend" assertions="2" time="7.354792"/>
+    <testcase name="Navigation" file="/Users/rolandgolla/projects/repos/eh/codeception/tests/acceptance/NavigationCept.php" feature="Test main navigation" assertions="2" time="3.994010"/>
+    <testcase name="Search" file="/Users/rolandgolla/projects/repos/eh/codeception/tests/acceptance/SearchCept.php" feature="check drupal in search" assertions="1" time="2.387759"/>
+    <testcase name="Welcome" file="/Users/rolandgolla/projects/repos/eh/codeception/tests/acceptance/WelcomeCept.php" feature="Test welcome page" assertions="1" time="2.064338"/>
+  </testsuite>
+  <testsuite name="acceptance (chrome)" tests="6" assertions="8" failures="1" errors="0" time="16.923365">
+    <testcase name="404" file="/Users/rolandgolla/projects/repos/eh/codeception/tests/acceptance/404Cept.php" feature="check my 404" assertions="1" time="2.119726"/>
+    <testcase name="AutoComplete" file="/Users/rolandgolla/projects/repos/eh/codeception/tests/acceptance/AutoCompleteCept.php" feature="check drupal in search" assertions="1" time="2.106493">
+      <failure type="PHPUnit_Framework_ExpectationFailedException">check drupal in search (AutoCompleteCept)
+Failed asserting that   &lt;bold&gt;/&lt;/bold&gt;
+--&gt; &lt;info&gt; 
+TYPO3 CMS 7 LTS
+Evolution Continues
+TYPO3 Extbase Book (EN)
+Order your copy online!
+Get your certification
+certify now
+TYPO3 Association membership
+Join us now
+What is TYPO3 CMS?
+Open Source Enterprise CMS
+Scalable Web Application Framework
+Large, active global community
+User friendly with unlimit&lt;/info&gt;
+&lt;debug&gt;[Content too long to display. See complete response in '_output' directory]&lt;/debug&gt;
+--&gt; contains "drupal not working".
+
+/Users/rolandgolla/projects/repos/eh/codeception/tests/_support/_generated/AcceptanceTesterActions.php:343
+/Users/rolandgolla/projects/repos/eh/codeception/tests/acceptance/AutoCompleteCept.php:7
+</failure>
+    </testcase>
+    <testcase name="BackendLogin" file="/Users/rolandgolla/projects/repos/eh/codeception/tests/acceptance/BackendLoginCept.php" feature="login to backend" assertions="2" time="7.132678"/>
+    <testcase name="Navigation" file="/Users/rolandgolla/projects/repos/eh/codeception/tests/acceptance/NavigationCept.php" feature="Test main navigation" assertions="2" time="2.111702"/>
+    <testcase name="Search" file="/Users/rolandgolla/projects/repos/eh/codeception/tests/acceptance/SearchCept.php" feature="check drupal in search" assertions="1" time="2.926962"/>
+    <testcase name="Welcome" file="/Users/rolandgolla/projects/repos/eh/codeception/tests/acceptance/WelcomeCept.php" feature="Test welcome page" assertions="1" time="0.525804"/>
+  </testsuite>
+</testsuites>
