@@ -591,6 +591,41 @@ Comment.create(contentObj).done(function (err, item) {
                         </code></pre>
                     </section>
                     <section>
+                        <pre><code data-trim contenteditable>
+protected function validateParams($params) {
+  if (is_array($params)) {
+    if (isset($params['prodlistTrackingTag'])) {
+      if (empty($params['prodlistTrackingTag'])) {
+        unset($params['prodlistTrackingTag']);
+      } else {
+        if (substr($params['prodlistTrackingTag'], -1) != '/') {
+          $params['prodlistTrackingTag'] .= '/';
+        }
+      }
+    }
+
+    if (isset($params['productIds']) && !empty($params['productIds'])) {
+      $productIds = [];
+      foreach ($params['productIds'] as $productId) {
+        if (is_int($productId)) {
+          $productIds[] = $productId;
+        }
+      }
+      $params['productIds'] = $productIds;
+    }
+  }
+
+  return $params;
+}
+                        </code></pre>
+                        <p class="fragment">
+                            It is hard to refactor method names or parameters.
+                        </p>
+                        <p class="fragment">
+                            Think long about naming and talk about your work your team.
+                        </p>
+                    </section>
+                    <section>
                         <h2>Code refactoring benefits</h2>
                         <p class="fragment">Your code quality is much better</p>
                         <p class="fragment">All people are much more happy</p>
