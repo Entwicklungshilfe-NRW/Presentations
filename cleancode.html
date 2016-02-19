@@ -59,9 +59,6 @@
                             <a href="#" onclick="document.getElementById('theme').setAttribute('href',''); return false;">EH</a>
                         </small>
                     </p>
-                    <aside class="notes">
-                        Don't forget notes
-                    </aside>
                 </section>
 
                 <section>
@@ -88,97 +85,128 @@
                         <h2>Codestandard</h2>
                         <p>ruleset.xml PSR2</p>
                         <pre><code data-trim contenteditable>
-    <ruleset name="PSR2">
-        <description>The PSR-2 coding standard.</description>
-
-        <arg name="tab-width" value="4"/>
-
-        <rule ref="PSR1"/>
-
-        <rule ref="Generic.Files.LineEndings">
-            <properties>
-                <property name="eolChar" value="\n"/>
-            </properties>
-        </rule>
-
-        ...
-
-    </ruleset>
+<ruleset name="PSR2">
+  <description>The PSR-2 coding standard.</description>
+  <arg name="tab-width" value="4"></arg>
+  <rule ref="PSR1"></rule>
+  <rule ref="Generic.Files.LineEndings">
+    <properties>
+      <property name="eolChar" value="\n"></property>
+    </properties>
+  </rule>
+  ...
+</ruleset>
                         </code></pre>
+                        <p>
+                            <a href="https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/PSR2/ruleset.xml" target="_blank">
+                                https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/PSR2/ruleset.xml
+                            </a>
+                        </p>
+                        <aside class="notes">
+                            Codestandard is a ruleset. <br>
+                            You have arguments, rules and properties.
+                        </aside>
                     </section>
                     <section>
                         <h2>Codestandard</h2>
                         <p>ruleset.xml Entwicklungshilfe</p>
                     <pre><code data-trim contenteditable>
-    <rule ref="PSR1">
-        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"></exclude>
-    </rule>
-    <rule ref="Generic.Files.LineLength">
-        <properties>
-            <property name="lineLimit" value="120"/>
-            <property name="absoluteLineLimit" value="120"/>
-        </properties>
-    </rule>
-    <rule ref="Generic.Files.LineLength.MaxExceeded">
-        <type>warning</type>
-    </rule>
+<ruleset name="ENTWICKLUNGSHILFENRW">
+  <rule ref="PSR1">
+    <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"></exclude>
+  </rule>
+  <rule ref="Generic.Files.LineLength">
+    <properties>
+      <property name="lineLimit" value="120"></property>
+      <property name="absoluteLineLimit" value="120"></property>
+    </properties>
+  </rule>
+  <rule ref="Generic.Files.LineLength.MaxExceeded">
+    <type>warning</type>
+  </rule>
+</ruleset>
                     </code></pre>
-                        <p><a href="https://github.com/Entwicklungshilfe-NRW/Codestandard" target="_blank">https://github.com/Entwicklungshilfe-NRW/Codestandard</a></p>
+                        <p>
+                            <a href="https://github.com/Entwicklungshilfe-NRW/Codestandard" target="_blank">
+                                https://github.com/Entwicklungshilfe-NRW/Codestandard
+                            </a>
+                        </p>
+                        <aside class="notes">
+                            Use your own standard and you will have the control. <br>
+                            You can exclude rules what is important on beginning. <br>
+                            You can set new properties and change errors to warnings.
+                        </aside>
                     </section>
                     <section>
                         <h2>Codestandard</h2>
                         <p>Sniffs</p>
                         <pre><code data-trim contenteditable>
-    /**
-    * Class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff.
-    *
-    * This will find debug vars in php code.
-    */
-    class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff implements PHP_CodeSniffer_Sniff
-    {
-        public $error = TRUE;
-        protected $patternMatch = TRUE;
-        protected $forbiddenFunctions = array(
-            '^var_dump$' => NULL,
-            '^die$' => NULL,
-            '^exit$' => NULL,
-        );
-        ...
-    }
+/**
+ * Class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff.
+ * This will find debug vars in php code.
+ */
+class Entwicklungshilfe_Sniffs_Debug_NoDebugVarsSniff implements PHP_CodeSniffer_Sniff
+{
+  public $error = true;
+  protected $patternMatch = true;
+  protected $forbiddenFunctions = array(
+    '^var_dump$' => null,
+    '^die$' => null,
+    '^exit$' => null,
+  );
+  ...
+}
 
                         </code></pre>
-                        <p><a href="https://github.com/Entwicklungshilfe-NRW/Codestandard/blob/master/standards/ENTWICKLUNGSHILFE/Sniffs/Debug/NoDebugVarsSniff.php">https://github.com/Entwicklungshilfe-NRW/Codestandard/blob/master/standards/ENTWICKLUNGSHILFE/Sniffs/Debug/NoDebugVarsSniff.php</a></p>
+                        <p>
+                            <a href="https://github.com/Entwicklungshilfe-NRW/Codestandard/blob/master/standards/ENTWICKLUNGSHILFE/Sniffs/Debug/NoDebugVarsSniff.php">
+                                https://github.com/Entwicklungshilfe-NRW/Codestandard/.../Sniffs/Debug/NoDebugVarsSniff.php
+                            </a>
+                        </p>
+                        <aside class="notes">
+                            You can do your own sniffs like this to find debug vars or usage of global vars like $_POST. But do not start to hard.
+                        </aside>
                     </section>
                     <section>
                         <h2>Codestandard</h2>
                         <p>Integration Codestandard</p>
                         <img src="img/cleancode/integration-codestandard.png" alt="Integration Codestandard">
-                        <p class="fragment">phpcs -i</p>
-                        <p class="fragment">The installed coding standards are ENTWICKLUNGSHILFE, MySource, PEAR, PHPCS, PSR1, PSR2, Squiz and Zend</p>
+                        <p>phpcs -i</p>
+                        <p>The installed coding standards are ENTWICKLUNGSHILFE, MySource, PEAR, PHPCS, PSR1, PSR2, Squiz and Zend</p>
+                        <aside class="notes">
+                            Import as a symlink so you can easy work and do not need sudo.
+                        </aside>
                     </section>
                     <section>
                         <h2>Codestandard</h2>
                         <p>Run Codestandard</p>
                         phpcs --standard=ENTWICKLUNGSHILFE DefaultController.php -s
-                        <p class="fragment">
+                        <p>
                             <img src="img/cleancode/cli-run-sniffer.png" alt="CLI rum codesniffer">
                         </p>
+                        <aside class="notes">
+                            The default controller in symfony. <br>
+                            Here is TRUE uppercase and can be fixed automatic with the PHP code beautifier also works recursive. <br>
+                            Do not do it without tests for your app. Sometimes there are php side effects.
+
+                        </aside>
                     </section>
                     <section>
-                        <h2>Codestandard</h2>
+                        <h2>Codestandard in PhpStorm</h2>
                         <img src="img/cleancode/pstorm-sniff-settings.png" alt="PhpStorm Codesniffer">
                     </section>
                     <section>
-                        <h2>Codestandard</h2>
+                        <h2>Codestandard in PhpStorm</h2>
                         <img src="img/cleancode/pstorm-sniff.png" alt="PhpStorm Codesniffer output">
                     </section>
                     <section>
                         <h2>Codestandard benefits</h2>
                         <p class="fragment">Much better code structure</p>
                         <p class="fragment">Much better reading</p>
-                        <p class="fragment">Provide rules in team</p>
+                        <p class="fragment">Provide rules in team and vote for it</p>
                         <p class="fragment">Everybody starts to think about code</p>
                         <p class="fragment">Good for the team spirit</p>
+                        <p class="fragment">Start for Clean Code</p>
                     </section>
                 </section>
                 <section>
@@ -192,6 +220,9 @@
                                 <p>OHH</p>
                             </div>
                         </div>
+                        <aside class="notes">
+                            Make loud and clean silvester sound.
+                        </aside>
                     </section>
                     <section>
                         <h2>Code conventions</h2>
@@ -226,6 +257,9 @@ $catLanguage
                                 </code></pre>
                             </div>
                         </div>
+                        <aside class="notes">
+                            Snake case vs lower camel case. Sometimes people use left on JS and richt on PHP. It comes from the line length. Right is shorter left better readable.
+                        </aside>
                     </section>
                     <section>
                         <h2>Code conventions</h2>
@@ -247,6 +281,9 @@ null
                                 </code></pre>
                             </div>
                         </div>
+                        <aside class="notes">
+                            OHH is right. Use lower camel case. Otherwise it is a constant. Need more time and can be set in index define("TRUE", false)
+                        </aside>
                     </section>
                     <section>
                         <h2>Code conventions</h2>
@@ -276,6 +313,11 @@ $return
                             $return = true;<br>
                             return $return;
                         </p>
+                        <aside class="notes">
+                            Short syntax vs written out. Better right but when left is for everybody understand you could do. <br>
+                            What is about the last? -> Depends on context <br>
+                            Click fragment -> Early exit?
+                        </aside>
                     </section>
                     <section>
                         <h2>Code conventions</h2>
@@ -311,6 +353,9 @@ $user
                                 </code></pre>
                             </div>
                         </div>
+                        <aside class="notes">
+                            Hungarian notation - provide type of variable
+                        </aside>
                     </section>
                     <section>
                         <h2>Code conventions</h2>
@@ -330,6 +375,9 @@ or
                                 </code></pre>
                             </div>
                         </div>
+                        <aside class="notes">
+                            Right is harder and better. Left can have side effects. It is not the same. You can not just replace it on refactoring.
+                        </aside>
                     </section>
 
 
@@ -353,6 +401,11 @@ if($a === 1) {
                                 </code></pre>
                             </div>
                         </div>
+                        <aside class="notes">
+                            This method do not need a case ;) <br>
+                            Name of method is very bad <br>
+                            Use harder comparing
+                        </aside>
                     </section>
                     <section>
                         <h2>Code conventions</h2>
@@ -387,6 +440,9 @@ if($foo != null){
                                 </code></pre>
                             </div>
                         </div>
+                        <aside class="notes">
+                            Any ideas to refactor the right? -> Solution on next section.
+                        </aside>
                     </section>
                     <section>
                         <h2>Code conventions</h2>
@@ -407,6 +463,9 @@ if($foo != null){
                                 </code></pre>
                             </div>
                         </div>
+                        <aside class="notes">
+                            Else case is up - and elvis operator
+                        </aside>
                     </section>
                     <section>
                         <h2>Code conventions</h2>
@@ -437,7 +496,15 @@ if($foo != null){
                                 </code></pre>
                             </div>
                         </div>
-                        <p><a href="https://en.wikipedia.org/wiki/Elvis_operator" target="_blank">https://en.wikipedia.org/wiki/Elvis_operator</a></p>
+                        <p>
+                            <a href="https://en.wikipedia.org/wiki/Elvis_operator" target="_blank">
+                                https://en.wikipedia.org/wiki/Elvis_operator
+                            </a> <br>
+                            "PHP 5.3.0 Release Announcement". Retrieved 2014-02-17. Syntax additions: NOWDOC, ternary short cut "?:"
+                        </p>
+                        <aside class="notes">
+                            The problem is that the case is not only the question for empty. Before the question mark will me more, after it also. Bad readable. Use right side and use it as convention.
+                        </aside>
                     </section>
                     <section>
                         <h2>Code conventions</h2>
@@ -450,6 +517,9 @@ if($foo != null){
                 <section>
                     <section data-background="img/cleancode/pain.gif">
                         <h2 style="color: white">Code pain</h2>
+                        <aside class="notes">
+                            This is not a funny accident where everybody laughs. This is hard pain and little coders would be totally destroyed.
+                        </aside>
                     </section>
                     <section>
                         <h2>Technical debt</h2>
@@ -481,7 +551,15 @@ foreach ($categories as $categorie => $translation) {
     echo 'include megamenu ' . $categorie . PHP_EOL;
 }
                         </code></pre>
-                        <p class="fragment">Try 2015 code</p>
+                        <p>
+                            Where is the pain?
+                        </p>
+                        <aside class="notes">
+                            How do you implement a third language? <br>
+                            @ you need here logging when a mega menu not comes. No client will call you and tell it to you. <br>
+                            Include for all languages is under de folder -> there is much more pain <br>
+                            This is all the pain nobody wants but when the only thing is that good code runs and bad code fails. Than this guy implement englich in 10 Minutes and is a company hero.
+                        </aside>
                     </section>
                     <section>
                         <pre><code data-trim contenteditable>
@@ -499,6 +577,11 @@ if($clerk == 1){
                         </code></pre>
                         <p class="fragment">Dublicate content is horror</p>
                         <p class="fragment">Think about copy & paste and be awake in this moment</p>
+                        <aside class="notes">
+                            To where can you move the globals up or down? <br>
+                            What is the setCostumerid() doing? <br>
+                            Why is it not setCostumerId?
+                        </aside>
                     </section>
                     <section>
                         <pre><code data-trim contenteditable>
@@ -528,6 +611,13 @@ public function preparePrint($id) {
     }
 }
                         </code></pre>
+                        <aside class="notes">
+                            What type will have id? <br>
+                            Do you need the else statement? <br>
+                            Make Variable getFirstItem <br>
+                            If not is array early exit or exception <br>
+                            Very bad readable
+                        </aside>
                     </section>
                     <section>
                         <h2>Do the code review in the team</h2>
@@ -573,6 +663,11 @@ public function preparePrint($id) {
                         <p class="fragment">
                             <a href="https://github.com/Entwicklungshilfe-NRW/magentoModulRefactoringBox" target="_blank">https://github.com/Entwicklungshilfe-NRW/magentoModulRefactoringBox</a>
                         </p>
+                        <aside class="notes">
+                            Much better readable and you can understand it. <br>
+                            Exception handling. <br>
+                            All is left -> go for left
+                        </aside>
                     </section>
                     <section>
                         <pre><code data-trim contenteditable>
@@ -589,6 +684,10 @@ Comment.create(contentObj).done(function (err, item) {
   return res.json(oReturn);
 });
                         </code></pre>
+                        <aside class="notes">
+                            Logging handler not for production <br>
+                            You can set the else first but here it is tricky better set error case first and when no error go green.
+                        </aside>
                     </section>
                     <section>
                         <pre><code data-trim contenteditable>
@@ -624,6 +723,15 @@ protected function validateParams($params) {
                         <p class="fragment">
                             Think long about naming and talk about your work your team.
                         </p>
+                        <p class="fragment">
+                            Thing on protected and public. Default private.
+                        </p>
+                        <aside class="notes">
+                            How many parameters? <br>
+                            Is it readable? <br>
+                            Protected or private? <br>
+                            In your methods work with unit tests and check params that comes in and goes out are ok and nothing will crash.
+                        </aside>
                     </section>
                     <section>
                         <h2>Code refactoring benefits</h2>
