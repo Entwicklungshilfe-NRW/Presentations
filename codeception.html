@@ -478,6 +478,34 @@ if ($scenario->current('env') == 'firefox') {
                 </p>
             </section>
             <section>
+                <h2>See elements</h2>
+                <pre><code data-trim contenteditable>
+$I->seeInSource('<h1>Green eggs &amp; ham</h1>');
+$I->seeInTitle('Blog - Post #1');
+$I->seeLink('Logout'); // matches <a href="#">Logout</a>
+$I->seeLink('Logout','/logout'); // matches <a href="/logout">Logout</a>
+$I->seeNumberOfElements('tr', 10);
+$I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
+$I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
+                </code></pre>
+            </section>
+            <section>
+                <h2>Dont see elements</h2>
+                <pre><code data-trim contenteditable>
+$I->dontSee('Login');                    // I can suppose user is already logged in
+$I->dontSee('Sign Up','h1');             // I can suppose it's not a signup page
+$I->dontSee('Sign Up','//body/h1');      // with XPath
+$I->dontSeeCheckboxIsChecked('#agree'); // I suppose user didn't agree to terms
+$I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user didn't check the first checkbox in form.
+$I->dontSeeCurrentUrlEquals('/'); // current url is not root
+$I->dontSeeCurrentUrlMatches('~$/users/(\d+)~'); // to match root url
+$I->dontSeeElement('.error');
+$I->dontSeeElement('//form/input[1]');
+$I->dontSeeElement('input', ['name' => 'login']);
+$I->dontSeeElement('input', ['value' => '123456']);
+                </code></pre>
+            </section>
+            <section>
                 <h2>Shorter syntax</h2>
                 <pre><code data-trim contenteditable>
 $I->wantTo('log in as regular user');
