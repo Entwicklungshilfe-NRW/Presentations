@@ -59,9 +59,6 @@
                     <a href="#" onclick="document.getElementById('theme').setAttribute('href',''); return false;">EH</a>
                 </small>
             </p>
-            <aside class="notes">
-                Don't forget notes
-            </aside>
         </section>
 
         <section>
@@ -70,7 +67,7 @@
                 <li>Why codeception</li>
                 <li>Installation</li>
                 <li>Tests</li>
-                <li>Auswertung</li>
+                <li>Reports</li>
                 <li>Extended</li>
             </ul>
         </section>
@@ -80,6 +77,11 @@
                 <p>
                     <img src="img/codeception/codeception-cost-of-bug.png" alt="Codeception cost of a bug">
                 </p>
+                <aside class="notes">
+                    Direct finding of a bug cost nothing. <br>
+                    On qa testing is also a lot of extra communication. <br>
+                    On live can be hard damage also on the company public image. <br>
+                </aside>
             </section>
             <section>
                 <h2>Benefits of automated testing</h2>
@@ -89,12 +91,19 @@
                 <p class="fragment">Improves accuracy</p>
                 <p class="fragment">Increases efficiency</p>
                 <p class="fragment">Better speed in executing tests</p>
+                <p class="fragment">Repeatable</p>
             </section>
             <section>
                 <h2>Quality / Costs automated testing</h2>
                 <p>
                     <img src="img/codeception/eh-grafik-quality-costs.png" alt="Quality / Costs automated testing">
                 </p>
+                <aside class="notes">
+                    Sure on first you are more effektive on clicking than writing a test. <br>
+                    But on every next time the quatity is high - blue line. <br>
+                    Later when everybody is busy nobody tests - maybe the user. <br>
+                    And you have much more costs because of the communication and workspace.
+                </aside>
             </section>
         </section>
         <section>
@@ -109,6 +118,13 @@
                 <p class="fragment">brew install selenium-server-standalone</p>
                 <p class="fragment">brew install chromedriver</p>
                 <p class="fragment">brew install phantomjs</p>
+                <aside class="notes">
+                    You can do it global or download a composer.phar. <br>
+                    On codeception it makes sense to make it global. <br>
+                    Selenium server is simulating the user action. On remote maybe use the bin file and xdisplay.<br>
+                    Chromedriver is good for advanced features - do not need on simple tests. <br>
+                    Phantom is very quick and finds a lot. Will be your local body ;)
+                </aside>
             </section>
             <section>
                 <h2>Starting from scratch</h2>
@@ -116,15 +132,20 @@
             </section>
             <section>
                 <h2>Starting from scratch</h2>
-                <p class="fragment">composer init</p>
-                <p class="fragment">composer require codeception/codeception</p>
-                <p class="fragment">composer install</p>
-                <p class="fragment">php ./vendor/bin/codecept bootstrap</p>
-                <p class="fragment">php ./vendor/bin/codecept generate:cept acceptance Welcome</p>
-                <p class="fragment">php ./vendor/bin/codecept g:env phantom</p>
-                <p class="fragment">php ./vendor/bin/codecept g:env firefox</p>
-                <p class="fragment">php ./vendor/bin/codecept g:env chrome</p>
-                <p class="fragment">php ./vendor/bin/codecept build</p>
+                <p class="fragment">
+                    composer <strong>init</strong> <br>
+                    composer <strong>require --dev codeception/codeception</strong> <br>
+                    composer <strong>install</strong>
+                </p>
+                <p class="fragment">
+                    php ./vendor/bin/codecept <strong>bootstrap</strong> <br>
+                    php ./vendor/bin/codecept <strong>generate:cept acceptance Welcome</strong>
+                </p>
+                <p class="fragment">
+                    php ./vendor/bin/codecept <strong>g:env phantom</strong> <br>
+                    php ./vendor/bin/codecept <strong>g:env firefox</strong> <br>
+                    php ./vendor/bin/codecept <strong>g:env chrome</strong>
+                </p>
             </section>
             <section>
                 <h2>codeception.yml root folder</h2>
@@ -146,11 +167,24 @@ extensions:
 modules:
   config:
     Db:
-      dsn: ''
-      user: ''
-      password: ''
+      dsn: 'mysql:host=127.0.0.1;dbname=hilfe_live'
+      user: 'root'
+      password: '1234'
       dump: tests/_data/dump.sql
+      populate: true
+      cleanup: true
                         </code></pre>
+                <p class="fragment">
+                    <strong>RunFailed:</strong> Saves failed tests into tests/log/_output/failed in order to rerun failed tests. <br>
+                    To rerun failed tests just run the failed group: <br>
+                    php codecept run -g failed
+                </p>
+                <aside class="notes">
+                    Settings for the testsuite. <br>
+                    Can also use tmp folders for the output. <br>
+                    Load extensions like the RunFailed. <br>
+                    Can do database
+                </aside>
             </section>
             <section>
                 <h2>acceptance.suite.yml test folder</h2>
@@ -158,16 +192,13 @@ modules:
 class_name: AcceptanceTester
   modules:
     enabled:
-      - PhpBrowser
       - WebDriver
       - \Helper\Acceptance
     config:
-      PhpBrowser:
-        url: 'http://typo3.org'
         WebDriver:
           window_size: 1024x768
           url: 'http://typo3.org'
-          browser: 'chrome'
+          browser: 'phantomjs'
     extensions:
       enabled:
         - Codeception\Extension\Recorder
@@ -175,18 +206,16 @@ class_name: AcceptanceTester
         Codeception\Extension\Recorder:
           delete_successful: false
     env:
-      phantom:
-        modules:
-          config:
-            WebDriver:
-              browser: 'phantomjs'
       chrome:
         modules:
           config:
             WebDriver:
               browser: 'chrome'
       firefox:
-        # nothing changed
+        modules:
+          config:
+            WebDriver:
+              browser: 'firefox'
                         </code></pre>
             </section>
         </section>
@@ -199,7 +228,7 @@ class_name: AcceptanceTester
                 </p>
             </section>
             <section>
-                <h1>Startpage test</h1>
+                <h1>Startpage test cept</h1>
                 <p>
                             <pre><code data-trim contenteditable>
 $I = new AcceptanceTester($scenario);
@@ -210,12 +239,39 @@ $I->see('What is TYPO3 CMS?');
                 </p>
             </section>
             <section>
+                <h1>Startpage test cest</h1>
+                <p>
+                            <pre><code data-trim contenteditable>
+class LoginBadCredentialsCest
+{
+  public function _before(AcceptanceTester $I) {}
+
+  public function _after(AcceptanceTester $I) {}
+
+  public function tryToTest(AcceptanceTester $I) {
+    $I = new AcceptanceTester($scenario);
+    $I->wantTo('Test welcome page');
+    $I->amOnPage('/');
+    $I->see('What is TYPO3 CMS?');
+  }
+}
+                            </code></pre>
+                </p>
+                <p class="fragment">
+                    Better to use cest from beginning.
+                </p>
+                <aside class="notes">
+                    Can do things before and after the test like login.
+                </aside>
+            </section>
+            <section>
                 <h1>Navigation test</h1>
                 <p>
                             <pre><code data-trim contenteditable>
 $I = new AcceptanceTester($scenario);
 $I->wantTo('Test main navigation');
 $I->amOnPage('/');
+$I->waitForElement('h1');
 $I->moveMouseOver('.nav > li:nth-of-type(3)');
 $I->wait(1);
 $I->see('Overview');
@@ -224,24 +280,30 @@ $I->waitForElement('h4');
 $I->see('The Enterprise');
                             </code></pre>
                 </p>
+                <p>
+                    Wait for elements.
+                </p>
+                <p>
+                    On JS sometimes is easier to wait a second than to check changing of elements. Specialcase like left:0px.
+                </p>
             </section>
             <section>
                 <h2>TYPO3 login</h2>
                         <pre><code data-trim contenteditable>
 $I->wantTo('check if we can login to typo3 demo backend');
-$I->amOnPage('/typo3');
+$I->amOnPage('/typo3/index.php');
 $I->see('Login');
 $I->wantTo('want to login');
-$I->fillField('username', 'admin');
-$I->fillField('p_field', 'password');
+$I->fillField('#t3-username', 'admin');
+$I->fillField('#t3-password', 'password');
 $I->click('Login');
 $I->seeLink('Extension Manager');
-   $I->seeNumberOfElements('tr', 10);
-            $I->seeNumberOfElements('tr', [0,10]); //between 0 and 10 elements
-
                         </code></pre>
+                <p class="fragment">
+                    Use the deeplink sometimes on local env there are no .htaccess working. Here you test the login and not the url handling.
+                </p>
             </section>
-                 </section>
+        </section>
         <section>
             <section>
                 <h2>Advanced testing</h2>
@@ -253,66 +315,57 @@ $I->seeLink('Extension Manager');
                 <h2>CSS values and html attributes</h2>
                 <pre><code data-trim contenteditable>
 // Enter first is active
-$ah = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
-  return $webdriver->findElement(WebDriverBy::cssSelector('.accordion-region:nth-of-type(1)'))->getAttribute('aria-hidden');
+$ah = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver)
+{
+  return $webdriver->findElement(WebDriverBy::cssSelector(
+                    '.accordion-region:nth-of-type(1)'))->getAttribute('aria-hidden');
 });
 $this->assertEquals('false', $ah);
 
-$bc = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
-  return $webdriver->findElement(WebDriverBy::cssSelector('.accordion-title:nth-of-type(1)'))->getCSSValue('background-color');
+$bc = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver)
+{
+  return $webdriver->findElement(WebDriverBy::cssSelector(
+                    '.accordion-title:nth-of-type(1)'))->getCSSValue('background-color');
 });
 
 $this->assertEquals('rgba(255, 221, 0, 1)', $bc);
                 </code></pre>
                 <p>
-                    <a href="http://ir2.preview.wmdb.de/index.php?id=25" target="_blank">http://ir2.preview.wmdb.de/index.php?id=25</a>
+                    <a href="http://www.interroll.com/press/media-gallery/" target="_blank">http://www.interroll.com/press/media-gallery/</a>
                 </p>
+                <p>
+                    You have phpunit and also all the php-power you want.
+                </p>
+                <aside class="notes">
+                    Breaks are only for presentation
+                </aside>
             </section>
             <section>
-            <h2>Full interroll test</h2>
+            <h2>Resize tests</h2>
                 <pre><code data-trim contenteditable>
-$I = new AcceptanceTester($scenario);
-$I->wantTo('Test Media Gallery');
+$I->wantTo('Check the burger and images when resize');
+
 $I->amOnPage('/');
-$I->moveMouseOver('#nav > ol > li:nth-of-type(4) > a');
-$I->see('Media Gallery');
-$I->click('Media Gallery');
-$I->see('Interroll Logo');
+$I->waitForElement('h1');
 
-// Enter first is active
-$ah = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
-  return $webdriver->findElement(WebDriverBy::cssSelector('.accordion-region:nth-of-type(1)'))->getAttribute('aria-hidden');
-});
-$this->assertEquals('false', $ah);
+// Navigation
+$I->canSeeElement('#nav .inr .iq-nav');
+$I->cantSeeElement('.iq-responsive-nav');
 
-$bc = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
-  return $webdriver->findElement(WebDriverBy::cssSelector('.accordion-title:nth-of-type(1)'))->getCSSValue('background-color');
-});
+// Images
+$I->canSeeElement('#teaser');
+$I->canSeeElement('.iq-image');
 
-$this->assertEquals('rgba(255, 221, 0, 1)', $bc);
+$I->resizeWindow(800, 800);
 
-$I->click('.accordion-title:nth-of-type(1)');
-$I->wait(1);
-$I->moveMouseOver('.accordion-title:nth-of-type(2)');
+$I->canSeeElement('.iq-responsive-nav');
+$I->cantSeeElement('#nav .inr .iq-nav');
 
-$ah = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
-  return $webdriver->findElement(WebDriverBy::cssSelector('.accordion-region:nth-of-type(1)'))->getAttribute('aria-hidden');
-});
-$this->assertEquals('true', $ah);
-
-$bc = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
-  return $webdriver->findElement(WebDriverBy::cssSelector('.accordion-title:nth-of-type(1)'))->getCSSValue('background-color');
-});
-
-$this->assertEquals('rgba(240, 244, 245, 1)', $bc);
-
-$bc = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) {
-  return $webdriver->findElement(WebDriverBy::cssSelector('.accordion-title:nth-of-type(2)'))->getCSSValue('background-color');
-});
-$this->assertEquals('rgba(166, 166, 166, 1)', $bc);
+$I->canSeeElement('#teaser');
+$I->cantSeeElement('.iq-image');
                 </code></pre>
                 <p>
-                    <a href="http://ir2.preview.wmdb.de/index.php?id=25" target="_blank">http://ir2.preview.wmdb.de/index.php?id=25</a>
+                    <a href="https://www.gesundheitsinformation.de" target="_blank">https://www.gesundheitsinformation.de</a>
                 </p>
             </section>
             <section>
@@ -335,6 +388,10 @@ $I->seeInDatabase('pages', array('title' => 'Hobbit'));
                 <p>
                     <a href="http://codeception.com/" target="_blank">http://codeception.com/</a>
                 </p>
+                <aside class="notes">
+                    What is the problem here on end of the test? <br>
+                    Test double when URL works als db is ok...it is just example.
+                </aside>
             </section>
         </section>
         <section>
@@ -346,16 +403,27 @@ $I->seeInDatabase('pages', array('title' => 'Hobbit'));
             </section>
             <section>
                 <h2>Run commands</h2>
-                <p>
+                <p class="fragment">
                     <strong>Run selenium</strong><br>
                     selenium-server -p 4444<br>
+                </p>
+                <p class="fragment">
                     <strong>Add test</strong><br>
                     php ./vendor/bin/codecept generate:cept acceptance Welcome<br>
+                    or<br>
+                    php ./vendor/bin/codecept generate:cest acceptance Welcome<br>
+                </p>
+                <p class="fragment">
                     <strong>All tests</strong><br>
                     php ./vendor/bin/codecept run acceptance --env firefox --env chrome --steps --xml --html<br>
                     <strong>Single test</strong><br>
-                    php ./vendor/bin/codecept run acceptance AllUserCept.php --env firefox --env chrome --steps --xml --html<br>
+                    php ./vendor/bin/codecept run acceptance AllUserCept.php --env firefox --env chrome --steps --xml --html
                 </p>
+                <aside class="notes">
+                    --steps shows steps on command line. <br>
+                    --xml generate xml report for continuous integration <br>
+                    --html generate clickable html report
+                </aside>
             </section>
         </section>
         <section>
@@ -373,6 +441,9 @@ $I->seeInDatabase('pages', array('title' => 'Hobbit'));
                 <p>
                     <a href="http://codeception1.rssing.com/chan-5825079/all_p11.html" target="_blank">http://codeception1.rssing.com/chan-5825079/all_p11.html</a>
                 </p>
+                <aside class="notes">
+                    Automated generated slideshow for each step. Very good for documentation. This here is just a example gif,
+                </aside>
             </section>
             <section>
                 <h2>Codeception screenshot</h2>
@@ -387,6 +458,9 @@ $I->amOnPage('/user/edit');
 $I->makeScreenshot('edit_page');
 // saved to: tests/_output/debug/edit_page.png
                 </code></pre>
+                <aside class="notes">
+                    Screenshots in different solutions are useful.
+                </aside>
             </section>
             <section>
                 <h2>Codeception conditions</h2>
@@ -399,6 +473,9 @@ if ($scenario->current('env') == 'firefox') {
   // do something for firefox only
 }
                 </code></pre>
+                <p>
+                    Offical examples
+                </p>
             </section>
             <section>
                 <h2>Shorter syntax</h2>
@@ -419,6 +496,9 @@ $I->submitForm('form#login', array('login' => 'davert', 'password' => 'qwerty'))
                 <p>
                     <a href="http://codeception1.rssing.com/chan-5825079/all_p1.html" target="_blank">http://codeception1.rssing.com/chan-5825079/all_p1.html</a>
                 </p>
+                <aside class="notes">
+                    Offical codeception examples never use wait. Maybe the only test high performance stuff ;)
+                </aside>
             </section>
             <section>
                 <h2>Codeception test files</h2>
@@ -428,6 +508,9 @@ $I->attachFile('input[ * `type="file"]',`  'prices.xls');
                 <p>
                     <a href="http://codeception.com/docs/modules/WebDriver" target="_blank">http://codeception.com/docs/modules/WebDriver</a>
                 </p>
+                <aside class="notes">
+                    For upload and maybe check import of data and right converting.
+                </aside>
             </section>
             <section>
                 <h2>Codeception checkboxes</h2>
@@ -569,9 +652,36 @@ $I->waitForText('foo', 30, '.title'); // secs .title optional
                 <h2>Codeception reports</h2>
                 <p>
                     php codecept.phar run --steps --xml --html<br>
-                    Live example
                 </p>
             </section>
+            <section>
+                <p>
+                    <img src="img/codeception/codeception-report-html.png" alt="Codeception report">
+                </p>
+            </section>
+            <section>
+                <h2>Report .html .xml</h2>
+                <p>
+                    <a href="img/codeception/reports/report.html" target="_blank">report.html</a>
+                    <a href="img/codeception/reports/report.xml" target="_blank">report.xml</a>
+                </p>
+            </section>
+            <section>
+                <h2>Fail png</h2>
+                <p>
+                    <img src="img/codeception/reports/AutoCompleteCept.fail.png" alt="Codeception Autocomplete fail">
+                </p>
+            </section>
+            <section>
+                <h2>Fail html</h2>
+                <pre><code data-trim contenteditable>
+<li class="ui-menu-item" role="menuitem">
+  <a class="ui-corner-all" tabindex="-1"><strong>dru</strong>pal</a>
+</li>
+                </code></pre>
+                <a href="img/codeception/reports/AutoCompleteCept.fail.html" target="_blank">AutoCompleteCept.fail.html</a>
+            </section>
+
         </section>
         <section style="text-align: left;">
             <h1>Questions?</h1>
