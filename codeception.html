@@ -534,21 +534,6 @@ $I->makeScreenshot('edit_page');
                 </aside>
             </section>
             <section>
-                <h2>Codeception conditions</h2>
-                <pre><code data-trim contenteditable>
-if (substr(PHP_OS, 0, 3) == 'Win') {
-  $scenario->skip();
-}
-
-if ($scenario->current('env') == 'firefox') {
-  // do something for firefox only
-}
-                </code></pre>
-                <p>
-                    Offical examples
-                </p>
-            </section>
-            <section>
                 <h2>See elements</h2>
                 <pre><code data-trim contenteditable>
 $I->seeInSource('<h1>Green eggs &amp; ham</h1>');
@@ -566,8 +551,6 @@ $I->seeOptionIsSelected('#form input[name=payment]', 'Visa');
 $I->dontSee('Login');                    // I can suppose user is already logged in
 $I->dontSee('Sign Up','h1');             // I can suppose it's not a signup page
 $I->dontSee('Sign Up','//body/h1');      // with XPath
-$I->dontSeeCheckboxIsChecked('#agree'); // I suppose user didn't agree to terms
-$I->seeCheckboxIsChecked('#signup_form input[type=checkbox]'); // I suppose user didn't check the first checkbox in form.
 $I->dontSeeCurrentUrlEquals('/'); // current url is not root
 $I->dontSeeCurrentUrlMatches('~$/users/(\d+)~'); // to match root url
 $I->dontSeeElement('.error');
@@ -672,7 +655,10 @@ $I->resizeWindow(800, 600);
             <section>
                 <h2>Codeception cookie</h2>
                 <pre><code data-trim contenteditable>
-$I->seeCookie('PHPSESSID');
+$I->setCookie('auth', '123345');
+$I->grabCookie('auth');
+$I->seeCookie('auth');
+$I->resetCookie("test");
                 </code></pre>
             </section>
             <section>
@@ -714,7 +700,7 @@ $I->waitForElement('#agree_button', 30); // secs
 
 use \Facebook\WebDriver\WebDriverElement
 $I->waitForElementChange('#menu', function(WebDriverElement $el) {
-return $el->isDisplayed();
+  return $el->isDisplayed();
 }, 100);
 
 $I->waitForElementNotVisible('#agree_button', 30); // secs
