@@ -239,32 +239,6 @@ $I->see('What is TYPO3 CMS?');
                 </p>
             </section>
             <section>
-                <h1>Startpage test cest</h1>
-                <p>
-                            <pre><code data-trim contenteditable>
-class LoginBadCredentialsCest
-{
-  public function _before(AcceptanceTester $I) {}
-
-  public function _after(AcceptanceTester $I) {}
-
-  public function tryToTest(AcceptanceTester $I) {
-    $I = new AcceptanceTester($scenario);
-    $I->wantTo('Test welcome page');
-    $I->amOnPage('/');
-    $I->see('What is TYPO3 CMS?');
-  }
-}
-                            </code></pre>
-                </p>
-                <p class="fragment">
-                    Better to use cest from beginning.
-                </p>
-                <aside class="notes">
-                    Can do things before and after the test like login.
-                </aside>
-            </section>
-            <section>
                 <h1>Navigation test</h1>
                 <p>
                             <pre><code data-trim contenteditable>
@@ -284,7 +258,10 @@ $I->see('The Enterprise');
                     Wait for elements.
                 </p>
                 <p>
-                    On JS sometimes is easier to wait a second than to check changing of elements. Specialcase like left:0px.
+                    On JS sometimes is easier to wait a second than to check changing of elements.
+                </p>
+                <p>
+                    Specialcase like left:0px.
                 </p>
             </section>
             <section>
@@ -299,8 +276,102 @@ $I->fillField('#t3-password', 'password');
 $I->click('Login');
 $I->seeLink('Extension Manager');
                         </code></pre>
-                <p class="fragment">
-                    Use the deeplink sometimes on local env there are no .htaccess working. Here you test the login and not the url handling.
+                <p>
+                    Use the deeplink sometimes on local env there are no .htaccess working. <br> Here you test the login and not the url handling.
+                </p>
+            </section>
+            <section>
+                <h1>Slider test cest</h1>
+                <p>
+                    <pre><code data-trim contenteditable>
+class ModuleMenuSliderCest {
+  public function _before(Actor $I){ $I->loginAsAdmin(); }
+  public function _after(Actor $I){ $I->logout(); }
+
+  public function tryToTest(\AcceptanceTester $I) {
+    $ids = ['#web', '#file', '#tools', '#system'];
+    $sees = ['Page', 'Filelist', 'Extensions', 'Access'];
+    $typo3Menu = '#typo3-menu';
+
+    $I->wantTo('check the slider in the module menu');
+
+    foreach ($ids as $id) {
+      $I->waitForElement($id);
+
+      // we close all
+      $classString = $I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) use ($id) {
+        return $webdriver->findElement(\WebDriverBy::cssSelector($id))->getAttribute('class');
+      });
+
+      if (strpos($classString, 'expanded') !== false) {
+        $I->click($id . ' > div');
+        $I->wait(2); // the animation is so fast
+      }
+    }
+
+    foreach ($sees as $see) {
+      $I->cantSee($see);
+    }
+
+    // we open all
+    foreach ($ids as $id) {
+      $I->click($id . ' > div');
+      $I->wait(2);
+    }
+
+    foreach ($sees as $see) {
+      $I->see($see);
+    }
+  }
+}
+                    </code></pre>
+                </p>
+                <p>
+                    Better to use cest from beginning.
+                    <a href="https://review.typo3.org/#/c/46912/6/typo3/sysext/core/Tests/Acceptance/Backend/Menu/ModuleMenuSliderCest.php" target="_blank">
+                        TYPO3 Review
+                    </a>
+                </p>
+                <aside class="notes">
+                    Can do things before and after the test like login.
+                </aside>
+            </section>
+            <section>
+                <h1>Injection</h1>
+                <p>
+                  <pre><code data-trim contenteditable>
+class SignUpCest {
+  /**
+  * @var Helper\SignUp
+  */
+  protected $signUp;
+
+  /**
+  * @var Helper\NavBarHelper
+  */
+  protected $navBar;
+
+  protected function _inject(\Helper\SignUp $signUp, \Helper\NavBar $navBar) {
+    $this->signUp = $signUp;
+    $this->navBar = $navBar;
+  }
+
+  public function signUp(\AcceptanceTester $I) {
+    $I->wantTo('sign up');
+
+    $this->navBar->click('Sign up');
+    $this->signUp->register([
+      'first_name'            => 'Joe',
+      'last_name'             => 'Jones',
+      'email'                 => 'joe@jones.com',
+      'password'              => '1234',
+      'password_confirmation' => '1234'
+    ]);
+  }
+}
+                  </code></pre>
+                Use helpers for the HTML selectors <br>
+                <a href="http://codeception.com/docs/07-AdvancedUsage" target="_blank">http://codeception.com/docs/07-AdvancedUsage</a>
                 </p>
             </section>
         </section>
