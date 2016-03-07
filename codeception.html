@@ -85,7 +85,7 @@
             </section>
             <section>
                 <h2>Benefits of automated testing</h2>
-                <p class="fragment">70% fster than manuel testing</p>
+                <p class="fragment">70% faster than manuel testing</p>
                 <p class="fragment">Wider test coverage of application features</p>
                 <p class="fragment">Saves time and costs</p>
                 <p class="fragment">Improves accuracy</p>
@@ -174,7 +174,7 @@ modules:
       populate: true
       cleanup: true
                         </code></pre>
-                <p class="fragment">
+                <p>
                     <strong>RunFailed:</strong> Saves failed tests into tests/log/_output/failed in order to rerun failed tests. <br>
                     To rerun failed tests just run the failed group: <br>
                     php codecept run -g failed
@@ -260,9 +260,6 @@ $I->see('The Enterprise');
                 <p>
                     On JS sometimes is easier to wait a second than to check changing of elements.
                 </p>
-                <p>
-                    Specialcase like left:0px.
-                </p>
             </section>
             <section>
                 <h2>TYPO3 login</h2>
@@ -274,6 +271,7 @@ $I->wantTo('want to login');
 $I->fillField('#t3-username', 'admin');
 $I->fillField('#t3-password', 'password');
 $I->click('Login');
+$I->waitForElement('.nav');
 $I->seeLink('Extension Manager');
                         </code></pre>
                 <p>
@@ -297,7 +295,6 @@ class ModuleMenuSliderCest {
 
     foreach ($ids as $id) {
       $I->waitForElement($id);
-
       // we close all
       $classString = $I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) use ($id) {
         return $webdriver->findElement(\WebDriverBy::cssSelector($id))->getAttribute('class');
@@ -305,7 +302,7 @@ class ModuleMenuSliderCest {
 
       if (strpos($classString, 'expanded') !== false) {
         $I->click($id . ' > div');
-        $I->wait(2); // the animation is so fast
+        $I->wait(2);
       }
     }
 
@@ -328,8 +325,8 @@ class ModuleMenuSliderCest {
                 </p>
                 <p>
                     Better to use cest from beginning.
-                    <a href="https://review.typo3.org/#/c/46912/6/typo3/sysext/core/Tests/Acceptance/Backend/Menu/ModuleMenuSliderCest.php" target="_blank">
-                        TYPO3 Review
+                    <a href="https://github.com/TYPO3/TYPO3.CMS/blob/master/typo3/sysext/core/Tests/Acceptance/Backend/Menu/ModuleMenuSliderCest.php" target="_blank">
+                        ModuleMenuSliderCest GitHub
                     </a>
                 </p>
                 <aside class="notes">
@@ -523,11 +520,8 @@ $scenario->current('name');    // returns current test name
 $scenario->current('modules'); // returns current modules
 $scenario->current('env');     // returns environment
 
-$I->makeScreenshot($scenario->current('env').'_screenshot.png');
-
-$I->amOnPage('/user/edit');
-$I->makeScreenshot('edit_page');
-// saved to: tests/_output/debug/edit_page.png
+$I->makeScreenshot($scenario->current('env').'_screenshot_imprint.png');
+// saved to: tests/_output/debug/firefox_screenshot_imprint.png
                 </code></pre>
                 <aside class="notes">
                     Screenshots in different solutions are useful.
@@ -583,7 +577,7 @@ $I->submitForm('form#login', array('login' => 'davert', 'password' => 'qwerty'))
                 </aside>
             </section>
             <section>
-                <h2>Codeception test files</h2>
+                <h2>Codeception upload files</h2>
                 <pre><code data-trim contenteditable>
 $I->attachFile('input[ * `type="file"]',`  'prices.xls');
                 </code></pre>
