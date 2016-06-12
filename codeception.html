@@ -176,7 +176,6 @@ modules:
                         </code></pre>
                 <p>
                     <strong>RunFailed:</strong> Saves failed tests into tests/log/_output/failed in order to rerun failed tests. <br>
-                    To rerun failed tests just run the failed group: <br>
                     php codecept run -g failed
                 </p>
                 <aside class="notes">
@@ -386,9 +385,9 @@ class SignUpCest {
 $ah = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver)
 {
   return $webdriver->findElement(WebDriverBy::cssSelector(
-                    '.accordion-region:nth-of-type(1)'))->getAttribute('aria-hidden');
+                    '.accordion-region:nth-of-type(1)'))->getAttribute('aria-expanded');
 });
-$this->assertEquals('false', $ah);
+$this->assertEquals('false', $ah, 'First element is expended on first page load');
 
 $bc = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver)
 {
@@ -396,7 +395,8 @@ $bc = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver 
                     '.accordion-title:nth-of-type(1)'))->getCSSValue('background-color');
 });
 
-$this->assertEquals('rgba(255, 221, 0, 1)', $bc);
+$expectedColor = '240, 244, 245, 1';
+$this->assertEquals('rgba(' . $expectedColor . '')', $bc, 'Expacted color: ' . $expectedColor . ' not equals: ' . $bc);
                 </code></pre>
                 <p>
                     <a href="http://www.interroll.com/press/media-gallery/" target="_blank">http://www.interroll.com/press/media-gallery/</a>
@@ -482,10 +482,14 @@ $I->seeInDatabase('pages', array('title' => 'Hobbit'));
                     php ./vendor/bin/codecept generate:cest acceptance Welcome<br>
                 </p>
                 <p class="fragment">
-                    <strong>All tests</strong><br>
-                    php ./vendor/bin/codecept run acceptance --env firefox --env chrome --steps --xml --html<br>
+                    <strong>All tests acceptance</strong><br>
+                    php ./vendor/bin/codecept run acceptance<br>
                     <strong>Single test</strong><br>
-                    php ./vendor/bin/codecept run acceptance AllUserCept.php --env firefox --env chrome --steps --xml --html
+                    php ./vendor/bin/codecept run acceptance AllUserCept.php
+                </p>
+                <p class="fragment">
+                    <strong>Params</strong><br>
+                    --env firefox --env chrome --steps --xml --html -vvv
                 </p>
                 <aside class="notes">
                     --steps shows steps on command line. <br>
