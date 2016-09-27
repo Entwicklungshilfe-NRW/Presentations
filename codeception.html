@@ -496,19 +496,18 @@ class UserCest
                 </p>
                 <p class="fragment">
                     <strong>Add test</strong><br>
-                    php ./vendor/bin/codecept generate:cept acceptance Welcome<br>
-                    or<br>
-                    php ./vendor/bin/codecept generate:cest acceptance Welcome<br>
+                    php ./vendor/bin/codecept generate:cest acceptance Startpage/Slider<br>
                 </p>
                 <p class="fragment">
                     <strong>All tests acceptance</strong><br>
                     php ./vendor/bin/codecept run acceptance<br>
                     <strong>Single test</strong><br>
-                    php ./vendor/bin/codecept run acceptance AllUserCept.php
+                    php ./vendor/bin/codecept run acceptance Startpage/SliderCest
                 </p>
                 <p class="fragment">
                     <strong>Params</strong><br>
-                    --env firefox --env chrome --steps --xml --html -vvv
+                    --env firefox --env chrome | --env mobile,firefox | --env mobilechrome<br>
+                    --steps --xml --html -vvv
                 </p>
                 <aside class="notes">
                     --steps shows steps on command line. <br>
@@ -627,15 +626,6 @@ $I->seeCheckboxIsChecked('//form/input[ * `type=checkbox`  and  * `name=agree]')
                 </p>
             </section>
             <section>
-                <h2>Codeception drag and drop</h2>
-                <pre><code data-trim contenteditable>
-$I->dragAndDrop('#drag', '#drop');
-                </code></pre>
-                <p>
-                    <a href="http://codeception.com/docs/modules/WebDriver" target="_blank">http://codeception.com/docs/modules/WebDriver</a>
-                </p>
-            </section>
-            <section>
                 <h2>Codeception execute js</h2>
                 <pre><code data-trim contenteditable>
                     $myVar = $I->executeJS('return $("#myField").val()');
@@ -643,6 +633,7 @@ $I->dragAndDrop('#drag', '#drop');
                 <p>
                     <a href="http://codeception.com/docs/modules/WebDriver" target="_blank">http://codeception.com/docs/modules/WebDriver</a>
                 </p>
+                <p>Sometimes you have more power with javascript</p>
             </section>
             <section>
                 <h2>Codeception grap</h2>
@@ -676,23 +667,6 @@ $I->setCookie('auth', '123345');
 $I->grabCookie('auth');
 $I->seeCookie('auth');
 $I->resetCookie("test");
-                </code></pre>
-            </section>
-            <section>
-                <h2>Codeception generated forms</h2>
-                <pre><code data-trim contenteditable>
-$I->seeInFormFields('.form-class', [
-  'input1' => 'value',
-  'input2' => 'other value',
-  'multiselect' => [
-    'value1',
-    'value2',
-  ],
-  'checkbox[]' => [
-    'a checked value',
-    'another checked value',
-  ],
-]);
                 </code></pre>
             </section>
             <section>
