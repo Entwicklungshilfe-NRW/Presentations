@@ -229,30 +229,45 @@ class_name: AcceptanceTester
                 </p>
             </section>
             <section>
-                <h1>Startpage test cept</h1>
+                <h1>Navigation cest</h1>
                 <p>
                             <pre><code data-trim contenteditable>
-$I = new AcceptanceTester($scenario);
-$I->wantTo('Test welcome page');
-$I->amOnPage('/');
-$I->see('What is TYPO3 CMS?');
+class navigationCest
+{
+    public function _before(Acceptance $I) {
+        $I->amOnPage('/');
+        $I->waitForElement('.header');
+    }
+
+    public function checkLinksToAnchor(Acceptance $I) {
+        $links = $I->grabMultiple('.header-navigation > li > a', 'href');
+        foreach ($links as $link) {
+            $I->assertContains('#', $link, 'Link on main navigation contains #: ' . $link);
+        }
+    }
+}
                             </code></pre>
                 </p>
             </section>
             <section>
-                <h1>Navigation test</h1>
+                <h1>RWD cest</h1>
                 <p>
                             <pre><code data-trim contenteditable>
-$I = new AcceptanceTester($scenario);
-$I->wantTo('Test main navigation');
-$I->amOnPage('/');
-$I->waitForElement('h1');
-$I->moveMouseOver('.nav > li:nth-of-type(3)');
-$I->wait(1);
-$I->see('Overview');
-$I->click('Overview');
-$I->waitForElement('h4');
-$I->see('The Enterprise');
+public function resizeNavigation(Acceptance $I) {
+    $burgerMenu = '.mobi-toggler'; $headerNavigation = '.header-navigation';
+    $I->dontSeeElement($burgerMenu);
+    $I->resizeWindow(400, 1000);
+    $I->wait(1);
+    $I->waitForElement($burgerMenu);
+    $I->cantSeeElement($headerNavigation);
+    $I->click($burgerMenu);
+    $I->waitForElement($headerNavigation);
+    $I->click($burgerMenu);
+    $I->waitForElementNotVisible($headerNavigation);
+    $I->resizeWindow(1600, 1000);
+    $I->wait(1);
+    $I->waitForElementNotVisible($burgerMenu);
+}
                             </code></pre>
                 </p>
                 <p>
@@ -296,11 +311,9 @@ class ModuleMenuSliderCest {
 
     foreach ($ids as $id) {
       $I->waitForElement($id);
-      // we close all
-      $classString = $I->executeInSelenium(function (\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver) use ($id) {
-        return $webdriver->findElement(\WebDriverBy::cssSelector($id))->getAttribute('class');
-      });
 
+      // we close all
+      $classString = $I->grabAttributeFrom($id, 'title');
       if (strpos($classString, 'expanded') !== false) {
         $I->click($id . ' > div');
         $I->wait(2);
