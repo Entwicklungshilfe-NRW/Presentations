@@ -394,65 +394,7 @@ class SignUpCest {
                 </p>
             </section>
             <section>
-                <h2>CSS values and html attributes</h2>
-                <pre><code data-trim contenteditable>
-// Enter first is active
-$ah = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver)
-{
-  return $webdriver->findElement(WebDriverBy::cssSelector(
-                    '.accordion-region:nth-of-type(1)'))->getAttribute('aria-expanded');
-});
-$this->assertEquals('false', $ah, 'First element is expended on first page load');
-
-$bc = $I->executeInSelenium(function(\Facebook\WebDriver\Remote\RemoteWebDriver $webdriver)
-{
-  return $webdriver->findElement(WebDriverBy::cssSelector(
-                    '.accordion-title:nth-of-type(1)'))->getCSSValue('background-color');
-});
-
-$expectedColor = '240, 244, 245, 1';
-$this->assertEquals('rgba(' . $expectedColor . '')', $bc, 'Expacted color: ' . $expectedColor . ' not equals: ' . $bc);
-                </code></pre>
-                <p>
-                    <a href="http://www.interroll.com/press/media-gallery/" target="_blank">http://www.interroll.com/press/media-gallery/</a>
-                </p>
-                <p>
-                    You have phpunit and also all the php-power you want.
-                </p>
-                <aside class="notes">
-                    Breaks are only for presentation
-                </aside>
-            </section>
-            <section>
-            <h2>Resize tests</h2>
-                <pre><code data-trim contenteditable>
-$I->wantTo('Check the burger and images when resize');
-
-$I->amOnPage('/');
-$I->waitForElement('h1');
-
-// Navigation
-$I->canSeeElement('#nav .inr .iq-nav');
-$I->cantSeeElement('.iq-responsive-nav');
-
-// Images
-$I->canSeeElement('#teaser');
-$I->canSeeElement('.iq-image');
-
-$I->resizeWindow(800, 800);
-
-$I->canSeeElement('.iq-responsive-nav');
-$I->cantSeeElement('#nav .inr .iq-nav');
-
-$I->canSeeElement('#teaser');
-$I->cantSeeElement('.iq-image');
-                </code></pre>
-                <p>
-                    <a href="https://www.gesundheitsinformation.de" target="_blank">https://www.gesundheitsinformation.de</a>
-                </p>
-            </section>
-            <section>
-                <h2>Codeception wiki example</h2>
+                <h2>Codeception wiki example url and database</h2>
                 <pre><code data-trim contenteditable>
 $I = new AcceptanceTester($scenario);
 $I->wantTo('create wiki page');
@@ -475,6 +417,68 @@ $I->seeInDatabase('pages', array('title' => 'Hobbit'));
                     What is the problem here on end of the test? <br>
                     Test double when URL works als db is ok...it is just example.
                 </aside>
+            </section>
+            <section>
+                <h2>Codeception steps</h2>
+                <pre><code data-trim contenteditable>
+namespace Step\Acceptance;
+class Member extends \AcceptanceTester
+{
+    public function loginAsAdmin() {
+        $I = $this;
+        $I->amOnPage('/admin');
+        $I->fillField('username', 'admin');
+        $I->fillField('password', '123456');
+        $I->click('Login');
+    }
+}
+
+class UserCest
+{
+    function showUserProfile(\Step\Acceptance\Member $I) {
+        $I->loginAsAdmin();
+        $I->amOnPage('/admin/profile');
+        $I->see('Admin Profile', 'h1');
+    }
+}
+
+                </code></pre>
+                <p>Use <a href="http://codeception.com/docs/06-ReusingTestCode#StepObjects" target="_blank">steps</a> for functional code and for all other stuff you like <a href="https://github.com/Respect/Validation/blob/master/docs/README.md" target="_blank">Respect Readme</a></p>
+            </section>
+            <section>
+                <h2>Respect validation example</h2>
+                <pre><code data-trim contenteditable>
+// Respect
+$userValidator = v::attribute('name', v::stringType()->length(1,32))
+                  ->attribute('birthdate', v::date()->age(18));
+$userValidator->validate($user); // true
+                </code></pre>
+            </section>
+            <section>
+                <h2>Codeception page objects</h2>
+                <pre><code data-trim contenteditable>
+namespace Page;
+class Login
+{
+    public static $URL = '/login';
+    public static $usernameField = '#mainForm #username';
+    public static $passwordField = '#mainForm input[name=password]';
+    public static $loginButton = '#mainForm input[type=submit]';
+}
+
+class UserCest
+{
+    function showUserProfile(AcceptanceTester $I, \Page\Login $loginPage) {
+        $I->wantTo('login to site');
+        $I->amOnPage($loginPage::$URL);
+        $I->fillField($loginPage::$usernameField, 'bill evans');
+        $I->fillField($loginPage::$passwordField, 'debby');
+        $I->click($loginPage::$loginButton);
+        $I->see('Welcome, bill');
+    }
+}
+                </code></pre>
+                <p>Use <a href="http://codeception.com/docs/06-ReusingTestCode#PageObjects" target="_blank">page objects</a> for your global html selectors</p>
             </section>
         </section>
         <section>
