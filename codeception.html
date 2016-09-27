@@ -206,17 +206,18 @@ class_name: AcceptanceTester
           url: 'http://typo3.org'
           browser: 'phantomjs'
     env:
+      mobile:
+        modules:
+          config:
+            WebDriver:
+              window_size: 400x480
       chrome:
         modules:
           config:
             WebDriver:
               browser: 'chrome'
-      firefox:
-        modules:
-          config:
-            WebDriver:
-              browser: 'firefox'
                         </code></pre>
+                <p><span class="fragment highlight-green visible current-fragment">merge</span> --env mobile,chrome | <span class="fragment highlight-green visible current-fragment">seperate</span> --env firefox --env chrome | <span class="fragment highlight-green visible current-fragment">best practice</span> --env mobilefirefox</p>
             </section>
         </section>
 
