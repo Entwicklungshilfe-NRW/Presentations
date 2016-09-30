@@ -271,10 +271,7 @@ public function resizeNavigation(Acceptance $I) {
                             </code></pre>
                 </p>
                 <p>
-                    Wait for elements.
-                </p>
-                <p>
-                    On JS sometimes is easier to wait a second than to check changing of elements.
+                    Wait for elements. On JS sometimes is easier to wait a second than to check changing of elements.
                 </p>
             </section>
             <section>
@@ -381,8 +378,7 @@ class SignUpCest {
   }
 }
                   </code></pre>
-                Use helpers for the HTML selectors <br>
-                <a href="http://codeception.com/docs/07-AdvancedUsage" target="_blank">http://codeception.com/docs/07-AdvancedUsage</a>
+                Use helpers for the HTML selectors <a href="http://codeception.com/docs/07-AdvancedUsage" target="_blank">http://codeception.com/docs/07-AdvancedUsage</a>
                 </p>
             </section>
         </section>
@@ -422,7 +418,7 @@ $I->seeInDatabase('pages', array('title' => 'Hobbit'));
                 <h2>Codeception steps</h2>
                 <pre><code data-trim contenteditable>
 namespace Step\Acceptance;
-class Member extends \AcceptanceTester
+class Actor extends \AcceptanceTester
 {
     public function loginAsAdmin() {
         $I = $this;
@@ -435,7 +431,7 @@ class Member extends \AcceptanceTester
 
 class UserCest
 {
-    function showUserProfile(\Step\Acceptance\Member $I) {
+    function showUserProfile(\Step\Acceptance\Actor $I) {
         $I->loginAsAdmin();
         $I->amOnPage('/admin/profile');
         $I->see('Admin Profile', 'h1');
