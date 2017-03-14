@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="http://www.entwicklungshilfe.nrw/typo3conf/ext/wmdb_base_ewh/Resources/Public/img/favicon.ico" type="image/x-icon">
+        <title>PhpStorm Präsentation von Php-Schulung Entwicklungshilfe</title>
+
+        <meta name="description" content="Entwicklungshilfe @ NOW-IT">
+        <meta name="author" content="Entwicklungshilfe NRW">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="css/theme/eh.css">
+        <link rel="stylesheet" href="#" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <script type="text/javascript">
+            if(window.location.search.substring(1)){
+                document.getElementById("theme").href = "css/theme/"+window.location.search.substring(1)+".css";
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>Entwicklungshilfe @ NOW-IT</h1>
+                    <h3>PhpStorm Worklfow auf dem Prüfstand</h3>
+                    <p>
+                        <a href="http://entwicklungshilfe.nrw" target="_blank">entwicklungshilfe.nrw</a> / <a href="http://twitter.com/help_for_devs" target="_blank">@help_for_devs</a> /
+                        <a href="https://www.facebook.com/entwicklungshilfe.nrw" target="_blank">FB/entwicklungshilfe.nrw</a><br>
+                        <small>
+                            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black</a>
+                            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a>
+                            <a href="#" onclick="document.getElementById('theme').setAttribute('href',''); return false;">EH</a>
+                        </small>
+                    </p>
+                </section>
+                <section>
+                    <section>
+                        <h2>Agenda</h2>
+                        <h3>Dienstag</h3>
+                        <ul>
+                            <li><i>Vorstellungsrunde</i></li>
+                            <li><i>Ziele</i></li>
+                            <li><i>BREAK</i></li>
+                            <li><i>State of the Art I - interner Prozess</i></li>
+                            <li><i>BREAK</i></li>
+                            <li><i>State of the Art II - PhpStorm als Tool</i></li>
+                            <li><i>BREAK</i></li>
+                            <li><i>Fragerunde</i></li>
+                            <li><i>Ausblick</i></li>
+                        </ul>
+                        <aside class="notes">
+                            Vorstellungsrunde Andreas + Entwicklungshilfe
+                            Rest Vorstellen, woher, Aufgabe, Erfahrung
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Agenda</h2>
+                        <h3>Mittwoch</h3>
+                        <ul>
+                            <li>Feedback Dienstag</li>
+                            <li>Changes - interner Prozess</li>
+                            <li>BREAK</li>
+                            <li>Changes - PhpStorm als Tool</li>
+                            <li>Ausklang und Fragerunde</li>
+                        </ul>
+                        <aside class="notes">
+
+                        </aside>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Feedback Dienstag</h2>
+                        <ul>
+                            <li>Ziele</li>
+                            <li>interner Prozess</li>
+                            <li>PhpStorm</li>
+                        </ul>
+                        <aside class="notes">
+                            IST ERFASST?
+                        </aside>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Changes - interner Prozess</h2>
+                        <h3>Workshop</h3>
+                    </section>
+                    <section style="text-align: left;">
+                        <h1>BREAK</h1>
+                    </section>
+                    <section>
+                        <h2>Agenda</h2>
+                        <h3>Mittwoch</h3>
+                        <ul>
+                            <li><i>Feedback Dienstag</i></li>
+                            <li><i>Changes - interner Prozess</i></li>
+                            <li><i>BREAK</i></li>
+                            <li>Changes - PhpStorm als Tool</li>
+                            <li>Ausklang und Fragerunde</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Changes - PhpStorm als Tool</h2>
+                        <h3>Workshop</h3>
+                        <ul>
+                            <li>Plugins</li>
+                            <li>Shortcuts</li>
+                            <li>Settings</li>
+                            <li>Main Questins</li>
+                            <li>Remote</li>
+                        </ul>
+                        <aside class="notes">
+                            Ziel: WIE wird PhpStorm genutzt
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Agenda</h2>
+                        <h3>Mittwoch</h3>
+                        <ul>
+                            <li><i>Feedback Dienstag</i></li>
+                            <li><i>Changes - interner Prozess</i></li>
+                            <li><i>BREAK</i></li>
+                            <li><i>Changes - PhpStorm als Tool</i></li>
+                            <li>Ausklang und Fragerunde</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section style="text-align: left;">
+                        <h1>Thanks</h1>
+                    </section>
+                    <section style="text-align: left;">
+                        <h1>Ausklang und Fragerunde</h1>
+                    </section>
+                    <section style="text-align: left;">
+                        <h1>Follow us!</h1>
+                        <div class="col"><i class="follow-icon"><img src="img/twitter.png" alt="Entwicklungshilfe NRW Twitter"></i> <a href="https://twitter.com/help_for_devs" target="_blank">https://twitter.com/help_for_devs</a></div>
+                        <div class="col"><i class="follow-icon"><img src="img/facebook.png" alt="Entwicklungshilfe NRW Facebook"></i> <a href="https://www.facebook.com/entwicklungshilfe.nrw" target="_blank">https://www.facebook.com/entwicklungshilfe.nrw</a></div>
+                        <div class="col"><i class="follow-icon"><img src="img/github.png" alt="Entwicklungshilfe NRW Github"></i> <a href="https://github.com/entwicklungshilfe-nrw" target="_blank">https://github.com/entwicklungshilfe-nrw</a></div>
+                    </section>
+                    <section style="text-align: left;">
+                        <h1>Ausklang und Fragerunde</h1>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        </script>
+        <script src="js/ga.js"></script>
+    </body>
+</html>
