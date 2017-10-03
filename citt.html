@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="http://www.entwicklungshilfe.nrw/typo3conf/ext/wmdb_base_ewh/Resources/Public/img/favicon.ico" type="image/x-icon">
+        <title>#CITT - Countinuous Integration Training and seTup</title>
+
+        <meta name="description" content="Mit #CITT Countinuous Integration Training und seTup helfen wir Teams direkt in aktuellen Projekten zur Build Pipeline">
+        <meta name="author" content="Entwicklungshilfe NRW">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="css/theme/eh.css">
+        <link rel="stylesheet" href="#" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <script type="text/javascript">
+            if(window.location.search.substring(1)){
+                document.getElementById("theme").href = "css/theme/"+window.location.search.substring(1)+".css";
+            }
+        </script>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>#CITT</h1>
+                    <h3>Entwicklungshilfe</h3>
+                    <p>
+                        <a href="http://entwicklungshilfe.nrw" target="_blank">entwicklungshilfe.nrw</a> / <a href="http://twitter.com/help_for_devs" target="_blank">@help_for_devs</a> /
+                        <a href="https://www.facebook.com/entwicklungshilfe.nrw" target="_blank">FB/entwicklungshilfe.nrw</a><br>
+                        <small>
+                            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black</a>
+                            <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a>
+                            <a href="#" onclick="document.getElementById('theme').setAttribute('href',''); return false;">EH</a>
+                        </small>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>#CITT</h2>
+                    <p>
+                        <strong><large>C</large></strong>ountinuous <strong><large>I</large></strong>ntegration <strong><large>T</large></strong>raining und se<strong><large>T</large></strong>up
+                        <ul>
+                            <li>Why?</li>
+                            <li>How?</li>
+                        </ul>
+                    </p>
+                </section>
+                <section>
+                    <section data-background="img/citt/deploy.gif">
+                        <h2 style="color: white">Deploying und testing</h2>
+                    </section>
+                    <section>
+                        <h2>How it is</h2>
+                        <p class="fragment">15 minutes to test and deploy</p>
+                        <p class="fragment">10 * 15 minutes = 150 minutes = 2 H 30</p>
+                        <p class="fragment">Deploy 1 day a week saves 2 H 30 in 2 month</p>
+                        <p class="fragment highlight-red">WE DONT NEED THIS</p>
+                    </section>
+                    <section data-background="img/citt/James_Hetfield.jpg" style="color: white">
+                        <h2 style="color: white">Metallica</h2>
+                        <blockquote>
+                            &ldquo;Every day for us something new<br>
+                            Open mind for a different view<br>
+                            And nothing else matters&rdquo; <br>Nothing else matters - 1991
+                        </blockquote>
+                    </section>
+                    <section id="fragments" data-background="img/citt/James_Hetfield.jpg" style="color: white">
+                        <h2 style="color: white">Different view</h2>
+                        <p class="fragment">5 minutes for automate testing and deployment</p>
+                        <p class="fragment">3 * 15 minutes = 30 Builds = 2 H 30</p>
+                        <p class="fragment">Deploy 3 times in a week</p>
+                        <p class="fragment highlight-current-green">Competitive advantage</p>
+                    </section>
+                    <section data-background="img/citt/bug-fail-once.gif" style="color: white">
+                        <h2 style="color: white">Automate Testing</h2>
+                        <p class="fragment">Direct response for a bug</p>
+                        <p class="fragment">No costs on a team or communication</p>
+                        <p class="fragment">No angry clients</p>
+                        <p class="fragment highlight-current-green">This is so cool</p>
+                    </section>
+                    <section data-background="img/citt/webdeveloper-krank.jpg" style="color: white">
+                        <h2 style="color: white">Always protect your head</h2>
+                        <p class="fragment">Die acht stressigsten Jobs der IT-Branche - Platz 1: Web-Entwickler - <a
+                                href="https://www.computerwoche.de/a/die-acht-stressigsten-it-jobs,3223233">computerwoche.de</a></p>
+                        <p class="fragment">The Taboo Of Burnout - <a href="https://www.getdonedone.com/the-taboo-of-burnout/">Jeremy Kratz</a></p>
+                        <p class="fragment">An unreasonable workload (32 percent) and too much overtime - <a
+                                href="https://www.forbes.com/sites/groupthink/2017/02/01/the-biggest-workplace-challenge-employee-burnout/#5e0d1f1b3549">forbes.com</a></p>
+                        <p class="fragment highlight-current-red">The client will not pay for it</p>
+                    </section>
+                    <section data-background="img/citt/fun.gif" style="color: white">
+
+                    </section>
+
+                    <section data-background="img/citt/citt-targets.jpeg" style="color: white">
+                        <h2 style="color: white">#CITT benefits</h2>
+                        <p class="fragment">Saves a lot of time and money</p>
+                        <p class="fragment">Saves your nervs</p>
+                        <p class="fragment">You can refactor code because of a lower risk</p>
+                        <p class="fragment">This is a documentation of application and deployment</p>
+                        <p class="fragment">New developers work much faster on project</p>
+                        <p class="fragment">Much more attractive employer</p>
+                        <p class="fragment">And so on</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Who we are</h2>
+                        <div class="col">
+                            <div class="col-3">
+                                <p>
+                                    <img src="img/citt/andreas-mautz-magento.jpg" alt="Andreas Mautz magento"><br>
+                                    Andreas Mautz magento
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    <img src="img/citt/daniel-siepmann-typo3.jpeg" alt="Daniel Siepmann TYPO3"><br>
+                                    Daniel Siepmann TYPO3
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    <img src="img/citt/roland-golla-webdeveloper.jpg" alt="Roland Golla Testing"><br>
+                                    Roland Golla Testing
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+                <section>
+                    <img src="img/cleancode/are-you-too-busy-to-improve2.png" alt="Clean Code are you to busy to improve">
+                </section>
+                <section style="text-align: left;">
+                    <h1>Questions?</h1>
+                </section>
+                <section style="text-align: left;">
+                    <h1>Follow us!</h1>
+                    <div class="col"><i class="follow-icon"><img src="img/twitter.png" alt="Never Code Alone Twitter"></i> <a href="https://twitter.com/nevercodealone" target="_blank">https://twitter.com/nevercodealone</a></div>
+                    <div class="col"><i class="follow-icon"><img src="img/facebook.png" alt="Never Code Alone Facebook"></i> <a href="https://www.facebook.com/nevercodealone" target="_blank">https://www.facebook.com/nevercodealone</a></div>
+                    <div class="col"><i class="follow-icon"><img src="img/youtube.png" alt="Never Code Alone YouTube"></i> <a href="https://www.youtube.com/channel/UCjVT6iJ_wg7OM0DkV5TpNCQ" target="_blank">https://www.youtube.com/channel/UCjVT6iJ_wg7OM0DkV5TpNCQ</a></div>
+                    <div class="col"><i class="follow-icon"><img src="img/github.png" alt="Entwicklungshilfe NRW Github"></i> <a href="https://github.com/entwicklungshilfe-nrw" target="_blank">https://github.com/entwicklungshilfe-nrw</a></div>
+                </section>
+				<section style="text-align: left;" data-background="img/citt/applouse.gif">
+					<h1>Thanks</h1>
+				</section>
+
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        </script>
+        <script src="js/ga.js"></script>
+    </body>
+</html>
