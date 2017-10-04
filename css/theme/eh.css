@@ -83,6 +83,10 @@ body {
   float: left;
   width: 50%;
 }
+.col-3{
+  float: left;
+  width: 33%;
+}
 .follow-icon img{
   max-width: 50px;
   vertical-align: middle;
