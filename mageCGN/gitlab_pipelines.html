@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon"
+          href="http://www.entwicklungshilfe.nrw/typo3conf/ext/wmdb_base_ewh/Resources/Public/img/favicon.ico"
+          type="image/x-icon">
+    <title>PhpStorm Präsentation von Php-Schulung Entwicklungshilfe</title>
+
+    <meta name="description" content="PhpStorm Schulung für effektives Webdevelopment mit der IDE von JetBrains">
+    <meta name="author" content="Entwicklungshilfe NRW">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="http://presentations.entwicklungshilfe.nrw/css/reveal.css">
+    <link rel="stylesheet" href="http://presentations.entwicklungshilfe.nrw/css/theme/black.css">
+    <link rel="stylesheet" href="http://presentations.entwicklungshilfe.nrw/css/theme/eh.css">
+    <link rel="stylesheet" href="#" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="http://presentations.entwicklungshilfe.nrw/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        if (window.location.search.substring(1)) {
+            document.getElementById("theme").href = "css/theme/" + window.location.search.substring(1) + ".css";
+        }
+    </script>
+</head>
+
+<body>
+<div class="reveal">
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section>
+            <section data-background="../img/pipelines/pipelines1.jpg"
+                     style="background-color: rgba(255, 255, 255, 0.7)">
+                <h1>GitLab Pipelines</h1>
+                <h3>Entwicklungshilfe</h3>
+                <h4>Magento Stammtisch Aachen 09.10.2017</h4>
+                <p>
+                    <a href="http://entwicklungshilfe.nrw" target="_blank">entwicklungshilfe.nrw</a> / <a
+                        href="http://twitter.com/help_for_devs" target="_blank">@help_for_devs</a>
+                </p>
+                <p>
+                    <small>
+                        <a href="#"
+                           onclick="document.getElementById('theme').setAttribute('href','../css/theme/black.css'); return false;">Black</a>
+                        <a href="#"
+                           onclick="document.getElementById('theme').setAttribute('href','../css/theme/white.css'); return false;">White</a>
+                        <a href="#"
+                           onclick="document.getElementById('theme').setAttribute('href',''); return false;">EH</a>
+                    </small>
+                </p>
+            </section>
+            <section>
+                <h2>Agenda</h2>
+                <p>GitLab</p>
+                <p>Pipelines</p>
+                <p>Showcase</p>
+            </section>
+        </section>
+
+        <section>
+            <section data-background="../img/pipelines/pipelines3.jpg"
+                     style="background-color: rgba(255, 255, 255, 0.7)">
+                <h1>GitLab</h1>
+            </section>
+            <section data-background="../img/pipelines/hype.gif">
+                <h1 style="color:white">Understanding the hype</h1>
+            </section>
+            <section>
+                <div class="col-2">
+                    <img src="../img/pipelines/forrester-report-diagram.png" alt="forrester"/>
+                </div>
+                <div class="col-2">
+                    <h2>Fakten</h2>
+                    <ul>
+                        <li>30% Marktdurchdringung</li>
+                        <li>CE | EES | EEP</li>
+                        <li>Konnektierbar | Slack, Jira...</li>
+                        <li>Eierlegende Wollmilchsau | Git, Docker</li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    Enterprise Edition Starter (EES) 40$
+                    Enterprise Edition Premium (EEP) 200$
+                </aside>
+            </section>
+            <section>
+                <ul>
+                    <li>Code > Projekte</li>
+                    <li>Projekte > Gruppen</li>
+                    <li>Tickets > Milestones</li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section data-background="../img/pipelines/pipelines2.jpg"
+                     style="background-color: rgba(255, 255, 255, 0.7)">
+                <h1>Pipelines</h1>
+            </section>
+            <section>
+                <h2>Planung</h2>
+                <img src="../img/pipelines/plan.png" alt="plan"/>
+                <p>(Kunden)-Ideen zu den Entwicklern bekommen</p>
+                <aside>
+                    Manage Board, Issues, ...
+                </aside>
+            </section>
+            <section>
+                <h2>Erschaffen</h2>
+                <img src="../img/pipelines/create.png" alt="create"/>
+                <p>Spaß mit Code</p>
+                <aside class="notes">
+                    Versionskontrolle
+                    Coden halt
+                </aside>
+            </section>
+            <section>
+                <h2>Überprüfen</h2>
+                <img src="../img/pipelines/verify.png" alt="verify"/>
+                <p>Testen</p>
+                <aside class="notes">
+                    Testen, Steuern, Gegensteuern
+                    Verantwortung
+                </aside>
+            </section>
+            <section>
+                <h2>Bauen</h2>
+                <img src="../img/pipelines/package.png" alt="package"/>
+                <aside class="notes">
+                    Pakete,
+                    Container-Registry
+                    Artefakte
+                </aside>
+            </section>
+            <section>
+                <h2>Release</h2>
+                <img src="../img/pipelines/release.png" alt="release"/>
+                <p>Das R in Deployment</p>
+                <aside class="notes">
+                    Continuous Delivery
+                    Deployment to external Server
+                </aside>
+            </section>
+            <section>
+                <h2>Konfiguration</h2>
+                <img src="../img/pipelines/configure.png" alt="configure"/>
+                <p>Nachjustieren, Verbessern</p>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h2>Messen und Überwachen</h2>
+                <img src="../img/pipelines/monitor.png" alt="monitor"/>
+                <ul>
+                    <li>Pipeline Feedback</li>
+                    <li>Application Monitoring</li>
+                </ul>
+                <aside class="notes">
+                    Prometheus
+                    Cycle Management
+                    Workload
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <section data-background="../img/pipelines/pipelines4.jpg" style="background-color: rgba(255, 255, 255, 0.7)">
+                <h1>ShowCase</h1>
+            </section>
+            <section data-background="../img/pipelines/showcase.gif">
+                <h1 style="color: white">Augen auf^^</h1>
+            </section>
+            <section>
+                <h1><a target="_blank" href="https://gitlab.webvisum.de/nca/m2-devbox/blob/master/.gitlab-ci.yml">KLICK MICH!</a></h1>
+            </section>
+            <section>
+                <h3>Übersicht</h3>
+                <img src="../img/pipelines/overview.png" alt="">
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>"THE"&trade; Pipeline</h3>
+                <img src="../img/pipelines/gitlab_pipeline.png" alt="">
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Jobs</h3>
+                <img src="../img/pipelines/jobs.png" alt="">
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>.gitlab-ci.yml | config</h3>
+                <img src="../img/pipelines/ci_config.png" alt="">
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>.gitlab-ci.yml | build stage</h3>
+                <img src="../img/pipelines/build_stage.png" alt="">
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>.gitlab-ci.yml | deploy stage</h3>
+                <img src="../img/pipelines/deploy_stage.png" alt="">
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h3>Output</h3>
+                <img src="../img/pipelines/output.png" alt="">
+                <aside class="notes">
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <section style="text-align: left;">
+                <h1>Fragen?</h1>
+            </section>
+            <section style="text-align: left;">
+                <div class="col">
+                    <div class="col-2">
+                        <h1>Quellen</h1>
+                    </div>
+                    <div class="col-2">
+                        <ul>
+                            <li>
+                                <a href="https://about.gitlab.com/">GitLab Page</a>
+                            </li>
+                            <li>
+                                <a href="https://about.gitlab.com/2017/09/27/gitlab-leader-continuous-integration-forrester-wave/">GitLab Leader</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section style="text-align: left;">
+                <div class="col">
+                    <div class="col-2">
+                        <h1>Danke!</h1>
+                    </div>
+                    <div class="col-2">
+                    </div>
+                </div>
+            </section>
+            <section style="text-align: left;">
+                <div class="col">
+                    <div class="col-2">
+                        <h1>Folgen!</h1>
+                    </div>
+                    <div class="col-2">
+                        <div class="col"><i class="follow-icon"><img
+                                src="http://presentations.entwicklungshilfe.nrw/img/twitter.png"/></i> <a
+                                href="https://twitter.com/help_for_devs">https://twitter.com/help_for_devs</a></div>
+                        <div class="col"><i class="follow-icon"><img
+                                src="http://presentations.entwicklungshilfe.nrw/img/facebook.png"/></i> <a
+                                href="https://www.facebook.com/entwicklungshilfe.nrw">https://www.fb.com/entwicklungshilfe.nrw</a>
+                        </div>
+                        <div class="col"><i class="follow-icon"><img
+                                src="http://presentations.entwicklungshilfe.nrw/img/github.png"/></i> <a
+                                href="https://github.com/entwicklungshilfe-nrw">https://github.com/entwicklungshilfe-nrw</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </div>
+</div>
+<script src="http://presentations.entwicklungshilfe.nrw/lib/js/head.min.js"></script>
+<script src="http://presentations.entwicklungshilfe.nrw/js/reveal.js"></script>
+<script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'http://presentations.entwicklungshilfe.nrw/lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'http://presentations.entwicklungshilfe.nrw/plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'http://presentations.entwicklungshilfe.nrw/plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'http://presentations.entwicklungshilfe.nrw/plugin/highlight/highlight.js',
+                async: true,
+                condition: function () {
+                    return !!document.querySelector('pre code');
+                },
+                callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            },
+            {src: 'http://presentations.entwicklungshilfe.nrw/plugin/zoom-js/zoom.js', async: true},
+            {src: 'http://presentations.entwicklungshilfe.nrw/plugin/notes/notes.js', async: true}
+        ]
+    });
+</script>
+<script src="http://presentations.entwicklungshilfe.nrw/js/ga.js"></script>
+</body>
+</html>
