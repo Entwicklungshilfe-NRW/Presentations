@@ -1,11 +1,14 @@
 
 body {
-  background: url('../../img/WMDB-Entwicklungshilfe-Praesi-BG-Start.jpg') no-repeat;
+  background:url(../../img/titans/mochaGrunge.png);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color: transparent; }
+  background-color: transparent;
+  /*font-size: 200%;*/
+  color: #111;
+}
 
 .reveal {
   color: #222; }
@@ -26,11 +29,11 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #ea5b0c;
+  color: #00B9EE;
 }
 
 .reveal a:hover {
-  color: #ea5b0c;
+  color: #00B9EE;
   text-decoration: underline;
 }
 
@@ -43,16 +46,16 @@ body {
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls div.navigate-left, .reveal .controls div.navigate-left.enabled {
-  border-right-color: #ea5b0c; }
+  border-right-color: #00B9EE; }
 
 .reveal .controls div.navigate-right, .reveal .controls div.navigate-right.enabled {
-  border-left-color: #ea5b0c; }
+  border-left-color: #00B9EE; }
 
 .reveal .controls div.navigate-up, .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #ea5b0c; }
+  border-bottom-color: #00B9EE; }
 
 .reveal .controls div.navigate-down, .reveal .controls div.navigate-down.enabled {
-  border-top-color: #ea5b0c; }
+  border-top-color: #00B9EE; }
 
 /*********************************************
  * PROGRESS BAR
@@ -99,20 +102,21 @@ body {
   max-height: 500px;
 }
 .reveal .progress span {
-  background: #ea5b0c;
+  background: #00B9EE;
 }
-
-.reveal section.img_container {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-.reveal section img {
+.reveal ul {
+  list-style-type: none;
   display: block;
-  margin: auto;
-  height: auto;
-  max-height: 100%;
-  width: auto;
-  max-width: 100%;
+  margin: 2% 5%;
+}
+.reveal ol {
+  width: 45%;
+  font-size: 1.5em;
+}
+.reveal div.simple-list{
+  width: 50%;
+  margin: 0 auto;
+}
+.reveal div.simple-list h1 {
+  /*text-align: left; */
 }

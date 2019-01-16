@@ -38,7 +38,8 @@
 	.share-reveal,
 	.state-background,
 	.reveal .progress,
-	.reveal .backgrounds {
+	.reveal .backgrounds,
+	.reveal .slide-number {
 		display: none !important;
 	}
 
@@ -129,19 +130,19 @@
 
 		text-align: left !important;
 		-webkit-perspective: none;
-		   -moz-perspective: none;
-		    -ms-perspective: none;
-		        perspective: none;
+		-moz-perspective: none;
+		-ms-perspective: none;
+		perspective: none;
 
 		-webkit-perspective-origin: 50% 50%;
-		   -moz-perspective-origin: 50% 50%;
-		    -ms-perspective-origin: 50% 50%;
-		        perspective-origin: 50% 50%;
+		-moz-perspective-origin: 50% 50%;
+		-ms-perspective-origin: 50% 50%;
+		perspective-origin: 50% 50%;
 	}
 	.reveal .slides section {
 		visibility: visible !important;
 		position: static !important;
-		width: 100% !important;
+		width: auto !important;
 		height: auto !important;
 		display: block !important;
 		overflow: visible !important;
@@ -158,19 +159,19 @@
 		page-break-after: always !important;
 
 		-webkit-transform-style: flat !important;
-		   -moz-transform-style: flat !important;
-		    -ms-transform-style: flat !important;
-		        transform-style: flat !important;
+		-moz-transform-style: flat !important;
+		-ms-transform-style: flat !important;
+		transform-style: flat !important;
 
 		-webkit-transform: none !important;
-		   -moz-transform: none !important;
-		    -ms-transform: none !important;
-		        transform: none !important;
+		-moz-transform: none !important;
+		-ms-transform: none !important;
+		transform: none !important;
 
 		-webkit-transition: none !important;
-		   -moz-transition: none !important;
-		    -ms-transition: none !important;
-		        transition: none !important;
+		-moz-transition: none !important;
+		-ms-transition: none !important;
+		transition: none !important;
 	}
 	.reveal .slides section.stack {
 		padding: 0 !important;
@@ -183,9 +184,9 @@
 		visibility: visible !important;
 
 		-webkit-transform: none !important;
-		   -moz-transform: none !important;
-		    -ms-transform: none !important;
-		        transform: none !important;
+		-moz-transform: none !important;
+		-ms-transform: none !important;
+		transform: none !important;
 	}
 	.reveal section img {
 		display: block;
