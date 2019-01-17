@@ -1,11 +1,10 @@
-
 body {
   background:url(../../img/titans/mochaGrunge.png);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color: transparent;
+  background: transparent;
   /*font-size: 200%;*/
   color: #111;
 }

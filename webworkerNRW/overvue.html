@@ -29,25 +29,25 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-        <link rel="stylesheet" href="css/reveal.css">
-        <link rel="stylesheet" href="css/theme/black.css">
-        <link rel="stylesheet" href="css/theme/eh.css">
+        <link rel="stylesheet" href="https://presentations.entwicklungshilfe.nrw/css/reveal.css">
+        <link rel="stylesheet" href="https://presentations.entwicklungshilfe.nrw/css/theme/black.css">
+        <link rel="stylesheet" href="https://presentations.entwicklungshilfe.nrw/css/theme/eh.css">
         <link rel="stylesheet" href="#" id="theme">
 
         <!-- Code syntax highlighting -->
-        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="stylesheet" href="https://presentations.entwicklungshilfe.nrw/lib/css/zenburn.css">
 
         <!-- Printing and PDF exports -->
         <script>
             var link = document.createElement( 'link' );
             link.rel = 'stylesheet';
             link.type = 'text/css';
-            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'https://presentations.entwicklungshilfe.nrw/css/print/pdf.css' : 'https://presentations.entwicklungshilfe.nrw/css/print/paper.css';
             document.getElementsByTagName( 'head' )[0].appendChild( link );
         </script>
 
         <!--[if lt IE 9]>
-        <script src="lib/js/html5shiv.js"></script>
+        <script src="https://presentations.entwicklungshilfe.nrw/lib/js/html5shiv.js"></script>
         <![endif]-->
         <script type="text/javascript">
             if(window.location.search.substring(1)){
@@ -61,9 +61,10 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section data-background="https://vuejs.org/images/logo.png" data-background-size="auto 50%"
-                         style="opacity: 0.65; background-color: rgba(255, 255, 255, 0.9);">
+                         style="background-color: rgba(255, 255, 255, 0.9);">
                     <h1>"Overvue"</h1>
                     <h3>a short overview on the vue framework</h3>
+                    <span>webworkerNRW @sipgate, 16.01.2019</span>
                     <aside class="notes">
                         RIGHT<br/>
                         Welcome
@@ -74,7 +75,7 @@
                     <section>
                         <h2>Andreas Mautz</h2>
                         <div class="col-2">
-                            <img src="img/titans/background_graffiti.jpg" alt=""/>
+                            <img src="https://presentations.entwicklungshilfe.nrw/img/titans/background_graffiti.jpg" alt=""/>
                         </div>
                         <div class="col-2">
                             <ul style="padding: 0 5%;">
@@ -136,8 +137,10 @@
                 </section>
 
                 <section>
-                    <section data-background="img/webnrw/vue/komponenten.jpg" data-background-size="100% auto" style="opacity: 0.65; background-color: rgba(255, 255, 255, 0.9);">
+                    <section data-background="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/komponenten.jpg" data-background-size="100% auto" style="background-color: rgba(255, 255, 255, 0.9);">
                         <h2>Components</h2>
+                        <aside class="notes">
+                        </aside>
                     </section>
                     <section>
                         <h2>Instance</h2>
@@ -214,40 +217,40 @@ Vue.component('button-counter', {
                 </section>
 
                 <section>
-                    <section data-background="img/webnrw/vue/lifecycle.jpg" data-background-size="100% auto" style="opacity: 0.65; background-color: rgba(255, 255, 255, 0.9);">
+                    <section data-background="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/lifecycle.jpg" data-background-size="100% auto" style="background-color: rgba(255, 255, 255, 0.9);">
                         <h2>Component Lifecycle</h2>
                     </section>
                     <section>
                         <h2>Lifecycle (1/5)</h2>
-                        <img class="stretch" src="img/webnrw/vue/lifecycle_1.png" />
+                        <img class="stretch" src="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/lifecycle_1.png" />
                         <aside class="notes">
                             BOTTOM<br/>
                         </aside>
                     </section>
                     <section>
                         <h2>Lifecycle (2/5)</h2>
-                        <img class="stretch" src="img/webnrw/vue/lifecycle_2.png" />
+                        <img class="stretch" src="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/lifecycle_2.png" />
                         <aside class="notes">
                             BOTTOM<br/>
                         </aside>
                     </section>
                     <section>
                         <h2>Lifecycle (3/5)</h2>
-                        <img class="stretch" src="img/webnrw/vue/lifecycle_3.png" />
+                        <img class="stretch" src="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/lifecycle_3.png" />
                         <aside class="notes">
                             BOTTOM<br/>
                         </aside>
                     </section>
                     <section>
                         <h2>Lifecycle (4/5)</h2>
-                        <img class="stretch" src="img/webnrw/vue/lifecycle_4.png" />
+                        <img class="stretch" src="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/lifecycle_4.png" />
                         <aside class="notes">
                             BOTTOM<br/>
                         </aside>
                     </section>
                     <section>
                         <h2>Lifecycle (5/5)</h2>
-                        <img class="stretch" src="img/webnrw/vue/lifecycle_5.png" />
+                        <img class="stretch" src="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/lifecycle_5.png" />
                         <aside class="notes">
                             BOTTOM<br/>
                         </aside>
@@ -255,13 +258,12 @@ Vue.component('button-counter', {
                 </section>
 
                 <section>
-                    <section data-background="img/webnrw/vue/template_plan.jpg" data-background-size="100% auto" style="opacity: 0.65; background-color: rgba(255, 255, 255, 0.9);">
+                    <section data-background="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/template_plan.jpg" data-background-size="100% auto" style="background-color: rgba(255, 255, 255, 0.9);">
                         <h2>Component Templates</h2>
                     </section>
                     <section>
                         <h2>Simple (String) Templates</h2>
-                        <blockquote class="embedly-card"><h4><a href="https://gist.github.com/vuejsdevelopers/b39f9e927b83978d8fff23525b363a5d.js">null</a></h4><p>null</p></blockquote>
-                        <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+                        <script src="https://gist.github.com/vuejsdevelopers/b39f9e927b83978d8fff23525b363a5d.js"></script>
                         <aside class="notes">
                             BOTTOM<br/>
                             default defenition as a string
@@ -269,8 +271,7 @@ Vue.component('button-counter', {
                     </section>
                     <section>
                         <h2>X-Templates</h2>
-                        <blockquote class="embedly-card"><h4><a href="https://gist.github.com/vuejsdevelopers/c1e5d430002b8867d7b47d144c9019ae.js">null</a></h4><p>null</p></blockquote>
-                        <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+                        <script src="https://gist.github.com/vuejsdevelopers/c1e5d430002b8867d7b47d144c9019ae.js"></script>
                         <aside class="notes">
                             BOTTOM<br/>
                             seperates template from the rest of the componet
@@ -301,7 +302,7 @@ Vue.component('button-counter', {
                 </section>
 
                 <section>
-                    <section data-background="img/webnrw/vue/probs.jpg" data-background-size="100% auto" style="opacity: 0.65; background-color: rgba(255, 255, 255, 0.9);">
+                    <section data-background="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/probs.jpg" data-background-size="100% auto" style="background-color: rgba(255, 255, 255, 0.9);">
                         <h2>Props and Data</h2>
                     </section>
                     <section>
@@ -315,7 +316,7 @@ Vue.component('button-counter', {
                     </section>
                     <section>
                         <h2>Probs</h2>
-                        <img src="img/webnrw/vue/probs.png">
+                        <img src="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/probs.png">
                     </section>
                     <section>
                         <h2>Data</h2>
@@ -326,7 +327,7 @@ Vue.component('button-counter', {
                 </section>
 
                 <section>
-                    <section data-background="img/webnrw/vue/events.jpg" data-background-size="100% auto" style="opacity: 0.65; background-color: rgba(255, 255, 255, 0.9);">
+                    <section data-background="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/events.jpg" data-background-size="100% auto" style="background-color: rgba(255, 255, 255, 0.9);">
                         <h2>Events</h2>
                     </section>
                     <section>
@@ -342,7 +343,7 @@ Vue.component('button-counter', {
                             </ul>
                         </div>
                         <div class="col-2">
-                            <img style="height:100%;" src="img/webnrw/vue/event.png" />
+                            <img style="height:100%;" src="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/event.png" />
                         </div>
                         <aside class="notes">
                             BOTTOM<br/>
@@ -353,7 +354,7 @@ Vue.component('button-counter', {
                 </section>
 
                 <section>
-                    <section data-background="img/webnrw/vue/mixins.jpg" data-background-size="100% auto" style="opacity: 0.65; background-color: rgba(255, 255, 255, 0.9);">
+                    <section data-background="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/mixins.jpg" data-background-size="100% auto" style="background-color: rgba(255, 255, 255, 0.9);">
                         <h2>Mixins</h2>
                     </section>
                     <section>
@@ -362,12 +363,12 @@ Vue.component('button-counter', {
                             <p>Defined mixins will be mixed into the components context</p>
                         </div>
                         <div class="col-2">
-                            <img style="height:100%;" src="img/webnrw/vue/mixins.png" />
+                            <img style="height:100%;" src="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/mixins.png" />
                         </div>
                     </section>
                     <section>
                         <div class="col-2">
-                            <img style="height:100%;" src="img/webnrw/vue/handle_care.jpg" />
+                            <img style="height:100%;" src="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/handle_care.jpg" />
                         </div>
                         <div class="col-2">
                             <h2>Global Mixins</h2>
@@ -377,7 +378,7 @@ Vue.component('button-counter', {
                 </section>
 
                 <section>
-                    <section data-background="img/webnrw/vue/tools.jpg" data-background-size="100% auto" style="background-color: rgba(255, 255, 255, 0.9)">
+                    <section data-background="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/tools.jpg" data-background-size="100% auto" style="background-color: rgba(255, 255, 255, 0.9)">
                         <h2>Tools</h2>
                         <ul>
                             <li>CLI</li>
@@ -394,7 +395,7 @@ Vue.component('button-counter', {
                     </section>
                     <section>
                         <h2>CLI</h2>
-                        <img style="height:100%;" src="img/webnrw/vue/vue_cli_demo.png" />
+                        <img style="height:100%;" src="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/vue_cli_demo.png" />
                         <ul>
                             <li>vue create</li>
                             <li>vue ui</li>
@@ -417,7 +418,7 @@ Vue.component('button-counter', {
                 </section>
 
                 <section>
-                    <section data-background="img/webnrw/vue/cloud.jpg" data-background-size="auto 100%" style="background-color: rgba(255, 255, 255, 0.9)">
+                    <section data-background="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/cloud.jpg" data-background-size="100% auto" style="background-color: rgba(255, 255, 255, 0.9)">
                         <h2>Ecosystem</h2>
                     </section>
                     <section>
@@ -444,28 +445,28 @@ Vue.component('button-counter', {
                             <li>Vux</li>
                         </ol>
                     </section>
-                    <section data-background="img/webnrw/vue/vue_tify.png" data-background-size="auto 100%" style="background-color: rgba(255, 255, 255, 0.9)">
+                    <section data-background="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/vue_tify.png" data-background-size="auto 100%" style="background-color: rgba(255, 255, 255, 0.9)">
                         <h2>Vuetify</h2>
                         <span>Material Component Framework for Vue.js 2</span>
                     </section>
-                    <section data-background="img/webnrw/vue/vue_bootstrap.png" data-background-size="auto 100%" style="background-color: rgba(255, 255, 255, 0.9)">
+                    <section data-background="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/vue_bootstrap.png" data-background-size="auto 100%" style="background-color: rgba(255, 255, 255, 0.9)">
                         <h2>Bootstrap Vue</h2>
                         <aside class="notes">
                             BOTTOM<br/>
                             "BootstrapVue provides one of the most comprehensive implementations of Bootstrap 4 components and grid system for Vue.js and with extensive and automated WAI-ARIA accessibility markup." (https://github.com/bootstrap-vue/bootstrap-vue)
                         </aside>
                     </section>
-                    <section data-background="img/webnrw/vue/vuepress_page.png" data-background-size="auto 100%">
+                    <section data-background="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/vuepress_page.png" data-background-size="auto 100%">
 
                     </section>
                     <section>
                         <h2>VuePress Code</h2>
-                        <img class="stretch" src="img/webnrw/vue/vuepress_code.png" />
+                        <img class="stretch" src="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/vuepress_code.png" />
                         <aside class="notes">
                             BOTTOM<br/>
                         </aside>
                     </section>
-                    <section data-background="img/webnrw/vue/vuestorefront.png" data-background-size="auto 100%" style="background-color: rgba(255, 255, 255, 0.9)">
+                    <section data-background="https://presentations.entwicklungshilfe.nrw/img/webnrw/vue/vuestorefront.png" data-background-size="auto 100%" style="background-color: rgba(255, 255, 255, 0.9)">
                         <h2>vuestorefront</h2>
                     </section>
                 </section>
@@ -476,26 +477,35 @@ Vue.component('button-counter', {
                     </section>
                     <section>
                         <h2>Sources:</h2>
+                        <div class="col-2">
+                            <ul>
+                                <li><a href="https://www.meetup.com/de-DE/Webworker-NRW/events/257074495/">This Meetup</a></li>
+                                <li><a href="https://vuejs.org/">vue.js page</a></li>
+                                <li><a href="https://github.com/vuejs/vue">vue.js on Github</a></li>
+                                <li><a href="https://medium.com/js-dojo/7-ways-to-define-a-component-template-in-vuejs-c04e0c72900d">Templates</a> </li>
+                                <li><a href="https://laracasts.com/discuss/channels/vue/difference-between-props-and-data">Data and Probs</a></li>
+                                <li><a href="https://vuejs.org/v2/guide/components-props.html">Probs definition</a></li>
+                                <li><a href="https://github.com/vuejs/vue-devtools">vue-devtools</a></li>
+                                <li><a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd">Chrome vue.js devtools</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-2">
+                            <ul style="padding: 0 5%;">
+                                <li><a href="https://cli.vuejs.org/">vue.js cli</a></li>
+                                <li><a href="https://vuetifyjs.com/en/">Material Design Component Framework</a></li>
+                                <li><a href="https://bootstrap-vue.js.org/">Bootstrap + Vue</a></li>
+                                <li><a href="https://vuepress.vuejs.org/">VuePress</a></li>
+                                <li><a href="https://www.vuestorefront.io/">Vue storefront</a></li>
+                                <li><a href="https://blog.bitsrc.io/11-vue-js-component-libraries-you-should-know-in-2018-3d35ad0ae37f">Frameworks (1)</a></li>
+                                <li><a href="https://hackernoon.com/21-top-vue-js-ui-libraries-for-your-app-4556e5a9060e">Frameworks (2)</a></li>
+                                <li><a href="https://pixabay.de">Bilder Quellen</a></li>
+                            </ul>
+                        </div>
                         <ul>
-                            <li><a href="https://www.meetup.com/de-DE/Webworker-NRW/events/257074495/">This Meetup</a></li>
-                            <li><a href="https://vuejs.org/">vue.js page</a></li>
-                            <li><a href="https://github.com/vuejs/vue">vue.js on Github</a></li>
-                            <li><a href="https://medium.com/js-dojo/7-ways-to-define-a-component-template-in-vuejs-c04e0c72900d">Templates</a> </li>
-                            <li><a href="https://laracasts.com/discuss/channels/vue/difference-between-props-and-data">Data and Probs</a></li>
-                            <li><a href="https://vuejs.org/v2/guide/components-props.html">Probs definition</a></li>
-                            <li><a href="https://github.com/vuejs/vue-devtools">vue-devtools</a></li>
-                            <li><a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd">Chrome vue.js devtools</a></li>
-                            <li><a href="https://cli.vuejs.org/">vue.js cli</a></li>
-                            <li><a href="https://vuetifyjs.com/en/">Material Design Component Framework</a></li>
-                            <li><a href="https://bootstrap-vue.js.org/">Bootstrap + Vue</a></li>
-                            <li><a href="https://vuepress.vuejs.org/">VuePress</a></li>
-                            <li><a href="https://www.vuestorefront.io/">Vue storefront</a></li>
-                            <li><a href="https://blog.bitsrc.io/11-vue-js-component-libraries-you-should-know-in-2018-3d35ad0ae37f">Frameworks (1)</a></li>
-                            <li><a href="https://hackernoon.com/21-top-vue-js-ui-libraries-for-your-app-4556e5a9060e">Frameworks (2)</a></li>
-                            <li><a href="https://pixabay.de">Bilder Quellen</a></li>
+
                         </ul>
                     </section>
-				    <section style="text-align: left;" data-background="img/citt/applouse.gif">
+				    <section style="text-align: left;" data-background="https://presentations.entwicklungshilfe.nrw/img/citt/applouse.gif">
 					    <h2>Thanks</h2>
 				    </section>
                 </section>
@@ -503,13 +513,10 @@ Vue.component('button-counter', {
             </div>
         </div>
 
-        <script src="lib/js/head.min.js"></script>
-        <script src="js/reveal.js"></script>
+        <script src="https://presentations.entwicklungshilfe.nrw/lib/js/head.min.js"></script>
+        <script src="https://presentations.entwicklungshilfe.nrw/js/reveal.js"></script>
 
         <script>
-
-            // Full list of configuration options available at:
-            // https://github.com/hakimel/reveal.js#configuration
             Reveal.initialize({
                 controls: true,
                 progress: true,
@@ -518,15 +525,15 @@ Vue.component('button-counter', {
                 transition: 'slide', // none/fade/slide/convex/concave/zoom
                 // Optional reveal.js plugins
                 dependencies: [
-                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-                    { src: 'plugin/zoom-js/zoom.js', async: true },
-                    { src: 'plugin/notes/notes.js', async: true }
+                    { src: 'https://presentations.entwicklungshilfe.nrw/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'https://presentations.entwicklungshilfe.nrw/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'https://presentations.entwicklungshilfe.nrw/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'https://presentations.entwicklungshilfe.nrw/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'https://presentations.entwicklungshilfe.nrw/plugin/zoom-js/zoom.js', async: true },
+                    { src: 'https://presentations.entwicklungshilfe.nrw/plugin/notes/notes.js', async: true }
                 ]
             });
         </script>
-        <script src="js/ga.js"></script>
+        <script src="https://presentations.entwicklungshilfe.nrw/js/ga.js"></script>
     </body>
 </html>
