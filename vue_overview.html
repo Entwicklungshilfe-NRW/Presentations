@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="http://www.entwicklungshilfe.nrw/typo3conf/ext/wmdb_base_ewh/Resources/Public/img/favicon.ico" type="image/x-icon">
+        <title>Vue.js - Let's have a View on Vue - Talk Entwicklungshilfe NRW</title>
+
+        <meta name="description" content="Vue.js - Let's have a View on Vue">
+        <meta name="author" content="Entwicklungshilfe NRW">
+
+        <meta property="og:locale" content="de_DE" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Vue.js - Let's have a View on Vue" />
+        <meta property="og:description" content="Vue.js - Let's have a View on Vue" />
+        <meta property="og:url" content="http://presentations.entwicklungshilfe.nrw/overvue.html#/" />
+        <meta property="og:site_name" content="Presentations Entwicklungshilfe NRW" />
+        <meta property="article:tag" content="Code" />
+        <meta property="article:tag" content="Software-Qualität" />
+        <meta property="article:tag" content="Softwarequalität" />
+        <meta property="article:tag" content="Tests" />
+        <meta property="article:tag" content="vue.js" />
+        <meta property="article:tag" content="webdevelopment" />
+        <meta property="article:section" content="Presentation" />
+        <meta property="article:published_time" content="2019-01-15T13:57:46+00:00" />
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="css/theme/eh.css">
+        <link rel="stylesheet" href="#" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <script type="text/javascript">
+            if(window.location.search.substring(1)){
+                document.getElementById("theme").href = "css/theme/"+window.location.search.substring(1)+".css";
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section data-background="https://vuejs.org/images/logo.png" data-background-size="auto 50%"
+                         style="opacity: 0.65; background-color: rgba(255, 255, 255, 0.9);">
+                    <h1>"Overvue"</h1>
+                    <h3>a short overview on the vue framework</h3>
+                    <aside class="notes">
+                        RIGHT<br/>
+                        Welcome
+                    </aside>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Andreas Mautz</h2>
+                        <div class="col-2">
+                            <img src="img/titans/background_graffiti.jpg" alt=""/>
+                        </div>
+                        <div class="col-2">
+                            <ul style="padding: 0 5%;">
+                                <li>first program in 1996</li>
+                                <li>first magento shop in 2008</li>
+                                <li>3 years of QA in big projects before</li>
+                                <li>CTO @ <a href="https://webvisum.de">webvisum</a></li>
+                                <li><a style="color:orange;" href="https://firegento.com/">FireGento</a> Board Member</li>
+                                <li><a href="https://twitter.com/mautz_et_tong">@mautz_et_tong</a></li>
+                            </ul>
+                        </div>
+                        <aside class="notes">
+                            BOTTOM<br/>
+                            Basically E-Commerce, PWA, react project, vue storefront as first touch
+                        </aside>
+                    </section>
+                    <section>
+                        <div class="simple-list">
+                            <h1>Agenda:</h1>
+                            <div>
+                                <ol>
+                                    <li>Basics</li>
+                                    <li>Tools</li>
+                                    <li>Ecosystem</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <aside class="notes">
+                            BOTTOM<br/>
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Basics</h2>
+                        <ul>
+                            <li>JavaScript Framework</li>
+                            <li>MVVM</li>
+                            <li>PWA</li>
+                        </ul>
+                        <aside class="notes">
+                            BOTTOM<br/>
+                            Model View ViewModel, MVC Variante
+                            PWA: Webseite mit Features, die nativen Apps vorbehalten waren, Symbiose aus App und Webseite
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Overview over the Basic Concepts</h2>
+                        <ul>
+                            <li>Components</li>
+                            <li>Component Lifecycle</li>
+                            <li>Component Templates</li>
+                            <li>Props and Data</li>
+                            <li>Events</li>
+                            <li>Mixins</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="img/webnrw/vue/komponenten.jpg" data-background-size="100% auto" style="opacity: 0.65; background-color: rgba(255, 255, 255, 0.9);">
+                        <h2>Components</h2>
+                    </section>
+                    <section>
+                        <h2>Instance</h2>
+                        <pre>
+                            <code data-trim data-noescape>
+var vm = new Vue({
+    el: "body",
+    data: {
+    message: "Hallo Vue",
+    [...]
+    }
+});
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                            BOTTOM<br/>
+                            First of all, wen need the vue instance<br/>
+                            https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Component Tree</h2>
+                        <pre>
+                            <code data-trim data-noescape>
+Root Instance
+└─ TodoList
+    ├─ TodoItem
+    │  ├─ DeleteTodoButton
+    │  └─ EditTodoButton
+    └─ TodoListFooter
+        ├─ ClearTodosButton
+        └─ TodoListStatistice
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <h2>Component Definition</h2>
+                        <pre>
+                            <code data-trim data-noescape>
+Vue.component('button-counter', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: <span class="string">'&lt;button v-on:click="count++"&gt;You clicked me {{ count }} times.&lt;/button&gt;'</span>
+})
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <h2>Component Usage</h2>
+                        <span>HTML Part</span>
+                        <pre>
+                            <code data-trim data-noescape>
+<span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"components-demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button-counter</span>&gt;</span><span class="tag">&lt;/<span class="name">button-counter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br>
+                            </code>
+                        </pre>
+                        <span>JS Part</span>
+                        <pre>
+                            <code data-trim data-noescape>
+<span class="line"><span class="keyword">new</span> Vue({ <span class="attr">el</span>: <span class="string">'#components-demo'</span> })</span>
+                            </code>
+                        </pre>
+                        <aside class="notes">
+                            BOTTOM<br/>
+                            More in the Template section
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Reusing Components</h2>
+                        <a href="https://vuejs.org/v2/guide/components.html#Reusing-Components">SAMPLE</a>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="img/webnrw/vue/lifecycle.jpg" data-background-size="100% auto" style="opacity: 0.65; background-color: rgba(255, 255, 255, 0.9);">
+                        <h2>Component Lifecycle</h2>
+                    </section>
+                    <section>
+                        <h2>Lifecycle (1/5)</h2>
+                        <img class="stretch" src="img/webnrw/vue/lifecycle_1.png" />
+                        <aside class="notes">
+                            BOTTOM<br/>
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Lifecycle (2/5)</h2>
+                        <img class="stretch" src="img/webnrw/vue/lifecycle_2.png" />
+                        <aside class="notes">
+                            BOTTOM<br/>
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Lifecycle (3/5)</h2>
+                        <img class="stretch" src="img/webnrw/vue/lifecycle_3.png" />
+                        <aside class="notes">
+                            BOTTOM<br/>
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Lifecycle (4/5)</h2>
+                        <img class="stretch" src="img/webnrw/vue/lifecycle_4.png" />
+                        <aside class="notes">
+                            BOTTOM<br/>
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Lifecycle (5/5)</h2>
+                        <img class="stretch" src="img/webnrw/vue/lifecycle_5.png" />
+                        <aside class="notes">
+                            BOTTOM<br/>
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="img/webnrw/vue/template_plan.jpg" data-background-size="100% auto" style="opacity: 0.65; background-color: rgba(255, 255, 255, 0.9);">
+                        <h2>Component Templates</h2>
+                    </section>
+                    <section>
+                        <h2>Simple (String) Templates</h2>
+                        <blockquote class="embedly-card"><h4><a href="https://gist.github.com/vuejsdevelopers/b39f9e927b83978d8fff23525b363a5d.js">null</a></h4><p>null</p></blockquote>
+                        <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+                        <aside class="notes">
+                            BOTTOM<br/>
+                            default defenition as a string
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>X-Templates</h2>
+                        <blockquote class="embedly-card"><h4><a href="https://gist.github.com/vuejsdevelopers/c1e5d430002b8867d7b47d144c9019ae.js">null</a></h4><p>null</p></blockquote>
+                        <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+                        <aside class="notes">
+                            BOTTOM<br/>
+                            seperates template from the rest of the componet
+                            but template in HTML
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Single File Components</h2>
+                        <img class="stretch" src="https://vuejs.org/images/vue-component.png" />
+                        <aside class="notes">
+                            BOTTOM<br/>
+                            https://gist.github.com/chrisvfritz/e2b6a6110e0829d78fa4aedf7cf6b235
+                        </aside>
+                    </section>
+                    <section>
+                        <h2>Other Templates (not complete)</h2>
+                        <ul>
+                            <li>Template literals</li>
+                            <li>Inline</li>
+                            <li>Render functions</li>
+                            <li>JSX</li>
+                        </ul>
+                        <aside class="notes">
+                            BOTTOM<br/>
+                            see https://medium.com/js-dojo/7-ways-to-define-a-component-template-in-vuejs-c04e0c72900d
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="img/webnrw/vue/probs.jpg" data-background-size="100% auto" style="opacity: 0.65; background-color: rgba(255, 255, 255, 0.9);">
+                        <h2>Props and Data</h2>
+                    </section>
+                    <section>
+                        <h2>Probs</h2>
+                        <blockquote cite="https://laracasts.com/discuss/channels/vue/difference-between-props-and-data">
+                            &ldquo;props are properties that can be <b>set in your HTML markup</b>. You can access them in your Vue instance and expose getters and setters to them.&rdquo;
+                        </blockquote>
+                        <blockquote cite="https://vuejs.org/v2/guide/components-props.html">
+                            &ldquo;one-way-down binding between the <b>child</b> property and the <b>parent</b> one: when the parent property updates, it will flow down to the child&rdquo;
+                        </blockquote>
+                    </section>
+                    <section>
+                        <h2>Probs</h2>
+                        <img src="img/webnrw/vue/probs.png">
+                    </section>
+                    <section>
+                        <h2>Data</h2>
+                        <blockquote cite="https://laracasts.com/discuss/channels/vue/difference-between-props-and-data">
+                            &ldquo;data is much more than that. anything in the data will become <b>'reactive'</b>&rdquo;
+                        </blockquote>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="img/webnrw/vue/events.jpg" data-background-size="100% auto" style="opacity: 0.65; background-color: rgba(255, 255, 255, 0.9);">
+                        <h2>Events</h2>
+                    </section>
+                    <section>
+                        <div class="col-2">
+                            <h2>Events</h2>
+                            <ul>
+                                <li>Simple: on-click</li>
+                                <li>Event Modifiers: stop, prevent, once</li>
+                                <li>Key Modifiers: esc, space, up, ...</li>
+                                <li>System Modifier Keys: ctrl, alt, shift, ...</li>
+                                <li>Mouse Button Modifier: left, right, middle</li>
+                                <li>Advanced shit: Custom Events</li>
+                            </ul>
+                        </div>
+                        <div class="col-2">
+                            <img style="height:100%;" src="img/webnrw/vue/event.png" />
+                        </div>
+                        <aside class="notes">
+                            BOTTOM<br/>
+                            https://vuejs.org/v2/guide/events.html
+                            https://vuejs.org/v2/guide/components-custom-events.html
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="img/webnrw/vue/mixins.jpg" data-background-size="100% auto" style="opacity: 0.65; background-color: rgba(255, 255, 255, 0.9);">
+                        <h2>Mixins</h2>
+                    </section>
+                    <section>
+                        <div class="col-2">
+                            <h2>Mixins - Basics</h2>
+                            <p>Defined mixins will be mixed into the components context</p>
+                        </div>
+                        <div class="col-2">
+                            <img style="height:100%;" src="img/webnrw/vue/mixins.png" />
+                        </div>
+                    </section>
+                    <section>
+                        <div class="col-2">
+                            <img style="height:100%;" src="img/webnrw/vue/handle_care.jpg" />
+                        </div>
+                        <div class="col-2">
+                            <h2>Global Mixins</h2>
+                            <p>Defined global mixins will be mixed into EVERY components context in EVERY instance, overwriting style</p>
+                        </div>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="img/webnrw/vue/tools.jpg" data-background-size="100% auto" style="background-color: rgba(255, 255, 255, 0.9)">
+                        <h2>Tools</h2>
+                        <ul>
+                            <li>CLI</li>
+                            <li>Debug</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Vue CLI</h2>
+                        <ul>
+                            <li>CLI</li>
+                            <li>CLI Service (just named here)</li>
+                            <li>CLI Plugins (just named here)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>CLI</h2>
+                        <img style="height:100%;" src="img/webnrw/vue/vue_cli_demo.png" />
+                        <ul>
+                            <li>vue create</li>
+                            <li>vue ui</li>
+                        </ul>
+                        <aside class="notes">
+                            BOTTOM<br/>
+                            https://cli.vuejs.org/guide/creating-a-project.html#vue-create
+                        </aside>
+                    </section>
+                    <section data-background="https://vuejs.org/images/breakpoint_hit.png" data-background-size="100% auto" style="background-color: rgba(255, 255, 255, 0.9)">
+                        <h2>Vue Debug Tools - Visual Studio Code</h2>
+                        <aside class="notes">
+                            BOTTOM<br/>
+                            Firefox and Chrome
+                        </aside>
+                    </section>
+                    <section data-background="https://madewithnetwork.ams3.cdn.digitaloceanspaces.com//spatie-space-production/1074/vue-devtools-v3.gif" data-background-size="auto 100%" style="background-color: rgba(255, 255, 255, 0.9)">
+                        <h2>Vue Debug Tools - Chrome Extension</h2>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-background="img/webnrw/vue/cloud.jpg" data-background-size="auto 100%" style="background-color: rgba(255, 255, 255, 0.9)">
+                        <h2>Ecosystem</h2>
+                    </section>
+                    <section>
+                        <h2>Short History</h2>
+                        <ul>
+                            <li>2013</li>
+                            <li>v1.0 2016</li>
+                            <li>current version 2.5.22</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>UI Frameworks</h2>
+                        <ol>
+                            <li>Vuetify</li>
+                            <li>Vue Material</li>
+                            <li>Keen UI</li>
+                            <li>Element</li>
+                            <li>Buefy</li>
+                            <li>Bootstrap-Vue</li>
+                            <li>AT-UI</li>
+                            <li>Fish-UI</li>
+                            <li>Quasar</li>
+                            <li>Muse UI</li>
+                            <li>Vux</li>
+                        </ol>
+                    </section>
+                    <section data-background="img/webnrw/vue/vue_tify.png" data-background-size="auto 100%" style="background-color: rgba(255, 255, 255, 0.9)">
+                        <h2>Vuetify</h2>
+                        <span>Material Component Framework for Vue.js 2</span>
+                    </section>
+                    <section data-background="img/webnrw/vue/vue_bootstrap.png" data-background-size="auto 100%" style="background-color: rgba(255, 255, 255, 0.9)">
+                        <h2>Bootstrap Vue</h2>
+                        <aside class="notes">
+                            BOTTOM<br/>
+                            "BootstrapVue provides one of the most comprehensive implementations of Bootstrap 4 components and grid system for Vue.js and with extensive and automated WAI-ARIA accessibility markup." (https://github.com/bootstrap-vue/bootstrap-vue)
+                        </aside>
+                    </section>
+                    <section data-background="img/webnrw/vue/vuepress_page.png" data-background-size="auto 100%">
+
+                    </section>
+                    <section>
+                        <h2>VuePress Code</h2>
+                        <img class="stretch" src="img/webnrw/vue/vuepress_code.png" />
+                        <aside class="notes">
+                            BOTTOM<br/>
+                        </aside>
+                    </section>
+                    <section data-background="img/webnrw/vue/vuestorefront.png" data-background-size="auto 100%" style="background-color: rgba(255, 255, 255, 0.9)">
+                        <h2>vuestorefront</h2>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Questions?</h2>
+                    </section>
+                    <section>
+                        <h2>Sources:</h2>
+                        <ul>
+                            <li><a href="https://www.meetup.com/de-DE/Webworker-NRW/events/257074495/">This Meetup</a></li>
+                            <li><a href="https://vuejs.org/">vue.js page</a></li>
+                            <li><a href="https://github.com/vuejs/vue">vue.js on Github</a></li>
+                            <li><a href="https://medium.com/js-dojo/7-ways-to-define-a-component-template-in-vuejs-c04e0c72900d">Templates</a> </li>
+                            <li><a href="https://laracasts.com/discuss/channels/vue/difference-between-props-and-data">Data and Probs</a></li>
+                            <li><a href="https://vuejs.org/v2/guide/components-props.html">Probs definition</a></li>
+                            <li><a href="https://github.com/vuejs/vue-devtools">vue-devtools</a></li>
+                            <li><a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd">Chrome vue.js devtools</a></li>
+                            <li><a href="https://cli.vuejs.org/">vue.js cli</a></li>
+                            <li><a href="https://vuetifyjs.com/en/">Material Design Component Framework</a></li>
+                            <li><a href="https://bootstrap-vue.js.org/">Bootstrap + Vue</a></li>
+                            <li><a href="https://vuepress.vuejs.org/">VuePress</a></li>
+                            <li><a href="https://www.vuestorefront.io/">Vue storefront</a></li>
+                            <li><a href="https://blog.bitsrc.io/11-vue-js-component-libraries-you-should-know-in-2018-3d35ad0ae37f">Frameworks (1)</a></li>
+                            <li><a href="https://hackernoon.com/21-top-vue-js-ui-libraries-for-your-app-4556e5a9060e">Frameworks (2)</a></li>
+                            <li><a href="https://pixabay.de">Bilder Quellen</a></li>
+                        </ul>
+                    </section>
+				    <section style="text-align: left;" data-background="img/citt/applouse.gif">
+					    <h2>Thanks</h2>
+				    </section>
+                </section>
+
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
+        </script>
+        <script src="js/ga.js"></script>
+    </body>
+</html>
