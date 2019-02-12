@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="http://www.entwicklungshilfe.nrw/typo3conf/ext/wmdb_base_ewh/Resources/Public/img/favicon.ico" type="image/x-icon">
+        <title>Intro Speaker Live Coding Entwicklungshilfe NRW</title>
+
+        <meta name="description" content="Roland Golla, Andreas Mautz und Daniel Siepmann sind PHP-Trainer bei der Entwicklungshilfe NRW">
+        <meta name="author" content="Entwicklungshilfe NRW">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="css/theme/eh.css">
+        <link rel="stylesheet" href="#" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <script type="text/javascript">
+            if(window.location.search.substring(1)){
+                document.getElementById("theme").href = "css/theme/"+window.location.search.substring(1)+".css";
+            }
+        </script>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section style="padding: 0px">
+                    <a href="https://www.facebook.com/pg/nevercodealone/" target="_blank">FB/nevercodealone</a>
+                    <br>
+                    <img src="img/intro/olympic-lifeguard.jpg" alt="Facebook Never Code Alone">
+                </section>
+                <section style="padding: 0px">
+                    <a href="https://twitter.com/nevercodealone" target="_blank">twitter.com/nevercodealone</a>
+                    <br>
+                    <img src="img/intro/s-bergmann.png" alt="Sebastian Bergmann PHPUnit">
+                </section>
+                <section style="text-align: center">
+                    <a href="https://www.youtube.com/channel/UCjVT6iJ_wg7OM0DkV5TpNCQ" target="_blank">youtube.com/nevercodealone</a>
+                    <br>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/CCJ3KFWJJiA?showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </section>
+                <section style="padding: 0px">
+                    <a href="https://blog.nevercodealone.de/softwarequalitaet-wird-nicht-bezahlt/" target="_blank">#NCABlog - Softwarequalität wird nicht bezahlt</a>
+                    <br>
+                    <img src="img/citt/kunde-vs-coder.jpg" alt="Kunde vs Coder">
+                </section>
+                <section style="padding: 0px">
+                    <img src="img/citt/kill-bugs-roland-golla.jpg" alt="">
+                </section>
+                <section>
+                    <h2>
+                        <a href="https://blog.nevercodealone.de/continuous-integration-schulung-build-pipeline/" target="_blank">
+                            Blog-Post: In 4 Tagen zur Build Pipeline #CITT
+                        </a>
+                    </h2>
+                    <div class="col">
+                        <div class="col-3">
+                            <p>
+                                <img src="img/citt/andreas-mautz-magento.jpg" alt="Andreas Mautz magento"><br>
+                                Andreas Mautz
+                                <br>
+                                GitLab / Docker / Rancher
+                            </p>
+                        </div>
+                        <div class="col-3">
+                            <p>
+                                <img src="img/citt/roland-golla-webdeveloper.jpg" alt="Roland Golla Testing"><br>
+                                Roland Golla
+                                <br>
+                                Codeception und Tools
+                            </p>
+                        </div>
+                        <div class="col-3">
+                            <p>
+                                <img src="img/citt/daniel-siepmann-typo3.jpeg" alt="Daniel Siepmann TYPO3"><br>
+                                Daniel Siepmann
+                                <br>
+                                TYPO3 Extensions
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Gewinnspiel</h2>
+                    <img src="img/citt/schneller-beim-bier.jpg" alt="30% schneller beim Bier">
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        </script>
+        <script src="js/ga.js"></script>
+    </body>
+</html>
