@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Php-Schulung Entwicklungshilfe - lokale Entwicklung optimieren</title>
+
+        <meta name="description" content="lokale Entwicklung optimieren mit Virtualisierung, besser Nutzung der IDE">
+        <meta name="author" content="Entwicklungshilfe NRW">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="css/theme/eh.css">
+        <link rel="stylesheet" href="#" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <script type="text/javascript">
+            if(window.location.search.substring(1)){
+                document.getElementById("theme").href = "css/theme/"+window.location.search.substring(1)+".css";
+            }
+        </script>
+    </head>
+<body>
+<div class="reveal">
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section>
+            <h1>5 Tipps die dir helfen deine lokale Entwicklungsumgebung zu optimieren. Punkt 6 wird dich überraschen!</h1>
+            <h3>Entwicklungshilfe</h3>
+            <p>
+                <a href="http://entwicklungshilfe.nrw" target="_blank">entwicklungshilfe.nrw</a> / <a href="http://twitter.com/help_for_devs" target="_blank">@help_for_devs</a> /
+                <a href="https://www.facebook.com/entwicklungshilfe.nrw" target="_blank">FB/entwicklungshilfe.nrw</a><br>
+                <small>
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black</a>
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a>
+                    <a href="#" onclick="document.getElementById('theme').setAttribute('href',''); return false;">EH</a>
+                </small>
+            </p>
+            <aside class="notes">
+                Don't forget notes
+            </aside>
+        </section>
+        <section>
+            <h1>Lokale Entwicklungsumgebungen optimieren</h1>
+            <h3>Theoretischer Teil ;-)</h3>
+        </section>
+        <section>
+            <h1>Gliederung</h1>
+            <ol>
+                <li>Infrastruktur</li>
+                <li>Applikation</li>
+                <li>Tools</li>
+                <li>Generell</li>
+            </ol>
+        </section>
+        <section>
+            <section>
+                <h1>Infrastruktur</h1>
+            </section>
+            <section>
+                <h1>Host</h1>
+                <h2>The Place where you work</h2>
+                <img src="img/lokale_entwicklung/Nerd_am_Arbeitsplatz.jpg" alt="Arbeitsplatz" />
+                <aside class="notes">
+                    fast (SSD, Inspections)
+                </aside>
+            </section>
+            <section>
+                <h1>OS</h1>
+                <img src="img/lokale_entwicklung/OS_logos.png" alt="OS_Logos" />
+                <aside class="notes">
+                    Rechner, OS nicht kennen
+                    Unterschiede kennen, Besonderheiten
+                    Windows SSH
+                    Mac brew
+                    Linux
+                    OS mittlerweile egal, da Interpreter auf VM/Containern
+                    LAMP/XAMP -> schlecht bei multiple Project setup, Softwaretesting (PHP5.6/PHP7)
+                </aside>
+            </section>
+            <section>
+                <h1>IDE</h1>
+                <img src="img/lokale_entwicklung/magic.gif" alt="Magic" />
+                <aside class="notes">
+                    Autovervollständigung
+                    Sniffing
+                    Inspection
+                </aside>
+            </section>
+            <section>
+                <h1>IDE - Optimierungsmöglichkeiten</h1>
+                <ul>
+                    <li>Shortcuts vs Maus</li>
+                    <li>Dev-Tools und Plugins</li>
+                    <li>Settings</li>
+                </ul>
+                <aside class="notes">
+                    möglichst viel global, wenig Projektbasiert
+                </aside>
+            </section>
+            <section>
+                <h1>Virtualisierung</h1>
+                <h2>The Place where your code works</h2>
+                <img src="img/lokale_entwicklung/virtualisierung.gif" alt="Magic" />
+            </section>
+            <section>
+                <h1>Virtualisierung</h1>
+                <h2>Vagrant</h2>
+            </section>
+            <section>
+                <img src="img/lokale_entwicklung/what-is-vm-diagram.png" alt="Vagrant" />
+            </section>
+            <section>
+                <h1>Virtualisierung</h1>
+                <h2>Docker</h2>
+            </section>
+            <section data-transition="zoom">
+                <img src="img/lokale_entwicklung/what-is-docker-diagram.png" alt="Docker" />
+            </section>
+        </section>
+        <section>
+            <section>
+                <h1>Infrastructure as a code</h1>
+                <img src="img/lokale_entwicklung/say-works-on-my-machine.jpg" alt="Works on my machine" />
+            </section>
+            <section>
+                <h1>Infrastructure as a code</h1>
+                <ul>
+                    <li>Infrastruktur ändern JEDES! MAL</li>
+                    <li>So nah dran an live wie möglich</li>
+                    <li>Akzeptable Einschränkungen (CPU/RAM/Machines)</li>
+                    <li>Automatisiert</li>
+                    <li>Irrelevant für Entwickler, außer DevOps</li>
+                </ul>
+                <aside class="notes">
+                    Infrastruktur ändern JEDES! MAL
+                    So nah dran an live wie möglich
+                    Akzeptable Einschränkungen (CPU/RAM/Machines)
+                    automated (Ansible Puppet, Chef whatever)
+                    As a developer this shouldn't matter at all
+                    Jede Technik probieren
+                </aside>
+            </section>
+            <section>
+                <h1>PuPHPet</h1>
+                <img src="img/lokale_entwicklung/puphpet.png" alt="puPHPet">
+            </section>
+            <section>
+                <h1>Configuration as a code</h1>
+                <ul>
+                    <li>Groß denken</li>
+                    <li>Von Begin an</li>
+                </ul>
+                <aside class="notes">
+                    Alway think big (Develop Pipeline)
+                    Start with configs wherever it is usefull (lokal/dev/stage/prod)
+                    Jede Technik probieren
+                </aside>
+            </section>
+            <section>
+                <img src="img/lokale_entwicklung/config.png" alt="Config_Setup" />
+                <img src="img/lokale_entwicklung/config_2.png" alt="Config_Setup 2" />
+                <img src="img/lokale_entwicklung/script.png" alt="Config_Script_Setup" />
+            </section>
+        </section>
+        <section>
+            <section>
+                <h1>Application</h1>
+                <h2>your Code</h2>
+                <PRE>die("FOO");</PRE>
+                <aside class="notes">
+
+                </aside>
+            </section>
+            <section>
+                <h1>Application</h1>
+                <ul>
+                    <li>Plugins für Framework</li>
+                    <li>Plugins für Sprache</li>
+                    <li>Plugins für ALLES</li>
+                </ul>
+                <aside class="notes">
+                    Use supporting Plugins for IDE
+                </aside>
+            </section>
+            <section>
+                <h1>Application</h1>
+                <h2>Debug vs var_dump</h2>
+                <img src="img/lokale_entwicklung/debug.jpg" alt="Debug_Meme" />
+                <aside class="notes">
+                    Use clever Debug always
+                </aside>
+            </section>
+            <section>
+                <h1>Versioncontrol</h1>
+                <aside class="notes">
+                    git-flow
+                    CLI
+                    Tools (Sourcetree, Git Kraken)
+                </aside>
+            </section>
+            <section>
+                <h1>Testing</h1>
+                <aside class="notes">
+                    (yes lokal, on your scope/feature only, gesamt ist develop-Ebene)
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h1>Tools</h1>
+                <ul>
+                    <li>Tools sollten beherrschbar sein</li>
+                    <li>Ausprobieren aber nicht rumprobieren</li>
+                    <li>Pro Aufgabe ein Tool</li>
+                </ul>
+                <aside class="notes">
+                    know your stuff
+                    test all the things
+                    One Tool per issue (But one tool can fit multiple issues)
+                    Debug (VM mit Host zusammen)
+                    Local Domains
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h1>Generelles</h1>
+            </section>
+            <section>
+                <h1>Workflow</h1>
+                <ul>
+                    <li>Tickets</li>
+                    <li>Scrum/Kanban</li>
+                    <li>Team</li>
+                </ul>
+                <aside class="notes">
+                    Scrum/Kanban -> IDE, Tools
+                    jeder sein Werkzeug, sein Aufgabenbereich, aber der Merge muss passen
+                </aside>
+            </section>
+        </section>
+        <section style="text-align: left;">
+            <div class="col">
+                <div class="col-2">
+                    <h1>Fragen?</h1>
+                </div>
+                <div class="col-2">
+                </div>
+            </div>
+        </section>
+        <section style="text-align: left;">
+            <div class="col">
+                <div class="col-2">
+                    <h1>Quellen</h1>
+                </div>
+                <div class="col-2">
+                    <ul>
+                        <li><a href="https://www.docker.com/what-docker">What is Docker</a></li>
+                        <li><a href="https://www.vagrantup.com/">Vagrant</a></li>
+                        <li><a href="https://puphpet.com/">Puphet</a></li>
+                        <li><a href="https://xdebug.org/">Xdebug</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#PHP">PHP IDEs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section style="text-align: left;">
+            <div class="col">
+                <div class="col-2">
+                    <h1>Danke!</h1>
+                </div>
+                <div class="col-2">
+                </div>
+            </div>
+        </section>
+        <section style="text-align: left;">
+            <div class="col">
+                <div class="col-2">
+                    <h1>Folgen Sie uns!</h1>
+                </div>
+                <div class="col-2">
+                    <div class="col"><i class="follow-icon"><img src="img/twitter.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://twitter.com/help_for_devs</a></div>
+                    <div class="col"><i class="follow-icon"><img src="img/facebook.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://www.facebook.com/entwicklungshilfe.nrw</a></div>
+                    <div class="col"><i class="follow-icon"><img src="img/github.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://github.com/entwicklungshilfe-nrw</a></div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true },
+            { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
+</script>
+</body>
+</html>

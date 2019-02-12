@@ -1,0 +1,121 @@
+body {
+  background:url(../../img/titans/mochaGrunge.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: transparent;
+  /*font-size: 200%;*/
+  color: #111;
+}
+
+.reveal {
+  color: #222; }
+
+::selection {
+  color: #222;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  color: #222;
+}
+
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: #00B9EE;
+}
+
+.reveal a:hover {
+  color: #00B9EE;
+  text-decoration: underline;
+}
+
+
+.reveal a:hover img {
+  border-color: #222;
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls div.navigate-left, .reveal .controls div.navigate-left.enabled {
+  border-right-color: #00B9EE; }
+
+.reveal .controls div.navigate-right, .reveal .controls div.navigate-right.enabled {
+  border-left-color: #00B9EE; }
+
+.reveal .controls div.navigate-up, .reveal .controls div.navigate-up.enabled {
+  border-bottom-color: #00B9EE; }
+
+.reveal .controls div.navigate-down, .reveal .controls div.navigate-down.enabled {
+  border-top-color: #00B9EE; }
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2); }
+
+.reveal .progress span {
+  background: #222;
+}
+
+/*********************************************
+ * SLIDE NUMBER
+ *********************************************/
+.reveal .slide-number {
+  color: #222; }
+
+.reveal .slides > section, .reveal .slides > section > section{
+  padding-top:3%;
+}
+.col{
+
+}
+.col:after{
+  clear: both;
+}
+.col-2{
+  float: left;
+  width: 50%;
+}
+.col-3{
+  float: left;
+  width: 33%;
+}
+.follow-icon img{
+  max-width: 50px;
+  vertical-align: middle;
+}
+
+.reveal pre code {
+  padding: 15px;
+  font-size: 1.5em;
+  line-height: 1.1;
+  max-height: 500px;
+}
+.reveal .progress span {
+  background: #00B9EE;
+}
+.reveal ul {
+  list-style-type: none;
+  display: block;
+  margin: 2% 5%;
+}
+.reveal ol {
+  width: 45%;
+  font-size: 1.5em;
+}
+.reveal div.simple-list{
+  width: 50%;
+  margin: 0 auto;
+}
+.reveal div.simple-list h1 {
+  /*text-align: left; */
+}

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<head>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" href="http://www.entwicklungshilfe.nrw/typo3conf/ext/wmdb_base_ewh/Resources/Public/img/favicon.ico" type="image/x-icon">
+		<title>Agile Methoden: Scrum | Kanban von Php-Schulung Entwicklungshilfe</title>
+
+		<meta name="description" content="Agile Methoden: Scrum | Kanban">
+		<meta name="author" content="Entwicklungshilfe NRW">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/eh.css">
+		<link rel="stylesheet" href="#" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<script type="text/javascript">
+			if(window.location.search.substring(1)){
+				document.getElementById("theme").href = "css/theme/"+window.location.search.substring(1)+".css";
+			}
+		</script>
+	</head>
+<body>
+
+<div class="reveal">
+
+	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides">
+		<section>
+			<h1>Agile Methoden</h1>
+			<h3>Scrum | Kanban</h3>
+			<p>
+				<a href="http://entwicklungshilfe.nrw" target="_blank">entwicklungshilfe.nrw</a> / <a href="http://twitter.com/help_for_devs" target="_blank">@help_for_devs</a> /
+				<a href="https://www.facebook.com/entwicklungshilfe.nrw" target="_blank">FB/entwicklungshilfe.nrw</a><br>
+				<small>
+					<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black</a>
+					<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a>
+					<a href="#" onclick="document.getElementById('theme').setAttribute('href',''); return false;">EH</a>
+				</small>
+			</p>
+			<aside class="notes">
+				Don't forget notes
+			</aside>
+		</section>
+		<section>
+            <section>
+                <h1>Buzzwordbingo</h1>
+            </section>
+            <section>
+                lean development | production, agil
+            </section>
+		</section>
+		<section>
+			<section>
+				<p>Agil => beweglich</p>
+				<p>Seit den 90er</p>
+				<aside class="notes">
+					aus dem Lateinischen
+				</aside>
+			</section>
+			<section>
+				<p>Softwareentwicklungsprozess flexibler und schlanker (lean)</p>
+				<p>Kontinuität und frühe Auslieferung</p>
+				<p>Reaktion auf veränderung im Prozeß</p>
+				<p>Fördernde Bedingungen</p>
+				<p>Funktionsfähigkeit eines Teils vorrangig</p>
+				<p>Einfachheit</p>
+				<p>Selbstorganisation der Entwicklungseinheit</p>
+			</section>
+			<section>
+				<p>Menschen und Interaktionen stehen über Prozessen und Werkzeugen</p>
+				<p>Funktionierende Software steht über einer umfassenden Dokumentation</p>
+				<p>Zusammenarbeit mit dem Kunden steht über der Vertragsverhandlung</p>
+				<p>Reagieren auf Veränderung steht über dem Befolgen eines Plans</p>
+			</section>
+			<section>
+				<h3>Agile Methoden:</h3>
+				<ul>
+					<li>Paarprogrammierung</li>
+					<li>Testgetriebene Entwicklung</li>
+					<li>ständige Refaktorierungen</li>
+					<li>Story-Cards</li>
+					<li>schnelle Codereviews</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Agile Prozesse:</h3>
+				<ul>
+					<li>Kanban</li>
+					<li>Scrum</li>
+					<li>andere, BDD, FDD XP</li>
+				</ul>
+			</section>
+			<aside class="notes">
+				FDD -> Feature Driven Development: Vom Gesamtmodell zum Feater, pro Feature ein Zyklus
+				BDD -> Behaviour Driven Development: Sprachlicher Entwurfsansatz, der Frontendtests vereinfacht und Anforderungsfokussierte Entwicklung
+				XP -> Extreme Programming: Iterationsbasierter Ansatz ohne Fokus auf Formalien, Grundlage ist Ansatz der Anforderungsänderung während der Entwicklung auf die schnell reagiert werden kann
+			</aside>
+		</section>
+		<section>
+			<section>
+				<h3>Kanban</h3>
+                Japan, Signalkarte
+			</section>
+			<section>
+                <h3>Board:</h3>
+                <p>Teilbereiche mit max Work</p>
+                <p>Prozeß durchläuft von links nach rechts alle Teilbereiche</p>
+                <p>zB ToDo, Doing, Done mit max</p>
+			</section>
+            <section>
+                <p>Visualisierung der Last</p>
+                <p>Visualisierung des Workflows</p>
+            </section>
+		</section>
+		<section>
+            <section>
+                <h3>Scrum</h3>
+                <h4>Allgemeines</h4>
+                <ul>
+                    <li>Phasen</li>
+                    <li>Rollen</li>
+                    <li>Stakehollider</li>
+                    <li>Sprint</li>
+                    <li>Aktivitälit</li>
+                </ul>
+            </section>
+			<section>
+				<h3>Scrum</h3>
+                <h4>Phasen</h4>
+                <ul>
+                    <li>Transparenz</li>
+                    <li>Überprüfung</li>
+                    <li>Anpassung</li>
+                </ul>
+			</section>
+			<section>
+                <h3>Scrum</h3>
+                <h4>Rollen</h4>
+                <ul>
+                    <li>Product Owner</li>
+                    <li>Team</li>
+                    <li>Scrum Master</li>
+                </ul>
+			</section>
+            <section>
+                <h3>Scrum</h3>
+                <h4>Stakeholder</h4>
+                <ul>
+                    <li>Kunden</li>
+                    <li>Anwender</li>
+                    <li>Management</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Sprint</h3>
+                <img src="img/agile/Scrum_process-de.svg" alt="Scrum Prozeß" />
+            </section>
+            <section>
+                <h3>Aktivität</h3>
+                <ul>
+                    <li>Sprint Planning (Was && Wie)</li>
+                    <li>Daily Scrum</li>
+                    <li>Sprint Review</li>
+                    <li>Sprint Retrospektive</li>
+                    <li>Product backlog Refinement</li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li>Product Backlog</li>
+                    <li>Sprint Backlog</li>
+                    <li>Product Increment</li>
+                </ul>
+                <aside class="notes">
+                <p>Product Backlog</p>
+                <p>Das Product Backlog ist eine geordnete Auflistung der Anforderungen an das Produkt. Das Product Backlog ist dynamisch und wird ständig weiterentwickelt. Alle Arbeit, die das Entwicklungsteam erledigt, muss seinen Ursprung im Product Backlog haben. Der Product Owner ist für die Pflege des Product Backlogs verantwortlich. Er verantwortet die Reihenfolge bzw. Priorisierung der Einträge.</p>
+
+                <p>Das Product Backlog ist nicht vollständig und erhebt auch nicht diesen Anspruch. Zu Beginn eines Projektes enthält es die bekannten und am besten verstandenen Anforderungen. Die Priorisierung der Eintragungen erfolgt unter Gesichtspunkten wie wirtschaftlicher Nutzen, Risiko und Notwendigkeit. Eintragungen mit der höchsten Priorität werden als erste im Sprint umgesetzt.</p>
+
+                <p>Die Anforderungen im Product Backlog sollten nicht technisch, sondern fachlich und anwenderorientiert sein. Eine Möglichkeit, um diese Sichtweise zu unterstützen, ist die Formulierung der Produkteigenschaften als User Stories.</p>
+
+                <p>Sprint Backlog</p>
+                <p>Das Sprint Backlog ist der aktuelle Plan der für einen Sprint zu erledigenden Aufgaben. Es umfasst die Product Backlog-Einträge, die für den Sprint ausgewählt wurden, und die dafür nötigen Aufgaben (z.B. Entwicklung, Test, Dokumentation). Das Sprint Backlog wird laufend nach der Erledigung einer (Teil-)Aufgabe von den Team-Mitgliedern aktualisiert. Dies dient zur Übersicht des aktuellen Bearbeitungsstands.[63] Um es für alle sichtbar zu machen, wird häufig ein Taskboard genutzt.</p>
+
+                <p>Product Increment</p>
+                <p>Das Inkrement ist die Summe aller Product-Backlog-Einträge, die während des aktuellen und allen vorangegangenen Sprints fertiggestellt wurden. Am Ende eines Sprints muss das neue Inkrement in einem nutzbaren Zustand sein und der Definition of Done entsprechen.</p>
+                </aside>
+            </section>
+		</section>
+		<section>
+			<section>
+                <h3>Ergänzungen</h3>
+			</section>
+			<section>
+                <ul>
+                    <li>User Story</li>
+                    <li>Taskboard</li>
+                    <li>Planungspoker</li>
+                    <li>Impediment Backlog</li>
+                </ul>
+			</section>
+            <section>
+                <h3>Burn-Down-Chart</h3>
+            </section>
+		</section>
+		<section style="text-align: left;">
+			<div class="col">
+				<div class="col-2">
+					<h1>Fragen?</h1>
+				</div>
+				<div class="col-2">
+				</div>
+			</div>
+		</section>
+		<section style="text-align: left;">
+			<div class="col">
+				<div class="col-2">
+					<h1>Quellen</h1>
+				</div>
+				<div class="col-2">
+					<ul>
+						<li><a href="#">Quelle 1</a></li>
+						<li><a href="#">Quelle 2</a></li>
+						<li><a href="#">Quelle 3</a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section style="text-align: left;">
+			<div class="col">
+				<div class="col-2">
+					<h1>Danke!</h1>
+				</div>
+				<div class="col-2">
+				</div>
+			</div>
+		</section>
+		<section style="text-align: left;">
+			<div class="col">
+				<div class="col-2">
+					<h1>Folgen Sie uns!</h1>
+				</div>
+				<div class="col-2">
+					<div class="col"><i class="follow-icon"><img src="img/twitter.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://twitter.com/help_for_devs</a></div>
+					<div class="col"><i class="follow-icon"><img src="img/facebook.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://www.facebook.com/entwicklungshilfe.nrw</a></div>
+					<div class="col"><i class="follow-icon"><img src="img/github.png" /></i> <a href="https://github.com/entwicklungshilfe-nrw">https://github.com/entwicklungshilfe-nrw</a></div>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+	// Full list of configuration options available at:
+	// https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		controls: true,
+		progress: true,
+		history: true,
+		center: true,
+
+		transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+		// Optional reveal.js plugins
+		dependencies: [
+			{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: 'plugin/zoom-js/zoom.js', async: true },
+			{ src: 'plugin/notes/notes.js', async: true }
+		]
+	});
+</script>
+</body>
+</html>

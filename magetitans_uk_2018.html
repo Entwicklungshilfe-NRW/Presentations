@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon"
+          href="https://webvisum.de/media/favicon/default/favicon.ico"
+          type="image/x-icon">
+    <title>Collateral usage of CI Tools - webvisum GmbH</title>
+
+    <!-- TODO: add meta -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/theme/webvisum.css">
+    <link rel="stylesheet" href="#" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        if (window.location.search.substring(1)) {
+            document.getElementById("theme").href = "css/theme/" + window.location.search.substring(1) + ".css";
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section data-background="img/titans/entry.jpg" data-background-size="auto 100%"
+                 style="opacity: 0.65; background-color: rgba(255, 255, 255, 0.9);">
+            <h3>How to create a slideshow of your shop</h3>
+            <h3>collateral usage of CI Tools</h3>
+            <aside class="notes">
+                RIGHT<br/>
+                Welcome
+                1st time titans and speaker
+                WHAT is this talk about:
+                I will show you how you can achieve a technological foresight on your complete project just by
+                testing it - and optimize the testing workflow step by step
+            </aside>
+        </section>
+        <section>
+            <section>
+                <h2>Andreas Mautz</h2>
+                <div class="col-2">
+                    <img src="img/titans/background_graffiti.jpg" alt=""/>
+                </div>
+                <div class="col-2">
+                    <ul style="padding: 0 5%;">
+                        <li>first program in 1996</li>
+                        <li>first magento shop in 2008</li>
+                        <li>3 years of QA in big projects before</li>
+                        <li>CTO @ <a href="https://webvisum.de">webvisum</a></li>
+                        <li><a style="color:orange;" href="https://firegento.com/">FireGento</a> Board Member</li>
+                        <li><a href="https://twitter.com/mautz_et_tong">@mautz_et_tong</a></li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    First things first: I am not a native speaker, so if anything is unclear because of "words" interrupt<br/>
+                    me. Otherwise I please you to ask all topic related stuff at the end.<br/>
+                    Why am I supposed to speak about testing (Spoiler alert: yes, this is a talk about testing, I have seen the slides before)?<br/>
+                    I do Magento since 10 years for a living and own a small agency in cologne.<br/>
+                    I have learned to test stuff the hard way, multiple times.<br/>
+                </aside>
+            </section>
+
+            <section>
+                <div class="simple-list">
+                    <h1>Agenda:</h1>
+                    <div>
+                        <ol>
+                            <li>Start testing</li>
+                            <li>Optimize testing</li>
+                            <li>Analyse and react</li>
+                        </ol>
+                    </div>
+                </div>
+                <aside class="notes">
+                    RIGHT<br/>
+                    I will show you three stages to that goal to make a slideshow out of your shop<br/>
+                    First: If you do not test, start testing now, it is easy.<br/>
+                    Second: If you are already testing, I will show you some tricks to optimize testing circles<br/>
+                    Third: I can show you, how you can automatically analyse your test results and how you should
+                    react<br/>
+                    on testing errors.<br/>
+                    Bonus: I will show, how you cann add intelligence and analysis to you test results, so you have some
+                    kind of foresight platform<br/>
+                </aside>
+            </section>
+            <section>
+                <div class="simple-list">
+                    <h3>Why should I run tests?</h3>
+                    <ul>
+                        <li>Documentation! (Cover your ass)</li>
+                        <li>Running Tests just makes you sleep better</li>
+                        <li>Browser Cross Testing (Comparing Images)</li>
+                        <li>Saving time and money</li>
+                        <li>Add any other argument pro testing</li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    Why do I do testing?<br/>
+                    - intensify testing<br/>
+                    - save money ( the later a bug is found, the more expensive it will be to fix it)<br/>
+                    - code better<br/>
+                    - Sleep better<br/>
+                    - Cover my ass (documentation, decision-making basis)
+                </aside>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Start testing!</h2>
+                <h4>*it is really easy</h4>
+                <aside class="notes">
+                    BOTTOM<br/>
+                </aside>
+            </section>
+            <section>
+                <div class="simple-list">
+                    <h2>Testing Types</h2>
+                    <h4>Functional Testing</h4>
+                    <ul>
+                        <li>Unit testing*</li>
+                        <li>Integration testing</li>
+                        <li>System testing</li>
+                        <li>Sanity testing*</li>
+                        <li>Smoke testing</li>
+                        <li>Interface testing</li>
+                        <li>Regression testing</li>
+                        <li>Beta/Acceptance testing*</li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    What Types of testing are functional<br/>
+                    I differentiate between Functional Testing and Non-Functional Testing<br/>
+                </aside>
+            </section>
+            <section>
+                <div class="simple-list">
+                    <h2>Testing Types</h2>
+                    <h4>Non-Functional Testing</h4>
+                    <ul>
+                        <li>Performance Testing*</li>
+                        <li>Load testing</li>
+                        <li>Stress testing*</li>
+                        <li>Volume testing</li>
+                        <li>Security testing*</li>
+                        <li>Compatibility testing</li>
+                        <li>Install testing*</li>
+                        <li>Recovery testing</li>
+                        <li>Reliability testing</li>
+                        <li>Usability testing</li>
+                        <li>Compliance testing</li>
+                        <li>Localization testing*</li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    So, What Types of testing are non-functional?<br/>
+                    Not everything is sharply defined here in this short list.<br/>
+                    Talking about Install Testing: is complete Deployment and acceptance testing on a brand new instance<br/>
+                    install<br/>
+                    testing?<br/>
+                </aside>
+            </section>
+            <section>
+                <div class="simple-list">
+                    <h3>Disclaimer</h3>
+                    <h4>This Talk is not:</h4>
+                    <ul style="font-size:150%;">
+                        <li>hands on</li>
+                        <li>Setup your local Environment for testing</li>
+                        <li>Static Testing / Analysing your code</li>
+                        <li><b>P</b>erfectly <b>W</b>ritten <b>A</b>nalytics</li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    Talking about Test driven Development:<br>
+                    Try to start with PHPUnit locally in small steps and push it forward as a principle to your project<br/>
+                    Try to analyse your code on a commit / feature basis locally<br/>
+                </aside>
+            </section>
+            <section>
+                <div class="simple-list">
+                    <h3>Tools for starting analysing and testing code</h3>
+                    <ul>
+                        <li>PHPUnit</li>
+                        <li>PHPStan - PHP Static Analysis Tool, Psalm, Phan</li>
+                        <li>dePHPend (PHP Depend)</li>
+                        <li>PHPMD - PHP Mess Detector*</li>
+                        <li>PHPCPD - PHP Copy/Paste Detector</li>
+                        <li>PHP Coding Standards Fixer (PHP CodeSniffer)</li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    Just to name them<br/>
+                    PHP CodeSniffer in brackets because of CS Fixer<br/>
+                    PHPMD with asteriks because auf PHPStan/PSalm/Phan (together)<br/>
+                    PHP Depend in brackets Sebastian Bergman says, dePHPend is the new shit, we are on PHP Depend jet<br/>
+                </aside>
+            </section>
+            <section data-background="img/titans/where.gif" style="background-color: rgba(255, 255, 255, 0.9)">
+                <h3>Where is my slideshow?</h3>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    So,back to the topic. I mean a step further to it<br/>
+                </aside>
+            </section>
+            <section>
+                <h3>Codeception</h3>
+                <h4>Acceptance Testing</h4>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    For me, automated acceptance testing is the final step in the approval process of changing code<br/>
+                    Codeception is a testing Framework written in PHP. You can run PHPUnit tests, API testing and much
+                    more.<br/>
+                    Setup is really easy<br>
+                    Here we are focused on the browser testing as part of acceptance testing. And yes, codecption makes<br/>
+                    images, which will lead us to our gallery.
+                </aside>
+            </section>
+            <section>
+                <h2>Codeception: Sample Test</h2>
+                <pre>
+                    <code data-trim data-noescape>
+$I = new AcceptanceTester($scenario);
+$I->wantTo('ensure that the swag is accessible');
+$I->amOnPage('/');
+$I->click("Colored Shapes Unisex Black Shirt");
+$I->selectOption('Size', 'XL');
+$I->click('#product-addtocart-button');
+$I->see("You added Colored Shapes Unisex Black Shirt to your shopping cart.");
+$I->amOnPage('/magento-10-year-anniversary-t-shirt-config.html');
+$I->selectOption('Size', 'L');
+$I->click('#product-addtocart-button');
+$I->see("You added Magento 10 Year Anniversary T Shirt to your shopping cart.");
+                    </code>
+                </pre>
+                <aside class="notes">
+                    Let us jump in into a small sample of an e-commerce acceptance test. We want to put 2 Shirts from<br/>
+                    the magento swag store in to our cart.<br/>
+                    I spare you at this point the output of the run command. But here are two types of results.<br/>
+                </aside>
+            </section>
+            <section data-background="img/titans/overview.png" data-background-size="auto 100%"
+                     style="background-color: rgba(255, 255, 255, 0.9)">
+                <h2>Overview</h2>
+                <aside class="notes">
+                    Summary and steps as human clickable website<br>
+                    file:///Users/amautz/www/mmde18-sample/tests/_output/report.html
+                </aside>
+            </section>
+            <section data-background="img/titans/slideshow.png" data-background-size="auto 100%"
+                     style="background-color: rgba(255, 255, 255, 0.9)">
+                <h2>Slideshow</h2>
+                <aside class="notes">
+                    Each test step is a screenshot<br/>
+                    And yes, this is configurable<br>
+                    just disable the normal recorder feature and use "$I->makeScreenshot("Good Name for a Screenshot");"<br>
+                    file:///Users/amautz/www/mmde18-sample/tests/_output/record_5be453094c84e_TestFailCept__Ensure_that_the_swag_is_accessible/index.html
+                </aside>
+            </section>
+            <section style="text-align: left;" data-background-size="auto 100%" data-background="img/titans/easy.gif">
+                <aside class="notes">
+                    So, believe me, it is really easy to create a screenshot while testing as a result<br>
+                    It should't take longer then 1 hour to get your first acceptance test with codeception<br>
+                    The techniques here are Codeception, a Selenium hub running some Browsers - that is all.<br>
+                    You can do it locally, on your own infrastructure somewhere or youse a paid service for this like<br/>
+                    browserstack
+                </aside>
+            </section>
+            <section style="text-align: left;" data-background-size="auto 100%" data-background="img/titans/more.gif">
+                <div></div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Tricks on Testing!</h2>
+                <h4>Or: Just some lessons learned from testing heavily</h4>
+                <aside class="notes">
+                    BOTTOM<br/>
+                </aside>
+            </section>
+            <section>
+                <div class="simple-list">
+                    <h3>But first: What do we have so far?</h3>
+                    <ul>
+                        <li>tons of testing tools</li>
+                        <li>a huge amount of ToDos to built them all in</li>
+                        <li>a <s>fucked up</s> week long running pipeline if you run everything</li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    We have ton of testing tools.<br>
+                    If they were all executed one after the other in their entirety, any deployment would become<br/>
+                    hell in the waiting room.<br>
+                    So here are some useful tips to not getting paid as a coder for awaiting<br>
+                    BOTTOM<br/>
+                </aside>
+            </section>
+            <section>
+                <h2>Lesson 1: Use your sleeping time</h2>
+                <h3>Test on Nightly / Weekly builds</h3>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    At night, you have time, so use it. As long as you don't work around the clock, nights are the<br/>
+                    perfect time for running long test suites.<br/>
+                    If you constantly test on a higher getting level, it is fair enough to test the complete setup from<br/>
+                    time to time. Before you plan to release a relaunch / big features and so on<br/>
+                    If your pipeline fit in your slepping time, run it.<br/>
+                </aside>
+            </section>
+            <section>
+                <h2>Lesson 2: Hail to the pareto principle</h2>
+                <h3>Don't be stupid, be efficent</h3>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    If your clients customers use chrome in 80%, stick to this single browser for acceptance testing<br/>
+                    on a daily business and do the others on weekends<br/>
+                    Tap the analytics API for devices, browser versions and display resolutions<br/>
+                    Test the framework (Magento 2) if you have to on a regular base out of your project and just test<br/>
+                    your customized or 3rd party code<br/>
+                    Divide and conquer<br/>
+                    Testing the most important 20% of your shop should you make 80% sure everything is OK. Should be fair enough for daily business
+                </aside>
+            </section>
+            <section>
+                <h2>Lesson 3: Parallelize all the things</h2>
+                <h3>If you can't multitask: there is a cloud that can do this</h3>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    For acceptance testing: Use services like Browserstack if you have the money, or setup a selenium<br/>
+                    cluster<br/>
+                    Run different test framework at the same time on containers locally or remote<br/>
+                    For example: we have a 25 EUR / month bare metal server who can run nearly 10.000 test minutes runs<br/>
+                    per night, 16 runs at once.<br/>
+                    On browserstack this would cost you around 1000 euros / month<br/>
+                    Of course, browserstack has some nice features. but our 25 euro treadmill fits in the pareto<br/>
+                    principle<br/>
+                </aside>
+            </section>
+            <section>
+                <h2>Lesson 4: Focus on the ongoing project</h2>
+                <h3>Make your project better in quality without hazing your developers</h3>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    Start small and add diversity slowly<br/>
+                    Don't block your developers on getting issues out of their way just by adding useless tests<br/>
+                    success boundaries of new testing barriers in your pipeline should come from bottom to top or as a<br/>
+                    consent with the developers<br/>
+                    Talk to each other and document the progress and the new rules accordingly and regularly (like you<br/>
+                    do with issues)<br/>
+                </aside>
+            </section>
+            <section>
+                <h2>Lesson 5: Gaining speed in the process is fun</h2>
+                <h3>Time is money and gaining speed in the process is fun</h3>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    Some test frameworks have a random option. Use it to randomly run tests on a daily business.<br/>
+                    Develop a level system on TestCases.<br/>
+                    Control complicated or hidden stuff more often then the showy ones<br/>
+                    If you need to perform manual tests, e.g. usability tests, do so as rarely as possible.<br/>
+                    Sensitize the manual tester for small details and keep them informed about the changes made.<br/>
+                    Already developed features which are working but vital for the system can be tested once before the<br/>
+                    release.<br/>
+                    Believe me again: You save a lot of time if you don't test every single payment and shipment method<br/>
+                    on every commit<br/>
+                </aside>
+            </section>
+            <section>
+                <h2>Lesson 6: Compress your results</h2>
+                <h3>There is no fun in manually evaluating every test result from different test types to get a health
+                    status.</h3>
+                <h3>And it helps if you can put the current status in relation to the past</h3>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    Use your CI Toolbox to break obvious things automatically.<br/>
+                    This can be done for bad results on static tests<br/>
+                    git hooks on commit message quality or stopwords in code<br/>
+                    But should you stop a deployment when your release version just have a sitespeed test result of 80?<br/>
+                    Is your 80 better or worse then live?<br/>
+                    Do you know it?<br/>
+                    You need an instance where information is gathered and where knowledge is made comparable over versions
+                </aside>
+            </section>
+            <section data-background="img/titans/finish_2.gif" data-background-size="auto 100%" style="background-color: rgba(255, 255, 255, 0.9)">
+                <h3>That is enough lessons learned for 20 minutes talk</h3>
+                <h4>But these were only the two necessary steps to get to the actual topic</h4>
+                <aside class="notes">
+                    RIGHT<br/>
+                </aside>
+            </section>
+            <section style="text-align: left;" data-background-size="auto 100%" data-background="img/titans/more.gif">
+                <div></div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Last step: Slideshow, Baby!</h2>
+                <h4>aka: use your deployment pipleline to gather insights and not just built and copy files</h4>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    So, you have an automated or half-automated system which is doing your deployment for you.<br/>
+                    Most of the time it just create files and copies them to another location.<br/>
+                    You get bonus points if there are already tests running in your pipline.<br/>
+                    So, what else can you do with an automated system doing jobs?<br/>
+                </aside>
+            </section>
+            <section>
+                <h2>Project Overview:</h2>
+                <img height="750px;" src="img/titans/status_1.png" />
+            </section>
+            <section>
+                <h2>Real Project Overview</h2>
+            </section>
+            <section>
+                <h1>BI / KPIs</h1>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    Orders / hours / release<br/>
+                    Compared to last version / live<br/>
+                    Built deltas for automation (∆ = 0 no progress, > 0 worse, < 0 progress)<br/>
+                </aside>
+            </section>
+            <section>
+                <h1>Performance</h1>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    Siege<br/>
+                    Apache Benchmark:  ab -c 20 -n 200 https://www.magetitans.com/<br/>
+                    docker run --shm-size=1g --rm -v "$(pwd)":/sitespeed.io sitespeedio/sitespeed.io https://www.magetitans.com/<br/>
+                    Google API: GET https://www.googleapis.com/pagespeedonline/v4/runPagespeed?url=https%3A%2F%2Fwww.magetitans.com%2F&locale=en&screenshot=true&snapshots=false&strategy=desktop&key={YOUR_API_KEY}<br/>
+                    mobile vs Desktop
+                    BOTTOM<br/>
+                </aside>
+            </section>
+            <section>
+                <h1>Code Quality</h1>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    Combined Output of your static analysis tools
+                </aside>
+            </section>
+            <section>
+                <h1>Logfiles</h1>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    Fever, Patient, be sensitized of the Application and the general well-being of it
+                    Logfiles (size, exeption per hours)
+                    If your log files are big, its not good.
+                </aside>
+            </section>
+            <section>
+                <h1>Database Status</h1>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    InnoDB Buffer Size according to the RAM<br/>
+                </aside>
+            </section>
+            <section>
+                <h1>Slideshows from the Test Results</h1>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    FINALLY: you can click<br/>
+                    Useful for customer journeys<br/>
+                    mobile / desktop comparison in UX<br/>
+                    Actually, we just give this once in a while to our clients and let them review their page design on this "real shit"<br/>
+                </aside>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <div class="simple-list">
+                    <h1>Conclusions:</h1>
+                    <div>
+                        <ul>
+                            <li>Intensify your testing game</li>
+                            <li>Save time and money</li>
+                            <li>Uprise code quality</li>
+                            <li>Take care of your coders</li>
+                            <li>Make a dashboard</li>
+                            <li>Use it for Feedback</li>
+                        </ul>
+                    </div>
+                </div>
+                <aside class="notes">
+                </aside>
+            </section>
+            <section>
+                <h1>Bonus slide: Feedback</h1>
+                <aside class="notes">
+                    BOTTOM<br/>
+                    talk to your clients, but test yourself in front<br/>
+                    deliver information without force<br/>
+                    gather useful insights<br/>
+                    throw away insights you don't need - time = money || ( sleep || quality_time || food )<br/>
+                    Cover your ass<br/>
+                    React on test errors ( snooze is not an option ) -> Fieberpatient, der öfter fieber hat, aber wegen<br/>
+                    den Zähnen beim Notarzt ist<br/>
+                    automate where possible but have a look on details<br/>
+                    FINISH
+                </aside>
+            </section>
+            <section>
+                <h2>Questions?</h2>
+            </section>
+            <section>
+                <h2>Sources:</h2>
+                <h3>Reminder: IMPORTANT!!! ToDo before the conference.</h3>
+                <!-- ul>
+                    <li>https://www.softwaretestinghelp.com/types-of-software-testing/</li>
+                    <li>https://phpunit.de/</li>
+                    <li>https://github.com/phpstan/phpstan</li>
+                    <li>https://extdn.org/</li>
+                    <li>https://extdn.org/</li>
+                </ul -->
+            </section>
+            <section style="text-align: left;" data-background="img/citt/applouse.gif">
+                <h2>Thank you!</h2>
+                <aside class="notes">
+                    ENDE<br/>
+                </aside>
+            </section>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'lib/js/classList.js', condition: function () {
+                    return !document.body.classList;
+                }
+            },
+            {
+                src: 'plugin/markdown/marked.js', condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            },
+            {
+                src: 'plugin/markdown/markdown.js', condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            },
+            {
+                src: 'plugin/highlight/highlight.js', async: true, condition: function () {
+                    return !!document.querySelector('pre code');
+                }, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            },
+            {src: 'plugin/zoom-js/zoom.js', async: true},
+            {src: 'plugin/notes/notes.js', async: true}
+        ]
+    });
+
+</script>
+<script src="js/ga.js"></script>
+</body>
+</html>
